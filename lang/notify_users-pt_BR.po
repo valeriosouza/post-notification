@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Notify Users E-Mail 0.1.0\n"
-"POT-Creation-Date: 2013-07-29 21:26-0300\n"
-"PO-Revision-Date: 2013-07-29 21:43-0300\n"
+"Project-Id-Version: Notify Users E-Mail 1.0.0\n"
+"POT-Creation-Date: 2013-07-29 22:08-0300\n"
+"PO-Revision-Date: 2013-07-29 22:08-0300\n"
 "Last-Translator: Valério <valeriosza@gmail.com>\n"
 "Language-Team: Valério <eu@valeriosouza.com.br>\n"
 "Language: pt_BR\n"
@@ -19,7 +19,6 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: notify_users_email.php:31
-#, fuzzy
 msgid "New post notification: "
 msgstr "Notificação de Novo Post:"
 
@@ -27,11 +26,11 @@ msgstr "Notificação de Novo Post:"
 msgid "A new post has been published on "
 msgstr "Um novo Post foi publicado em "
 
-#: notify_users_email.php:41
+#: notify_users_email.php:43
 msgid "Notify Users E-Mail"
 msgstr "Notificação de Usuários por E-Mail"
 
-#: notify_users_email.php:41 notify_users_email.php:52
+#: notify_users_email.php:43 notify_users_email.php:52
 msgid "Notify Users E-Mail Options"
 msgstr "Opções de Notificações de Usuários por E-Mail"
 
@@ -43,3 +42,19 @@ msgstr ""
 "Bem Vindo as opções do Plugin de Notificação de usuários por e-mail. <br> "
 "Esse plugin, envia um e-mail para todos os usuários cadastrados a cada novo "
 "post publicado."
+
+#: notify_users_email.php:55
+msgid ""
+"Like this Plugins? <a href=\"http://wordpress.org/support/view/plugin-"
+"reviews/notify-users-e-mail\" target=\"_blank\">Rate here</a>."
+msgstr ""
+"Gostou do Plugin? <a href=\"http://wordpress.org/support/view/plugin-reviews/"
+"notify-users-e-mail\" target=\"_blank\">Vote agora</a>."
+
+#: notify_users_email.php:79
+msgid ""
+"Warning: The Plugin is active of Notification. All published posts will be "
+"sent to all users."
+msgstr ""
+"Atenção: O Plugin de Notificação por e-mail está ativo. Todos os posts "
+"publicados serão enviados para todos os usuários."

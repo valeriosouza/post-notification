@@ -4,7 +4,7 @@ Donate link:
 Tags: notification, users, emails, post, new posts,
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 0.1.1
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,30 +12,34 @@ Notification of new posts by e-mail to all users
 
 == Description ==
 
-### Notification of new posts by e-mail to all users ###
+Notification of new posts by e-mail to all users
 
-This Plugin Notify of new posts by e-mail to all users your WordPress
+This Plugin Notify of new posts by e-mail to all users your WordPress.
 
-== Descrição ==
+= Descrição =
 
 Esse plugin Notifica todos seus usuários via e-mail, a cada novo post.
 
 == Installation ==
 
-* Soon
+1. Upload the `Notify Users E-Mail` directory to the `/wp-content/plugins/` directory
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Start posting and to automatically publish an e-mail is sent.
 
 = Instalação: =
 
-em breve
+1. Faça o upload do `Notify Users E-Mail` para a pasta `/wp-content/plugins/`
+1. Ative o plugin atravês da opção Plugins do Menu do seu WordPress
+1. Comece a postagem de contéudo e automáticamente ao publicar, um e-mail será enviado..
 
 
 = Contribute =
 
-soon
+Use https://github.com/valeriosouza/notify_users_email
 
 = Colaborar =
 
-em breve
+Para colaborar, use o https://github.com/valeriosouza/notify_users_email
 
 = Dúvidas? =
 
@@ -47,6 +51,13 @@ em breve
 soon
 
 == Changelog ==
+
+= 1.0.0 - 29/07/2013 =
+
+* E-mail sent by BCC
+* Screen Options
+* Security
+* Translation pt-BR
 
 = 0.1.0 - 12/07/2013 =
 

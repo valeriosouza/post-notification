@@ -1,5 +1,5 @@
 ﻿=== Notify Users E-Mail ===
-Contributors: valeriosza
+Contributors: valeriosza, ThalitaPinheiro, CodeHost
 Donate link: 
 Tags: notification, users, emails, post, new posts,
 Requires at least: 3.0

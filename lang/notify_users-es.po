@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Notify Users E-Mail 1.0.0\n"
+"POT-Creation-Date: 2013-07-29 22:08-0300\n"
+"PO-Revision-Date: 2013-08-01 12:19+0100\n"
+"Last-Translator: Thalita Nick Pinheiro Gomes <thalitanpg@gmail.com>\n"
+"Language-Team: Valério <eu@valeriosouza.com.br>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: notify_users_email.php:31
+msgid "New post notification: "
+msgstr "Notificación de nueva publicación: "
+
+#: notify_users_email.php:31
+msgid "A new post has been published on "
+msgstr "Una nueva publicación ha sido hecha en "
+
+#: notify_users_email.php:43
+msgid "Notify Users E-Mail"
+msgstr "Notificación de usuário por correo"
+
+#: notify_users_email.php:43 notify_users_email.php:52
+msgid "Notify Users E-Mail Options"
+msgstr "Opciones de notificaciones de usuarios por correo"
+
+#: notify_users_email.php:54
+msgid ""
+"Welcome options Plugin Notifying users by e-mail. <br>This plugin will send "
+"an email to all registered users, every time a new post is published."
+msgstr ""
+"Bienvenido a las opciones del plugin de notificaciones de usuarios por "
+"correo. <br> Ese plugin envia un correo electronico para todos los usuarios "
+"registrados a cada nueva publicación."
+
+#: notify_users_email.php:55
+msgid ""
+"Like this Plugins? <a href=\"http://wordpress.org/support/view/plugin-"
+"reviews/notify-users-e-mail\" target=\"_blank\">Rate here</a>."
+msgstr ""
+"Has gustado del Plugin? <a href=\"http://wordpress.org/support/view/plugin-"
+"reviews/notify-users-e-mail\" target=\"_blank\">Valore ahora</a>."
+
+#: notify_users_email.php:79
+msgid ""
+"Warning: The Plugin is active of Notification. All published posts will be "
+"sent to all users."
+msgstr ""
+"Atención: El plugin de notificaciones por correo esta activado.  Todos las "
+"publicaciones serán enviadas para los usuarios."

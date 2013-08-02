@@ -3,7 +3,7 @@
  * Plugin Name: Notify Users E-Mail
  * Plugin URI: http://wordpress.org/plugins/notify-users-e-mail/
  * Description: Notification of new posts by e-mail to all users
- * Author: Valerio Souza
+ * Author: Valerio Souza, CodeHost
  * Author URI: http://valeriosouza.com.br
  * Version: 1.0.2
  * License: GPLv2 or later

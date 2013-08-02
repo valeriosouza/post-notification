@@ -5,7 +5,7 @@
  * Description: Notification of new posts by e-mail to all users
  * Author: Valerio Souza
  * Author URI: http://valeriosouza.com.br
- * Version: 1.0.0
+ * Version: 1.0.2
  * License: GPLv2 or later
  * Text Domain: notify_users
  * Domain Path: /lang/

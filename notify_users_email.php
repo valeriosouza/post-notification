@@ -5,7 +5,7 @@
  * Description: Notification of new posts by e-mail to all users
  * Author: Valerio Souza, CodeHost
  * Author URI: http://valeriosouza.com.br
- * Version: 1.0.2
+ * Version: 1.0.3
  * License: GPLv2 or later
  * Text Domain: notify_users
  * Domain Path: /lang/
@@ -60,7 +60,7 @@ function notify_users_email_options_content() {
 
 /*Aviso*/
 
-function showMessage($message, $errormsg = false)
+function notify_users_showMessage($message, $errormsg = false)
 {
     if ($errormsg) {
         echo '<div id="message" class="error">';
@@ -71,12 +71,12 @@ function showMessage($message, $errormsg = false)
     echo "<p><strong>$message</strong></p></div>";
 } 
  
-function showAlertMessage()
+function notify_users_showAlertMessage()
 {
   $screen = get_current_screen();
   $post_type = $screen->id;
   if ( 'post' == $post_type ) :
-    showMessage(__('Warning: The Plugin is active of Notification. All published posts will be sent to all users.','notify_users'), true);
+    notify_users_showMessage(__('Warning: The Plugin is active of Notification. All published posts will be sent to all users.','notify_users'), true);
     endif;
 }
-add_action('admin_notices', 'showAlertMessage');
+add_action('admin_notices', 'notify_users_showAlertMessage');

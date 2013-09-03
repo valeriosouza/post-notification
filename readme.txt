@@ -1,10 +1,10 @@
 ﻿=== Notify Users E-Mail ===
 Contributors: codehost, valeriosza, ThalitaPinheiro
-Donate link: 
+Donate link: http://valeriosouza.com.br/doacoes/
 Tags: notification, users, emails, post, new posts,
 Requires at least: 3.0
-Tested up to: 3.6
-Stable tag: 1.0.2
+Tested up to: 3.7
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,9 +37,16 @@ Esse plugin Notifica todos seus usuários via e-mail, a cada novo post.
 
 Use https://github.com/valeriosouza/notify_users_email
 
+and
+
+http://valeriosouza.com.br/doacoes/
 = Colaborar =
 
 Para colaborar, use o https://github.com/valeriosouza/notify_users_email
+
+e
+
+http://valeriosouza.com.br/doacoes/
 
 = Dúvidas? =
 
@@ -52,10 +59,13 @@ soon
 
 == Changelog ==
 
+= 1.0.3 - 02/09/2013 =
+
+* Update function alert
+
 = 1.0.1 - 01/08/2013 =
 
 * Translation es-ES
-
 
 = 1.0.0 - 29/07/2013 =
 

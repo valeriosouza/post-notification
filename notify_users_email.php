@@ -28,7 +28,7 @@ function notify_users_email($post_ID)  {
 
   $admin_mail = get_option( 'admin_email' );
   
-  wp_mail($admin_mail, __('New post notification: ', 'notify_users') . get_bloginfo('name') , __('A new post has been published on ', 'notify_users') . get_bloginfo('siteurl'), $headers );
+  wp_mail($admin_mail, get_option('notify_users_subject').' | '. get_bloginfo('name') , get_option('notify_users_body'), $headers );
     return $post_ID;
 }
 add_action('publish_post', 'notify_users_email');
@@ -36,27 +36,44 @@ add_action('publish_post', 'notify_users_email');
 /*Tela de Opçoes*/
 
 
-add_action( 'admin_menu', 'notify_users_email_options' );
+/*add_action( 'admin_init', 'notify_users_fields' );
  
-function notify_users_email_options() {
-
-  add_options_page( __('Notify Users E-Mail','notify_users'), __('Notify Users E-Mail Options','notify_users'), 'manage_options', 'notify_users', 'notify_users_email_options_content' );
+function notify_users_fields() {
+  // Vamos registar a opção com o WordPress
+  register_setting( 'writing', 'notify_users_as_minhas_opcoes' );
+ 
+  // Adicionar o campo na página de Privacidade
+  add_settings_field( 'notify_users_body', 'Um campo customizado', 'notify_users_body_input', 'writing', 'default' );
  
 }
- 
+*/
+add_action('admin_menu', 'add_global_custom_options');
 
-function notify_users_email_options_content() {
+function add_global_custom_options()
+{
+    add_options_page('Opções de Notificações por E-mail', 'Opções de Notificações por E-mail', 'manage_options', 'notify_users','notify_users_options');
+}
+
+function notify_users_options()
+{
 ?>
-<div class="wrap">
-  <?php screen_icon(); ?>
-  <h2><?php echo __('Notify Users E-Mail Options','notify_users') ?></h2>
-  <form action="options.php" method="post">
-    <p><?php echo __('Welcome options Plugin Notifying users by e-mail. <br>This plugin will send an email to all registered users, every time a new post is published.','notify_users');?></p>
-    <p><?php echo __('Like this Plugins? <a href="http://wordpress.org/support/view/plugin-reviews/notify-users-e-mail" target="_blank">Rate here</a>.','notify_users');?></p>
-  </form>
-</div>
+    <div class="wrap">
+        <h2>Página de Opções</h2>
+        <form method="post" action="options.php">
+            <?php wp_nonce_field('update-options') ?>
+            <p><strong>Texto do Assunto do E-mail</strong><br />
+                <input type="text" name="notify_users_subject" size="45" value="<?php echo get_option('notify_users_subject'); ?>" />
+            <p><strong>Texto do Corpo do E-mail</strong><br />
+                <input type="text" name="notify_users_body" size="150" value="<?php echo get_option('notify_users_body'); ?>" />
+            </p>
+            <p><input type="submit" name="Submit" value="Salvar" /></p>
+            <input type="hidden" name="action" value="update" />
+            <input type="hidden" name="page_options" value="notify_users_body,notify_users_subject" />
+        </form>
+    </div>
 <?php
 }
+
 
 /*Aviso*/
 

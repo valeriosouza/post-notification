@@ -5,7 +5,7 @@
  * Description: Notification of new posts by e-mail to all users
  * Author: Valerio Souza, CodeHost
  * Author URI: http://valeriosouza.com.br
- * Version: 1.0.3
+ * Version: 1.0.4
  * License: GPLv2 or later
  * Text Domain: notify_users
  * Domain Path: /lang/
@@ -28,7 +28,7 @@ function notify_users_email($post_ID)  {
 
   $admin_mail = get_option( 'admin_email' );
   
-  mail($admin_mail, __('New post notification: ', 'notify_users') . get_bloginfo('name') , __('A new post has been published on ', 'notify_users') . get_bloginfo('siteurl'), $headers );
+  wp_mail($admin_mail, __('New post notification: ', 'notify_users') . get_bloginfo('name') , __('A new post has been published on ', 'notify_users') . get_bloginfo('siteurl'), $headers );
     return $post_ID;
 }
 add_action('publish_post', 'notify_users_email');

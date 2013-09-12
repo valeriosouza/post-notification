@@ -4,7 +4,7 @@ Donate link: http://valeriosouza.com.br/doacoes/
 Tags: notification, users, emails, post, new posts,
 Requires at least: 3.0
 Tested up to: 3.7
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,10 @@ em breve
 soon
 
 == Changelog ==
+
+= 1.0.4 - 02/09/2013 =
+
+* Update function mail to wp_mail
 
 = 1.0.3 - 02/09/2013 =
 

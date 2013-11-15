@@ -25,9 +25,9 @@
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) die;
 
-// /**
-//  * Main class.
-//  */
+/**
+ * Main class.
+ */
 require_once plugin_dir_path( __FILE__ ) . '/public/class-notify-users-e-mail.php';
 
 /**

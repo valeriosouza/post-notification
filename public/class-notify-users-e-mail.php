@@ -61,11 +61,14 @@ class Notify_Users_EMail {
 	 */
 	private function __construct() {
 
-		// Load plugin text domain
+		// Load plugin text domain.
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
-		// Activate plugin when new blog is added
+		// Activate plugin when new blog is added.
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
+
+		// Nofity users when publish a post.
+		add_action( 'publish_post', array( $this, 'send_notification' ) );
 	}
 
 	/**
@@ -114,6 +117,8 @@ class Notify_Users_EMail {
 	 *                                       "Network Activate" action, false if
 	 *                                       WPMU is disabled or plugin is
 	 *                                       activated on an individual blog.
+	 *
+	 * @return   void
 	 */
 	public static function activate( $network_wide ) {
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
@@ -148,6 +153,8 @@ class Notify_Users_EMail {
 	 *                                       "Network Deactivate" action, false if
 	 *                                       WPMU is disabled or plugin is
 	 *                                       deactivated on an individual blog.
+	 *
+	 * @return   void
 	 */
 	public static function deactivate( $network_wide ) {
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
@@ -212,21 +219,25 @@ class Notify_Users_EMail {
 	 * Fired for each blog when the plugin is activated.
 	 *
 	 * @since    2.0.0
+	 *
+	 * @return   void
 	 */
 	private static function single_activate() {
 		$options = array(
-			'from'           => '',
+			'to'             => '',
 			'subject_prefix' => '',
 			'body_prefix'    => '',
 		);
 
-		add_option( get_settings_name(), $options );
+		add_option( $this->get_settings_name(), $options );
 	}
 
 	/**
 	 * Fired for each blog when the plugin is deactivated.
 	 *
 	 * @since    2.0.0
+	 *
+	 * @return   void
 	 */
 	private static function single_deactivate() {
 		delete_option( 'notify_users_email' );
@@ -236,6 +247,8 @@ class Notify_Users_EMail {
 	 * Load the plugin text domain for translation.
 	 *
 	 * @since    2.0.0
+	 *
+	 * @return   void
 	 */
 	public function load_plugin_textdomain() {
 		$domain = $this->plugin_slug;
@@ -244,4 +257,36 @@ class Notify_Users_EMail {
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
 		load_plugin_textdomain( $domain, FALSE, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' );
 	}
+
+	/**
+	 * Nofity users when publish a post.
+	 *
+	 * @param     int $post_id Current post ID.
+	 *
+	 * @return    void
+	 */
+	public function send_notification( $post_id ) {
+		if ( 'publish' == $_POST['post_status'] && 'publish' != $_POST['original_post_status'] ) {
+			$settings       = get_option( $this->get_settings_name() );
+			$to             = ! empty( $settings['to'] ) ? $settings['to'] : get_option( 'admin_email' );
+			$subject_prefix = $settings['subject_prefix'];
+			$body_prefix    = $settings['body_prefix'];
+			$wp_user_search = new WP_User_Query(
+				array(
+					'fields' => array( 'user_email' )
+				)
+			);
+
+			// Sets the Bcc.
+			$bcc = array();
+			foreach ( $wp_user_search->get_results() as $user )
+				$bcc[] = $user->user_email;
+
+			$headers = 'Bcc: ' . implode( ',', $bcc );
+
+			// Send the emails.
+			wp_mail( $to, $subject_prefix . ' | ' . get_bloginfo( 'name' ) , $body_prefix, $headers );
+		}
+	}
+
 }

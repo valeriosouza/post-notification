@@ -310,7 +310,7 @@ class Notify_Users_EMail {
 			$headers = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
-			$teste = wp_mail( '', $subject, $body, $headers );
+			wp_mail( '', $subject, $body, $headers );
 		}
 	}
 

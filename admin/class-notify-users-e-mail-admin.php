@@ -131,7 +131,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'send_to',
-				'description' => sprintf( '<p>' .  __( 'Enter with the recipients for the email (separated by commas). Default is %s', $this->plugin_slug ) . '</p>', '<code>' . get_option( 'admin_email' ) . '</code>' ),
+				'description' => sprintf( '<p>' . __( 'Enter with the recipients for the email (separated by commas).', $this->plugin_slug ) . '</p>' ),
 				'default'     => ''
 			)
 		);
@@ -145,7 +145,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'send_to_users',
-				'description' => __( '<p>' . 'Select the type of user that will receive notifications.', $this->plugin_slug ) . '</p>',
+				'description' => '<p>' . __( 'Select the type of user that will receive notifications.', $this->plugin_slug ) . '</p>',
 				'default'     => array()
 			)
 		);

@@ -10,7 +10,7 @@
  */
 
 /**
- * Plugin admin.
+ * Notify Users E-Mail admin class.
  *
  * @package Notify_Users_EMail_Admin
  * @author  Valerio Souza <eu@valeriosouza.com.br>

@@ -227,7 +227,7 @@ class Notify_Users_EMail {
 			'send_to'       => '',
 			'send_to_users' => array_keys( get_editable_roles() ),
 			'subject'       => sprintf( __( 'New post published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
-			'body'          => __( 'A new post {title} - {link} has been published on {date}.', self::$settings_name ),
+			'body'          => __( 'A new post "{title}" - {link} has been published on {date}.', self::$settings_name ),
 		);
 
 		add_option( self::$settings_name, $options );
@@ -260,18 +260,41 @@ class Notify_Users_EMail {
 	}
 
 	/**
+	 * Apply placeholders.
+	 *
+	 * @since    2.0.0
+	 *
+	 * @param    string $string  String to apply the placeholder.
+	 * @param    int    $post_id Post ID.
+	 *
+	 * @return   string          New string.
+	 */
+	protected function apply_placeholders( $string, $post_id ) {
+		$default_date_format = get_option( 'date_format' ) . ' ' . __( '\a\t', $this->get_plugin_slug() ) . ' ' . get_option( 'time_format' );
+		$date_format = apply_filters( $this->get_settings_name() . '_date_format', get_the_time( $default_date_format, $post_id ) );
+
+		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post_id ) ), $string );
+		$string = str_replace( '{link}', esc_url( get_permalink( $post_id ) ), $string );
+		$string = str_replace( '{date}', $date_format, $string );
+
+		return $string;
+	}
+
+	/**
 	 * Nofity users when publish a post.
 	 *
-	 * @param     int $post_id Current post ID.
+	 * @since    2.0.0
 	 *
-	 * @return    void
+	 * @param    int $post_id Current post ID.
+	 *
+	 * @return   void
 	 */
 	public function send_notification( $post_id ) {
 		if ( 'publish' == $_POST['post_status'] && 'publish' != $_POST['original_post_status'] ) {
 			$settings       = get_option( $this->get_settings_name() );
 			$to             = ! empty( $settings['to'] ) ? $settings['to'] : get_option( 'admin_email' );
-			$subject        = $settings['subject'];
-			$body           = $settings['body'];
+			$subject        = $this->apply_placeholders( $settings['subject'], $post_id );
+			$body           = $this->apply_placeholders( $settings['body'], $post_id );
 			$wp_user_search = new WP_User_Query(
 				array(
 					'fields' => array( 'user_email' )

@@ -223,6 +223,12 @@ class Notify_Users_EMail {
 	 * @return   void
 	 */
 	private static function single_activate() {
+        if ( ! current_user_can( 'activate_plugins' ) )
+            return;
+
+        $plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
+        check_admin_referer( 'activate-plugin_' . $plugin );
+
 		$options = array(
 			'send_to'       => '',
 			'send_to_users' => array_keys( get_editable_roles() ),
@@ -231,6 +237,7 @@ class Notify_Users_EMail {
 		);
 
 		add_option( self::$settings_name, $options );
+		add_option( self::$settings_name . '_version', self::VERSION );
 	}
 
 	/**
@@ -241,7 +248,47 @@ class Notify_Users_EMail {
 	 * @return   void
 	 */
 	private static function single_deactivate() {
+        if ( ! current_user_can( 'activate_plugins' ) )
+            return;
+
+        $plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
+        check_admin_referer( 'deactivate-plugin_' . $plugin );
+
 		delete_option( self::$settings_name );
+		delete_option( self::$settings_name . '_version' );
+	}
+
+	/**
+	 * Update the plugin options.
+	 *
+	 * Make update to version 2.0.0.
+	 *
+	 * @since    2.0.0
+	 *
+	 * @return   void
+	 */
+	public static function update() {
+		$version = get_option( self::$settings_name . '_version' );
+
+		if ( empty( $version ) ) {
+			if ( get_option( 'notify_users_mail' ) ) {
+				$options = array(
+					'send_to'       => get_option( 'notify_users_mail' ),
+					'send_to_users' => array_keys( get_editable_roles() ),
+					'subject'       => get_option( 'notify_users_subject' ),
+					'body'          => get_option( 'notify_users_body' ),
+				);
+
+				// Remove old options.
+				delete_option( 'notify_users_mail' );
+				delete_option( 'notify_users_subject' );
+				delete_option( 'notify_users_body' );
+
+				// Save new options.
+				update_option( self::$settings_name, $options );
+				update_option( self::$settings_name . '_version', self::VERSION );
+			}
+		}
 	}
 
 	/**

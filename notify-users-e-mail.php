@@ -47,4 +47,5 @@ add_action( 'plugins_loaded', array( 'Notify_Users_EMail', 'get_instance' ) );
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 	require_once plugin_dir_path( __FILE__ ) . '/admin/class-notify-users-e-mail-admin.php';
 	add_action( 'plugins_loaded', array( 'Notify_Users_EMail_Admin', 'get_instance' ) );
+	add_action( 'admin_init', array( 'Notify_Users_EMail', 'update' ) );
 }

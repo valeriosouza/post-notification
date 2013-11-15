@@ -13,3 +13,4 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) exit;
 
 delete_option( 'notify_users_email' );
+delete_option( 'notify_users_email_version' );

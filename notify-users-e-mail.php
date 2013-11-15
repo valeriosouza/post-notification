@@ -2,7 +2,7 @@
 /**
  * Notify Users E-Mail.
  *
- * @package   Notify Users E-Mail
+ * @package   Notify_Users_EMail
  * @author    Valerio Souza <eu@valeriosouza.com.br>
  * @license   GPL-2.0+
  * @link      http://wordpress.org/plugins/notify-users-e-mail/
@@ -25,9 +25,9 @@
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) die;
 
-/**
- * Main class.
- */
+// /**
+//  * Main class.
+//  */
 require_once plugin_dir_path( __FILE__ ) . '/public/class-notify-users-e-mail.php';
 
 /**

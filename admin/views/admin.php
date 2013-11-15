@@ -1,23 +1,29 @@
 <?php
 /**
- * Represents the view for the administration dashboard.
+ * Notify Users E-Mail administration view.
  *
- * This includes the header, options, and other information that should provide
- * The User Interface to the end user.
- *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   Notify_Users_EMail_Admin
+ * @author    Valerio Souza <eu@valeriosouza.com.br>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * @link      http://wordpress.org/plugins/notify-users-e-mail/
+ * @copyright 2013 CodeHost
  */
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) die;
 ?>
 
 <div class="wrap">
 
-	<?php screen_icon(); ?>
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+    <?php screen_icon( 'options-general' ); ?>
+    <h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 
-	<!-- TODO: Provide markup for your options page here. -->
+    <form method="post" action="options.php">
+        <?php
+            settings_fields( $settings_name );
+            do_settings_sections( $settings_name );
+            submit_button();
+        ?>
+    </form>
 
 </div>

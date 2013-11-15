@@ -2,16 +2,14 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   Notify_Users_EMail
+ * @author    Valerio Souza <eu@valeriosouza.com.br>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * @link      http://wordpress.org/plugins/notify-users-e-mail/
+ * @copyright 2013 CodeHost
  */
 
 // If uninstall not called from WordPress, then exit
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-	exit;
-}
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) exit;
 
-// TODO: Define uninstall functionality here
+delete_option( 'notify_users_email' );

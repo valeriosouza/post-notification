@@ -226,7 +226,7 @@ class Notify_Users_EMail {
 		$options = array(
 			'send_to'       => '',
 			'send_to_users' => array_keys( get_editable_roles() ),
-			'subject'       => __( 'New post published at', self::$settings_name ) . ' ' . get_bloginfo( 'name' ),
+			'subject'       => sprintf( __( 'New post published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
 			'body'          => __( 'A new post {title} - {link} has been published on {date}.', self::$settings_name ),
 		);
 
@@ -283,7 +283,8 @@ class Notify_Users_EMail {
 			foreach ( $wp_user_search->get_results() as $user )
 				$bcc[] = $user->user_email;
 
-			$headers = 'Bcc: ' . implode( ',', $bcc );
+			$emails  = array_unique( array_merge( $bcc, explode( ',', $to ) ) );
+			$headers = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
 			$teste = wp_mail( '', $subject, $body, $headers );

@@ -102,8 +102,9 @@ class Notify_Users_EMail {
 	 */
 	public static function get_instance() {
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance )
+		if ( null == self::$instance ) {
 			self::$instance = new self;
+		}
 
 		return self::$instance;
 	}
@@ -128,17 +129,14 @@ class Notify_Users_EMail {
 				$blog_ids = self::get_blog_ids();
 
 				foreach ( $blog_ids as $blog_id ) {
-
 					switch_to_blog( $blog_id );
 					self::single_activate();
 				}
 
 				restore_current_blog();
-
 			} else {
 				self::single_activate();
 			}
-
 		} else {
 			self::single_activate();
 		}
@@ -186,8 +184,9 @@ class Notify_Users_EMail {
 	 * @param    int    $blog_id    ID of the new blog.
 	 */
 	public function activate_new_site( $blog_id ) {
-		if ( 1 !== did_action( 'wpmu_new_blog' ) )
+		if ( 1 !== did_action( 'wpmu_new_blog' ) ) {
 			return;
+		}
 
 		switch_to_blog( $blog_id );
 		self::single_activate();
@@ -223,8 +222,9 @@ class Notify_Users_EMail {
 	 * @return   void
 	 */
 	private static function single_activate() {
-        if ( ! current_user_can( 'activate_plugins' ) )
+        if ( ! current_user_can( 'activate_plugins' ) ) {
             return;
+        }
 
         $plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
         check_admin_referer( 'activate-plugin_' . $plugin );
@@ -248,8 +248,9 @@ class Notify_Users_EMail {
 	 * @return   void
 	 */
 	private static function single_deactivate() {
-        if ( ! current_user_can( 'activate_plugins' ) )
+        if ( ! current_user_can( 'activate_plugins' ) ) {
             return;
+        }
 
         $plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
         check_admin_referer( 'deactivate-plugin_' . $plugin );
@@ -354,8 +355,9 @@ class Notify_Users_EMail {
 
 				// Add the emails in $mails variable.
 				if ( ! empty( $user_results ) ) {
-					foreach ( $user_results as $email )
+					foreach ( $user_results as $email ) {
 						$emails[] = $email->user_email;
+					}
 				}
 			}
 		}
@@ -384,10 +386,11 @@ class Notify_Users_EMail {
 			$headers  = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
-			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) )
+			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
 				wp_mail( '', $subject, $body, $headers );
-			else
+			} else {
 				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject, $body );
+			}
 		}
 	}
 

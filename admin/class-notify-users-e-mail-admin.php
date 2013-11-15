@@ -57,8 +57,9 @@ class Notify_Users_EMail_Admin {
 	 */
 	public static function get_instance() {
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance )
+		if ( null == self::$instance ) {
 			self::$instance = new self;
+		}
 
 		return self::$instance;
 	}
@@ -195,8 +196,9 @@ class Notify_Users_EMail_Admin {
 	protected function get_option_value( $id, $default = '' ) {
 		$options = get_option( $this->settings_name );
 
-		if ( isset( $options[ $id ] ) )
+		if ( isset( $options[ $id ] ) ) {
 			$default = $options[ $id ];
+		}
 
 		return $default;
 	}
@@ -227,8 +229,9 @@ class Notify_Users_EMail_Admin {
 		$html .= '</select>';
 
 		// Displays the description.
-		if ( $args['description'] )
+		if ( $args['description'] ) {
 			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );
+		}
 
 		echo $html;
 	}
@@ -251,8 +254,9 @@ class Notify_Users_EMail_Admin {
 		$html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="regular-text" />', $id, $this->settings_name, $current );
 
 		// Displays the description.
-		if ( $args['description'] )
+		if ( $args['description'] ) {
 			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );
+		}
 
 		echo $html;
 	}
@@ -275,8 +279,9 @@ class Notify_Users_EMail_Admin {
 		$html = sprintf( '<textarea id="%1$s" name="%2$s[%1$s]" cols="60" rows="5">%3$s</textarea>', $id, $this->settings_name, $current );
 
 		// Displays the description.
-		if ( $args['description'] )
+		if ( $args['description'] ) {
 			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );
+		}
 
 		echo $html;
 	}
@@ -297,8 +302,9 @@ class Notify_Users_EMail_Admin {
 			if ( isset( $input[ $key ] ) ) {
 				if ( 'send_to_users' == $key ) {
 					$send_to_users = array();
-					foreach ( $input[ $key ] as $value )
+					foreach ( $input[ $key ] as $value ) {
 						$send_to_users[] = sanitize_text_field( $value );
+					}
 					$output[ $key ] = $send_to_users;
 				} elseif ( 'body' == $key ) {
 					$output[ $key ] = wp_kses( $input[ $key ], array() );

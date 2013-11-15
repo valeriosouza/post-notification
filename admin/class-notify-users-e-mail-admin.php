@@ -296,7 +296,7 @@ class Notify_Users_EMail_Admin {
 		foreach ( $input as $key => $value ) {
 			if ( isset( $input[ $key ] ) ) {
 				if ( 'send_to_users' == $key ) {
-					$send_to_users == array();
+					$send_to_users = array();
 					foreach ( $input[ $key ] as $value )
 						$send_to_users[] = sanitize_text_field( $value );
 					$output[ $key ] = $send_to_users;

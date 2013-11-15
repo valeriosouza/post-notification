@@ -281,6 +281,45 @@ class Notify_Users_EMail {
 	}
 
 	/**
+	 * Create the nofitication email list.
+	 *
+	 * @since    2.0.0
+	 *
+	 * @param    array  $roles   Roles of users who received the email.
+	 * @param    string $send_to List of emails.
+	 *
+	 * @return   array           Email list.
+	 */
+	protected function notification_list( $roles, $send_to ) {
+		$emails = array();
+
+		if ( is_array( $roles ) && ! empty( $roles ) ) {
+			// Get emails by user role.
+			foreach ( $roles as $role ) {
+				// Get the emails.
+				$user = new WP_User_Query(
+					array(
+						'role'   => $role,
+						'fields' => array( 'user_email' )
+					)
+				);
+				$user_results = $user->get_results();
+
+				// Add the emails in $mails variable.
+				if ( ! empty( $user_results ) ) {
+					foreach ( $user_results as $email )
+						$emails[] = $email->user_email;
+				}
+			}
+		}
+
+		// Merge all emails list.
+		$emails = array_unique( array_merge( $emails, explode( ',', $send_to ) ) );
+
+		return $emails;
+	}
+
+	/**
 	 * Nofity users when publish a post.
 	 *
 	 * @since    2.0.0
@@ -291,23 +330,11 @@ class Notify_Users_EMail {
 	 */
 	public function send_notification( $post_id ) {
 		if ( 'publish' == $_POST['post_status'] && 'publish' != $_POST['original_post_status'] ) {
-			$settings       = get_option( $this->get_settings_name() );
-			$to             = ! empty( $settings['to'] ) ? $settings['to'] : get_option( 'admin_email' );
-			$subject        = $this->apply_placeholders( $settings['subject'], $post_id );
-			$body           = $this->apply_placeholders( $settings['body'], $post_id );
-			$wp_user_search = new WP_User_Query(
-				array(
-					'fields' => array( 'user_email' )
-				)
-			);
-
-			// Sets the Bcc.
-			$bcc = array();
-			foreach ( $wp_user_search->get_results() as $user )
-				$bcc[] = $user->user_email;
-
-			$emails  = array_unique( array_merge( $bcc, explode( ',', $to ) ) );
-			$headers = 'Bcc: ' . implode( ',', $emails );
+			$settings = get_option( $this->get_settings_name() );
+			$emails   = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
+			$subject  = $this->apply_placeholders( $settings['subject'], $post_id );
+			$body     = $this->apply_placeholders( $settings['body'], $post_id );
+			$headers  = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
 			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) )

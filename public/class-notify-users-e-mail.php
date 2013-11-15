@@ -33,16 +33,16 @@ class Notify_Users_EMail {
 	 *
 	 * @var      string
 	 */
-	protected $plugin_slug = 'notify-users-email';
+	protected static $plugin_slug = 'notify-users-email';
 
 	/**
 	 * Settings name.
 	 *
 	 * @since    2.0.0
 	 *
-	 * @var      object
+	 * @var      string
 	 */
-	protected $settings_name = 'notify_users_email';
+	protected static $settings_name = 'notify_users_email';
 
 	/**
 	 * Instance of this class.
@@ -79,7 +79,7 @@ class Notify_Users_EMail {
 	 * @return   Plugin slug variable.
 	 */
 	public function get_plugin_slug() {
-		return $this->plugin_slug;
+		return self::$plugin_slug;
 	}
 
 	/**
@@ -90,7 +90,7 @@ class Notify_Users_EMail {
 	 * @return    string Settings name variable.
 	 */
 	public function get_settings_name() {
-		return $this->settings_name;
+		return self::$settings_name;
 	}
 
 	/**
@@ -224,12 +224,13 @@ class Notify_Users_EMail {
 	 */
 	private static function single_activate() {
 		$options = array(
-			'to'             => '',
-			'subject_prefix' => '',
-			'body_prefix'    => '',
+			'send_to'       => '',
+			'send_to_users' => array_keys( get_editable_roles() ),
+			'subject'       => __( 'New post published at', self::$settings_name ) . ' ' . get_bloginfo( 'name' ),
+			'body'          => __( 'A new post {title} - {link} has been published on {date}.', self::$settings_name ),
 		);
 
-		add_option( $this->get_settings_name(), $options );
+		add_option( self::$settings_name, $options );
 	}
 
 	/**
@@ -240,7 +241,7 @@ class Notify_Users_EMail {
 	 * @return   void
 	 */
 	private static function single_deactivate() {
-		delete_option( 'notify_users_email' );
+		delete_option( self::$settings_name );
 	}
 
 	/**
@@ -251,7 +252,7 @@ class Notify_Users_EMail {
 	 * @return   void
 	 */
 	public function load_plugin_textdomain() {
-		$domain = $this->plugin_slug;
+		$domain = $this->get_plugin_slug();
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
@@ -269,8 +270,8 @@ class Notify_Users_EMail {
 		if ( 'publish' == $_POST['post_status'] && 'publish' != $_POST['original_post_status'] ) {
 			$settings       = get_option( $this->get_settings_name() );
 			$to             = ! empty( $settings['to'] ) ? $settings['to'] : get_option( 'admin_email' );
-			$subject_prefix = $settings['subject_prefix'];
-			$body_prefix    = $settings['body_prefix'];
+			$subject        = $settings['subject'];
+			$body           = $settings['body'];
 			$wp_user_search = new WP_User_Query(
 				array(
 					'fields' => array( 'user_email' )
@@ -285,7 +286,7 @@ class Notify_Users_EMail {
 			$headers = 'Bcc: ' . implode( ',', $bcc );
 
 			// Send the emails.
-			wp_mail( $to, $subject_prefix . ' | ' . get_bloginfo( 'name' ) , $body_prefix, $headers );
+			$teste = wp_mail( '', $subject, $body, $headers );
 		}
 	}
 

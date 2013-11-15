@@ -67,6 +67,8 @@ class Notify_Users_EMail_Admin {
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
 	 *
 	 * @since    2.0.0
+	 *
+	 * @return   void
 	 */
 	public function add_plugin_admin_menu() {
 		add_options_page(
@@ -82,6 +84,8 @@ class Notify_Users_EMail_Admin {
 	 * Render the settings page for this plugin.
 	 *
 	 * @since    2.0.0
+	 *
+	 * @return   void
 	 */
 	public function display_plugin_admin_page() {
 		$settings_name = $this->settings_name;
@@ -92,12 +96,23 @@ class Notify_Users_EMail_Admin {
 	/**
 	 * Plugin settings form fields.
 	 *
-	 * @since 2.0.0
+	 * @since     2.0.0
 	 *
-	 * @return void
+	 * @return    void
 	 */
 	public function plugin_settings() {
 		$settings_section = 'settings_section';
+		$placeholders_description = sprintf(
+			__( '%s You can use the following placeholders:%s %s', $this->plugin_slug ),
+			'<p>',
+			'</p>',
+			sprintf(
+				'<ul><li><p><code>{title}</code> %s</p></li><li><p><code>{link}</code> %s</p></li><li><p><code>{date}</code> %s</p></li></ul>',
+				__( 'to display the title', $this->plugin_slug ),
+				__( 'to display the URL', $this->plugin_slug ),
+				__( 'to display the date of publication', $this->plugin_slug )
+			)
+		);
 
 		// Set the settings section.
 		add_settings_section(
@@ -107,44 +122,58 @@ class Notify_Users_EMail_Admin {
 			$this->settings_name
 		);
 
-		// From.
+		// Sent to.
 		add_settings_field(
-			'from',
-			__( 'Email From', $this->plugin_slug ),
-			array( $this, 'text_element_callback' ),
+			'send_to',
+			__( 'Sent to', $this->plugin_slug ),
+			array( $this, 'text_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
-				'id'          => 'from',
-				'description' => sprintf( __( 'Default is %s', $this->plugin_slug ), '<code>' . get_option( 'admin_email' ) . '</code>' ),
+				'id'          => 'send_to',
+				'description' => sprintf( '<p>' .  __( 'Enter with the recipients for the email (separated by commas). Default is %s', $this->plugin_slug ) . '</p>', '<code>' . get_option( 'admin_email' ) . '</code>' ),
 				'default'     => ''
 			)
 		);
 
-		// Email Subject Prefix.
+		// Send to users.
 		add_settings_field(
-			'subject_prefix',
-			__( 'Email Subject Prefix', $this->plugin_slug ),
-			array( $this, 'text_element_callback' ),
+			'send_to_users',
+			__( 'Send to users', $this->plugin_slug ),
+			array( $this, 'users_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
-				'id'          => 'subject_prefix',
-				'description' => '',
+				'id'          => 'send_to_users',
+				'description' => __( '<p>' . 'Select the type of user that will receive notifications.', $this->plugin_slug ) . '</p>',
+				'default'     => array()
+			)
+		);
+
+		// Email Subject.
+		add_settings_field(
+			'subject',
+			__( 'Subject', $this->plugin_slug ),
+			array( $this, 'text_callback' ),
+			$this->settings_name,
+			$settings_section,
+			array(
+				'id'          => 'subject',
+				'description' => $placeholders_description,
 				'default'     => ''
 			)
 		);
 
 		// Email Body Prefix.
 		add_settings_field(
-			'body_prefix',
-			__( 'Email Body Prefix', $this->plugin_slug ),
-			array( $this, 'text_element_callback' ),
+			'body',
+			__( 'Body', $this->plugin_slug ),
+			array( $this, 'textarea_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
-				'id'          => 'body_prefix',
-				'description' => '',
+				'id'          => 'body',
+				'description' => $placeholders_description,
 				'default'     => ''
 			)
 		);
@@ -155,6 +184,8 @@ class Notify_Users_EMail_Admin {
 
 	/**
 	 * Get option value.
+	 *
+	 * @since     2.0.0
 	 *
 	 * @param     string $id      Option ID.
 	 * @param     string $default Default option.
@@ -171,13 +202,47 @@ class Notify_Users_EMail_Admin {
 	}
 
 	/**
-	 * Text field callback.
+	 * Users field callback.
+	 *
+	 * @since     2.0.0
 	 *
 	 * @param     array $args Arguments from the option.
 	 *
 	 * @return    string      Input field HTML.
 	 */
-	public function text_element_callback( $args ) {
+	public function users_callback( $args ) {
+		$id       = $args['id'];
+		$wp_roles = new WP_Roles();
+		$roles    = $wp_roles->get_names();
+
+		// Sets current option.
+		$current = $this->get_option_value( $id, $args['default'] );
+
+		$html = sprintf( '<select id="%1$s" name="%2$s[%1$s][]" multiple="multiple">', $id, $this->settings_name );
+		foreach ( $roles as $role_value => $role_name ) {
+			$current_item = in_array( $role_value, $current ) ? ' selected="selected"' : '';
+			$html .= sprintf( '<option value="%s"%s>%s</option>', $role_value, $current_item, $role_name );
+		}
+
+		$html .= '</select>';
+
+		// Displays the description.
+		if ( $args['description'] )
+			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );
+
+		echo $html;
+	}
+
+	/**
+	 * Text field callback.
+	 *
+	 * @since     2.0.0
+	 *
+	 * @param     array $args Arguments from the option.
+	 *
+	 * @return    string      Input field HTML.
+	 */
+	public function text_callback( $args ) {
 		$id = $args['id'];
 
 		// Sets current option.
@@ -187,7 +252,31 @@ class Notify_Users_EMail_Admin {
 
 		// Displays the description.
 		if ( $args['description'] )
-			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );
+
+		echo $html;
+	}
+
+	/**
+	 * Textarea field callback.
+	 *
+	 * @since     2.0.0
+	 *
+	 * @param     array $args Arguments from the option.
+	 *
+	 * @return    string      Input field HTML.
+	 */
+	public function textarea_callback( $args ) {
+		$id = $args['id'];
+
+		// Sets current option.
+		$current = esc_html( $this->get_option_value( $id, $args['default'] ) );
+
+		$html = sprintf( '<textarea id="%1$s" name="%2$s[%1$s]" cols="60" rows="5">%3$s</textarea>', $id, $this->settings_name, $current );
+
+		// Displays the description.
+		if ( $args['description'] )
+			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );
 
 		echo $html;
 	}
@@ -205,8 +294,18 @@ class Notify_Users_EMail_Admin {
 		$output = array();
 
 		foreach ( $input as $key => $value ) {
-			if ( isset( $input[ $key ] ) )
-				$output[ $key ] = sanitize_text_field( $input[ $key ] );
+			if ( isset( $input[ $key ] ) ) {
+				if ( 'send_to_users' == $key ) {
+					$send_to_users == array();
+					foreach ( $input[ $key ] as $value )
+						$send_to_users[] = sanitize_text_field( $value );
+					$output[ $key ] = $send_to_users;
+				} elseif ( 'body' == $key ) {
+					$output[ $key ] = wp_kses( $input[ $key ], array() );
+				} else {
+					$output[ $key ] = sanitize_text_field( $input[ $key ] );
+				}
+			}
 		}
 
 		return $output;

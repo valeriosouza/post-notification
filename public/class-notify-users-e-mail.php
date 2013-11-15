@@ -116,9 +116,7 @@ class Notify_Users_EMail {
 	 *                                       activated on an individual blog.
 	 */
 	public static function activate( $network_wide ) {
-
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-
 			if ( $network_wide  ) {
 
 				// Get all blog ids
@@ -139,7 +137,6 @@ class Notify_Users_EMail {
 		} else {
 			self::single_activate();
 		}
-
 	}
 
 	/**
@@ -153,23 +150,18 @@ class Notify_Users_EMail {
 	 *                                       deactivated on an individual blog.
 	 */
 	public static function deactivate( $network_wide ) {
-
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-
 			if ( $network_wide ) {
 
 				// Get all blog ids
 				$blog_ids = self::get_blog_ids();
 
 				foreach ( $blog_ids as $blog_id ) {
-
 					switch_to_blog( $blog_id );
 					self::single_deactivate();
-
 				}
 
 				restore_current_blog();
-
 			} else {
 				self::single_deactivate();
 			}
@@ -177,7 +169,6 @@ class Notify_Users_EMail {
 		} else {
 			self::single_deactivate();
 		}
-
 	}
 
 	/**
@@ -188,15 +179,12 @@ class Notify_Users_EMail {
 	 * @param    int    $blog_id    ID of the new blog.
 	 */
 	public function activate_new_site( $blog_id ) {
-
-		if ( 1 !== did_action( 'wpmu_new_blog' ) ) {
+		if ( 1 !== did_action( 'wpmu_new_blog' ) )
 			return;
-		}
 
 		switch_to_blog( $blog_id );
 		self::single_activate();
 		restore_current_blog();
-
 	}
 
 	/**
@@ -210,16 +198,14 @@ class Notify_Users_EMail {
 	 * @return   array|false    The blog ids, false if no matches.
 	 */
 	private static function get_blog_ids() {
-
 		global $wpdb;
 
-		// get an array of blog ids
+		// Get an array of blog ids.
 		$sql = "SELECT blog_id FROM $wpdb->blogs
 			WHERE archived = '0' AND spam = '0'
 			AND deleted = '0'";
 
 		return $wpdb->get_col( $sql );
-
 	}
 
 	/**
@@ -228,7 +214,13 @@ class Notify_Users_EMail {
 	 * @since    2.0.0
 	 */
 	private static function single_activate() {
-		// TODO: Define activation functionality here
+		$options = array(
+			'from'           => '',
+			'subject_prefix' => '',
+			'body_prefix'    => '',
+		);
+
+		add_option( get_settings_name(), $options );
 	}
 
 	/**
@@ -237,7 +229,7 @@ class Notify_Users_EMail {
 	 * @since    2.0.0
 	 */
 	private static function single_deactivate() {
-		// TODO: Define deactivation functionality here
+		delete_option( 'notify_users_email' );
 	}
 
 	/**

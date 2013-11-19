@@ -20,6 +20,11 @@ This Plugin Notify of new posts by e-mail to all users your WordPress.
 
 Esse plugin Notifica todos seus usuários via e-mail, a cada novo post.
 
+= Descripción =
+
+Este complemento envia una notificación de nueva entrada, por correo, a todos los usuarios de tu WordPress.
+
+
 == Installation ==
 
 1. Upload the `Notify Users E-Mail` directory to the `/wp-content/plugins/` directory
@@ -32,14 +37,20 @@ Esse plugin Notifica todos seus usuários via e-mail, a cada novo post.
 1. Ative o plugin atravês da opção Plugins do Menu do seu WordPress
 1. Comece a postagem de contéudo e automáticamente ao publicar, um e-mail será enviado..
 
+= Instalación =
+1. Suba el `Notify Users E-Mail` para la carpeta `/wp-content/plugins/`
+1. Active el complemento a través de la opción 'Plugins' del Menú de tu WordPress.
+1. Empiece a añadir entradas y automaticamente, al añadir las nuevas entradas, un correo será enviado.
 
-= Contribute =
+
+== Contribute ==
 
 Use https://github.com/valeriosouza/notify_users_email
 
 and
 
 http://valeriosouza.com.br/doacoes/
+
 = Colaborar =
 
 Para colaborar, use o https://github.com/valeriosouza/notify_users_email
@@ -47,6 +58,15 @@ Para colaborar, use o https://github.com/valeriosouza/notify_users_email
 e
 
 http://valeriosouza.com.br/doacoes/
+
+= Contribuir =
+
+Para contribuir, visite https://github.com/valeriosouza/notify_users_email
+
+y
+
+http://valeriosouza.com.br/doacoes/
+
 
 = Dúvidas? =
 

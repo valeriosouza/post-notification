@@ -69,6 +69,9 @@ class Notify_Users_EMail {
 
 		// Nofity users when publish a post.
 		add_action( 'publish_post', array( $this, 'send_notification_post' ) );
+
+		// Nofity users when publish a page.
+		add_action( 'publish_page', array( $this, 'send_notification_page' ) );
 	}
 
 	/**
@@ -234,6 +237,8 @@ class Notify_Users_EMail {
 			'send_to_users' => array_keys( get_editable_roles() ),
 			'subject_post'       => sprintf( __( 'New post published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
 			'body_post'          => __( 'A new post "{title}" - {link} has been published on {date}.', self::$settings_name ),
+			'subject_page'       => sprintf( __( 'New page published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
+			'body_page'          => __( 'A new page "{title}" - {link} has been published on {date}.', self::$settings_name ),
 		);
 
 		add_option( self::$settings_name, $options );
@@ -276,15 +281,18 @@ class Notify_Users_EMail {
 				$options = array(
 					'send_to'       => get_option( 'notify_users_mail' ),
 					'send_to_users' => array_keys( get_editable_roles() ),
-					'subject_post'       => get_option( 'notify_users_subject' ),
-					'body_post'          => get_option( 'notify_users_body' ),
+					'subject_post'       => get_option( 'notify_users_subject_post' ),
+					'body_post'          => get_option( 'notify_users_body_post' ),
+					'subject_page'       => get_option( 'notify_users_subject_page' ),
+					'body_page'          => get_option( 'notify_users_body_page' ),
 				);
 
 				// Remove old options.
 				delete_option( 'notify_users_mail' );
-				delete_option( 'notify_users_subject' );
-				delete_option( 'notify_users_body' );
-
+				delete_option( 'notify_users_subject_post' );
+				delete_option( 'notify_users_body_post' );
+				delete_option( 'notify_users_subject_page' );
+				delete_option( 'notify_users_body_page' );
 				// Save new options.
 				update_option( self::$settings_name, $options );
 				update_option( self::$settings_name . '_version', self::VERSION );
@@ -394,4 +402,29 @@ class Notify_Users_EMail {
 		}
 	}
 
+	/**
+	 * Nofity users when publish a page.
+	 *
+	 * @since    2.0.0
+	 *
+	 * @param    int $post_id Current post ID.
+	 *
+	 * @return   void
+	 */
+	public function send_notification_page( $post_id ) {
+		if ( 'publish' == $_POST['post_status'] && 'publish' != $_POST['original_post_status'] ) {
+			$settings = get_option( $this->get_settings_name() );
+			$emails   = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
+			$subject_page  = $this->apply_placeholders( $settings['subject_page'], $post_id );
+			$body_page     = $this->apply_placeholders( $settings['body_page'], $post_id );
+			$headers  = 'Bcc: ' . implode( ',', $emails );
+
+			// Send the emails.
+			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+				wp_mail( '', $subject_page, $body_page, $headers );
+			} else {
+				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_page, $body_page );
+			}
+		}
+	}
 }

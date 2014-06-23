@@ -165,7 +165,7 @@ class Notify_Users_EMail_Admin {
 			)
 		);
 
-		// Email Body Prefix.
+		// Email Body Prefix Post.
 		add_settings_field(
 			'body_post',
 			__( 'Body to Post', $this->plugin_slug ),
@@ -174,6 +174,34 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'body_post',
+				'description' => $placeholders_description,
+				'default'     => ''
+			)
+		);
+
+		// Email Subject Page.
+		add_settings_field(
+			'subject_page',
+			__( 'Subject to Page', $this->plugin_slug ),
+			array( $this, 'text_callback' ),
+			$this->settings_name,
+			$settings_section,
+			array(
+				'id'          => 'subject_page',
+				'description' => $placeholders_description,
+				'default'     => ''
+			)
+		);
+
+		// Email Body Prefix Page.
+		add_settings_field(
+			'body_page',
+			__( 'Body to Page', $this->plugin_slug ),
+			array( $this, 'textarea_callback' ),
+			$this->settings_name,
+			$settings_section,
+			array(
+				'id'          => 'body_page',
 				'description' => $placeholders_description,
 				'default'     => ''
 			)

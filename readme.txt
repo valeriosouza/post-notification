@@ -1,10 +1,10 @@
 === Notify Users E-Mail ===
-Contributors: codehost, valeriosza, claudiosanches, ThalitaPinheiro
+Contributors: valeriosza, claudiosanches, ThalitaPinheiro
 Donate link: http://valeriosouza.com.br/doacoes/
 Tags: notification, users, emails, post, new posts,
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 1.0.4
+Tested up to: 3.9
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,7 +45,7 @@ Este complemento envia una notificación de nueva entrada, por correo, a todos l
 
 == Contribute ==
 
-Use https://github.com/valeriosouza/notify_users_email
+Use https://github.com/valeriosouza/notify-users-e-mail
 
 and
 
@@ -53,7 +53,7 @@ http://valeriosouza.com.br/doacoes/
 
 = Colaborar =
 
-Para colaborar, use o https://github.com/valeriosouza/notify_users_email
+Para colaborar, use o https://github.com/valeriosouza/notify-users-e-mail
 
 e
 
@@ -61,7 +61,7 @@ http://valeriosouza.com.br/doacoes/
 
 = Contribuir =
 
-Para contribuir, visite https://github.com/valeriosouza/notify_users_email
+Para contribuir, visite https://github.com/valeriosouza/notify-users-e-mail
 
 y
 

@@ -68,7 +68,7 @@ class Notify_Users_EMail {
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
 
 		// Nofity users when publish a post.
-		add_action( 'publish_post', array( $this, 'send_notification' ) );
+		add_action( 'publish_post', array( $this, 'send_notification_post' ) );
 	}
 
 	/**
@@ -232,8 +232,8 @@ class Notify_Users_EMail {
 		$options = array(
 			'send_to'       => '',
 			'send_to_users' => array_keys( get_editable_roles() ),
-			'subject'       => sprintf( __( 'New post published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
-			'body'          => __( 'A new post "{title}" - {link} has been published on {date}.', self::$settings_name ),
+			'subject_post'       => sprintf( __( 'New post published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
+			'body_post'          => __( 'A new post "{title}" - {link} has been published on {date}.', self::$settings_name ),
 		);
 
 		add_option( self::$settings_name, $options );
@@ -276,8 +276,8 @@ class Notify_Users_EMail {
 				$options = array(
 					'send_to'       => get_option( 'notify_users_mail' ),
 					'send_to_users' => array_keys( get_editable_roles() ),
-					'subject'       => get_option( 'notify_users_subject' ),
-					'body'          => get_option( 'notify_users_body' ),
+					'subject_post'       => get_option( 'notify_users_subject' ),
+					'body_post'          => get_option( 'notify_users_body' ),
 				);
 
 				// Remove old options.
@@ -377,19 +377,19 @@ class Notify_Users_EMail {
 	 *
 	 * @return   void
 	 */
-	public function send_notification( $post_id ) {
+	public function send_notification_post( $post_id ) {
 		if ( 'publish' == $_POST['post_status'] && 'publish' != $_POST['original_post_status'] ) {
 			$settings = get_option( $this->get_settings_name() );
 			$emails   = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
-			$subject  = $this->apply_placeholders( $settings['subject'], $post_id );
-			$body     = $this->apply_placeholders( $settings['body'], $post_id );
+			$subject_post  = $this->apply_placeholders( $settings['subject_post'], $post_id );
+			$body_post     = $this->apply_placeholders( $settings['body_post'], $post_id );
 			$headers  = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
 			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
-				wp_mail( '', $subject, $body, $headers );
+				wp_mail( '', $subject_post, $body_post, $headers );
 			} else {
-				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject, $body );
+				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_post, $body_post );
 			}
 		}
 	}

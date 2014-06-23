@@ -151,15 +151,15 @@ class Notify_Users_EMail_Admin {
 			)
 		);
 
-		// Email Subject.
+		// Email Subject Post.
 		add_settings_field(
-			'subject',
-			__( 'Subject', $this->plugin_slug ),
+			'subject_post',
+			__( 'Subject to Post', $this->plugin_slug ),
 			array( $this, 'text_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
-				'id'          => 'subject',
+				'id'          => 'subject_post',
 				'description' => $placeholders_description,
 				'default'     => ''
 			)
@@ -167,13 +167,13 @@ class Notify_Users_EMail_Admin {
 
 		// Email Body Prefix.
 		add_settings_field(
-			'body',
-			__( 'Body', $this->plugin_slug ),
+			'body_post',
+			__( 'Body to Post', $this->plugin_slug ),
 			array( $this, 'textarea_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
-				'id'          => 'body',
+				'id'          => 'body_post',
 				'description' => $placeholders_description,
 				'default'     => ''
 			)

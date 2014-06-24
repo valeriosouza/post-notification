@@ -72,6 +72,9 @@ class Notify_Users_EMail {
 
 		// Nofity users when publish a page.
 		add_action( 'publish_page', array( $this, 'send_notification_page' ) );
+
+		// Nofity users when publish a comment.
+		add_action( 'comment_post', array( $this, 'send_notification_comment' ) );
 	}
 
 	/**
@@ -239,6 +242,8 @@ class Notify_Users_EMail {
 			'body_post'          => __( 'A new post "{title}" - {link} has been published on {date}.', self::$settings_name ),
 			'subject_page'       => sprintf( __( 'New page published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
 			'body_page'          => __( 'A new page "{title}" - {link} has been published on {date}.', self::$settings_name ),
+			'subject_comment'       => sprintf( __( 'New comment published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
+			'body_comment'          => __( 'A new comment {link} has been published on {date}.', self::$settings_name ),
 		);
 
 		add_option( self::$settings_name, $options );
@@ -285,6 +290,8 @@ class Notify_Users_EMail {
 					'body_post'          => get_option( 'notify_users_body_post' ),
 					'subject_page'       => get_option( 'notify_users_subject_page' ),
 					'body_page'          => get_option( 'notify_users_body_page' ),
+					'subject_comment'       => get_option( 'notify_users_subject_comment' ),
+					'body_comment'          => get_option( 'notify_users_body_comment' ),
 				);
 
 				// Remove old options.
@@ -293,6 +300,8 @@ class Notify_Users_EMail {
 				delete_option( 'notify_users_body_post' );
 				delete_option( 'notify_users_subject_page' );
 				delete_option( 'notify_users_body_page' );
+				delete_option( 'notify_users_subject_comment' );
+				delete_option( 'notify_users_body_comment' );
 				// Save new options.
 				update_option( self::$settings_name, $options );
 				update_option( self::$settings_name . '_version', self::VERSION );
@@ -332,6 +341,7 @@ class Notify_Users_EMail {
 		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post_id ) ), $string );
 		$string = str_replace( '{link}', esc_url( get_permalink( $post_id ) ), $string );
 		$string = str_replace( '{date}', $date_format, $string );
+		$string = str_replace( '{excerpt}', get_the_excerpt( $post_id ), $string );
 
 		return $string;
 	}
@@ -405,7 +415,7 @@ class Notify_Users_EMail {
 	/**
 	 * Nofity users when publish a page.
 	 *
-	 * @since    2.0.0
+	 * @since    2.1.0
 	 *
 	 * @param    int $post_id Current post ID.
 	 *
@@ -426,5 +436,28 @@ class Notify_Users_EMail {
 				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_page, $body_page );
 			}
 		}
+	}
+	/**
+	 * Nofity users when publish a comment.
+	 *
+	 * @since    2.1.0
+	 *
+	 * @param    int $post_id Current post ID.
+	 *
+	 * @return   void
+	 */
+	public function send_notification_comment( $post_id ) {
+			$settings = get_option( $this->get_settings_name() );
+			$emails   = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
+			$subject_comment  = $this->apply_placeholders( $settings['subject_comment'], $post_id );
+			$body_comment     = $this->apply_placeholders( $settings['body_comment'], $post_id );
+			$headers  = 'Bcc: ' . implode( ',', $emails );
+
+			// Send the emails.
+			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+				wp_mail( '', $subject_comment, $body_comment, $headers );
+			} else {
+				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_comment, $body_comment );
+			}
 	}
 }

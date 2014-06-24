@@ -207,6 +207,34 @@ class Notify_Users_EMail_Admin {
 			)
 		);
 
+		// Email Subject Comment.
+		add_settings_field(
+			'subject_comment',
+			__( 'Subject to comment', $this->plugin_slug ),
+			array( $this, 'text_callback' ),
+			$this->settings_name,
+			$settings_section,
+			array(
+				'id'          => 'subject_comment',
+				'description' => $placeholders_description,
+				'default'     => ''
+			)
+		);
+
+		// Email Body Prefix Comment.
+		add_settings_field(
+			'body_comment',
+			__( 'Body to Comment', $this->plugin_slug ),
+			array( $this, 'textarea_callback' ),
+			$this->settings_name,
+			$settings_section,
+			array(
+				'id'          => 'body_comment',
+				'description' => $placeholders_description,
+				'default'     => ''
+			)
+		);
+
 		// Register settings.
 		register_setting( $this->settings_name, $this->settings_name, array( $this, 'validate_options' ) );
 	}
@@ -334,7 +362,7 @@ class Notify_Users_EMail_Admin {
 						$send_to_users[] = sanitize_text_field( $value );
 					}
 					$output[ $key ] = $send_to_users;
-				} elseif ( 'body' == $key ) {
+				} elseif ( 'body_post' == $key ) {
 					$output[ $key ] = wp_kses( $input[ $key ], array() );
 				} else {
 					$output[ $key ] = sanitize_text_field( $input[ $key ] );

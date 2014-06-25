@@ -341,7 +341,8 @@ class Notify_Users_EMail {
 		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post_id ) ), $string );
 		$string = str_replace( '{link}', esc_url( get_permalink( $post_id ) ), $string );
 		$string = str_replace( '{date}', $date_format, $string );
-		$string = str_replace( '{excerpt}', get_the_excerpt( $post_id ), $string );
+		//back is comming
+		//$string = str_replace( '{excerpt}', sanitize_text_field( get_the_excerpt( $post_id ) ), $string );
 
 		return $string;
 	}

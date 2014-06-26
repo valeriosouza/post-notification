@@ -295,8 +295,12 @@ class Notify_Users_EMail_Admin {
 		// Sets current option.
 		$current = esc_html( $this->get_option_value( $id, $args['default'] ) );
 
-		$html = sprintf( '<textarea id="%1$s" name="%2$s[%1$s]" cols="60" rows="5">%3$s</textarea>', $id, $this->settings_name, $current );
-
+		$textarea_name = $this->settings_name;
+		$textarea_name = $textarea_name.'['.$id.']';
+		
+		$html = sprintf( wp_editor( $current , $id, $settings = array('textarea_name'=>$textarea_name) ), $id, $this->settings_name, $current );
+		//print_r($this->settings_name[$id]);
+		//die();
 		// Displays the description.
 		if ( $args['description'] ) {
 			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );

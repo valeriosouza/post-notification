@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 
     <?php screen_icon( 'options-general' ); ?>
     <h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-    <?php echo '<p>' . __( 'This plugin notifies registered users via email of new posts, pages and comments posted.', $this->plugin_slug ) . '</p>' ?>
+    <?php echo '<p>' . __( 'This plugin notifies registered users via email of new posts, pages and comments posted.', 'notify-users-e-mail' ) . '</p>' ?>
     <form method="post" action="options.php">
         <?php
             settings_fields( $settings_name );

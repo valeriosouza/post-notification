@@ -3,7 +3,7 @@ Welcome Notify Users E-Mail
 
 Send an email to all users whenever a new post is published on your WordPress.
 
-== Description ==
+### Description ###
 
 Notification of new posts by e-mail to all users
 
@@ -15,7 +15,7 @@ Are usually accepted 200 emails per hour.
 
 Soon a function to trigger via external SMTP.
 
-== Installation ==
+### Installation ###
 
 1. Upload the `Notify Users E-Mail` directory to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress

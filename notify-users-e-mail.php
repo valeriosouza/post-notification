@@ -85,6 +85,8 @@ class Notify_Users_EMail {
 
 		// Nofity users when publish a comment.
 		add_action( 'comment_post', array( $this, 'send_notification_comment' ) );
+
+		add_filter( 'wp_mail_content_type', array( $this, 'set_content_type' ));
 	}
 
 	/**
@@ -272,9 +274,9 @@ class Notify_Users_EMail {
 		$version = get_option( self::$settings_name . '_version' );
 
 		if ( empty( $version ) ) {
-			if ( get_option( 'notify_users_mail' ) ) {
+			if ( get_option( 'notify_users_email' ) ) {
 				$options = array(
-					'send_to'       => get_option( 'notify_users_mail' ),
+					'send_to'       => get_option( 'notify_users_email' ),
 					'send_to_users' => array_keys( get_editable_roles() ),
 					'subject_post'       => get_option( 'notify_users_subject_post' ),
 					'body_post'          => get_option( 'notify_users_body_post' ),
@@ -285,7 +287,7 @@ class Notify_Users_EMail {
 				);
 
 				// Remove old options.
-				delete_option( 'notify_users_mail' );
+				delete_option( 'notify_users_email' );
 				delete_option( 'notify_users_subject_post' );
 				delete_option( 'notify_users_body_post' );
 				delete_option( 'notify_users_subject_page' );
@@ -371,6 +373,9 @@ class Notify_Users_EMail {
 		return $emails;
 	}
 
+	public function set_content_type( $content_type ){
+	return 'text/html';
+	}
 	/**
 	 * Nofity users when publish a post.
 	 *

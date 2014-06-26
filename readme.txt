@@ -4,7 +4,7 @@ Donate link: http://valeriosouza.com.br/doacoes/
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter
 Requires at least: 3.0
 Tested up to: 3.9
-Stable tag: 2.1.0
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,7 +59,7 @@ This plugin simplifies sending an email with this notice.
 
 == Changelog ==
 
-= 2.1.0 - 26/06/2014 =
+= 3.0.0 - 26/06/2014 =
 
 * New: Now it is possible to notify new pages created and new comments received.
 

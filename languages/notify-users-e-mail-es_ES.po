@@ -1,0 +1,101 @@
+# Copyright (C) 2013 Notify Users E-Mail
+# This file is distributed under the same license as the Notify Users E-Mail package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Notify Users E-Mail 2.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/notify-users-e-"
+"mail\n"
+"POT-Creation-Date: 2013-11-15 15:36:41+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-06-25 22:03-0300\n"
+"Last-Translator: Thalita Nick Pinheiro Gomes <thalitanpg@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#. #-#-#-#-#  notify-users-e-mail.pot (Notify Users E-Mail 2.0.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/class-notify-users-e-mail-admin.php:76
+#: admin/class-notify-users-e-mail-admin.php:77
+msgid "Notify Users E-Mail"
+msgstr "Notify Users E-Mail"
+
+#: admin/class-notify-users-e-mail-admin.php:107
+msgid "%s You can use the following placeholders:%s %s"
+msgstr "%s Se puede utilizar los siguientes marcadores de posición:%s %s"
+
+#: admin/class-notify-users-e-mail-admin.php:112
+msgid "to display the title"
+msgstr "para mostrar el título"
+
+#: admin/class-notify-users-e-mail-admin.php:113
+msgid "to display the URL"
+msgstr "para mostrar la dirección URL"
+
+#: admin/class-notify-users-e-mail-admin.php:114
+msgid "to display the date of publication"
+msgstr "para mostrar la fecha de publicación"
+
+#: admin/class-notify-users-e-mail-admin.php:121
+msgid "Email Settings"
+msgstr "Configuración del correo electrónico"
+
+#: admin/class-notify-users-e-mail-admin.php:129
+msgid "Sent to"
+msgstr "Enviado a"
+
+#: admin/class-notify-users-e-mail-admin.php:135
+msgid "Enter with the recipients for the email (separated by commas)."
+msgstr ""
+"Introduce los destinatarios del correo electrónico (separadas por comas)."
+
+#: admin/class-notify-users-e-mail-admin.php:143
+msgid "Send to users"
+msgstr "Enviar a los usuarios"
+
+#: admin/class-notify-users-e-mail-admin.php:149
+msgid "Select the type of user that will receive notifications."
+msgstr "Seleccione el tipo de usuario que va a recibir las notificaciones."
+
+#: admin/class-notify-users-e-mail-admin.php:157
+msgid "Subject"
+msgstr "Asunto"
+
+#: admin/class-notify-users-e-mail-admin.php:171
+msgid "Body"
+msgstr "Cuerpo"
+
+#: admin/class-notify-users-e-mail-admin.php:328
+msgid "Settings"
+msgstr "Configuraciones"
+
+#: public/class-notify-users-e-mail.php:235
+msgid "New post published at %s on {date}"
+msgstr "Nueva entrada publicada a las %s en {date}"
+
+#: public/class-notify-users-e-mail.php:236
+msgid "A new post \"{title}\" - {link} has been published on {date}."
+msgstr "Una nueva entrada \"{title} \" - {link} ha sido publicada en {date}."
+
+#: public/class-notify-users-e-mail.php:321
+msgid "\\a\\t"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/notify-users-e-mail/"
+msgstr "http://wordpress.org/plugins/notify-users-e-mail/"
+
+#. Description of the plugin/theme
+msgid "Notification of new posts by e-mail to all users"
+msgstr ""
+"Notificación de nuevas entradas a través del correo electrónico a todos los "
+"usuarios"
+
+#. Author of the plugin/theme
+msgid "Valerio Souza, CodeHost, claudiosanches"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://valeriosouza.com.br"
+msgstr ""

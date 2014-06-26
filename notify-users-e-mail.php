@@ -306,10 +306,10 @@ class Notify_Users_EMail {
 	 * @return   void
 	 */
 	public function load_plugin_textdomain() {
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'notify-users-email' );
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'notify-users-e-mail' );
 
-		load_textdomain( 'notify-users-email', trailingslashit( WP_LANG_DIR ) . 'notify-users-email/notify-users-email-' . $locale . '.mo' );
-		load_plugin_textdomain( 'notify-users-email', FALSE, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' );
+		load_textdomain( 'notify-users-e-mail', trailingslashit( WP_LANG_DIR ) . 'notify-users-e-mail/notify-users-e-mail-' . $locale . '.mo' );
+		load_plugin_textdomain( 'notify-users-e-mail', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
@@ -321,7 +321,7 @@ class Notify_Users_EMail {
 	 * @return string          New string.
 	 */
 	protected function apply_placeholders( $string, $post_id ) {
-		$default_date_format = get_option( 'date_format' ) . ' ' . __( '\a\t', 'notify-users-email' ) . ' ' . get_option( 'time_format' );
+		$default_date_format = get_option( 'date_format' ) . ' ' . __( '\a\t', 'notify-users-e-mail' ) . ' ' . get_option( 'time_format' );
 		$date_format = apply_filters( $this->get_settings_name() . '_date_format', get_the_time( $default_date_format, $post_id ) );
 
 		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post_id ) ), $string );
@@ -450,6 +450,6 @@ register_deactivation_hook( __FILE__, array( 'Notify_Users_EMail', 'deactivate' 
 /**
  * Initialize the plugin.
  */
-add_action( 'plugins_loaded', array( 'Notify_Users_EMail', 'get_instance' ) );
+add_action( 'plugins_loaded', array( 'Notify_Users_EMail', 'get_instance' ), 0 );
 
 endif;

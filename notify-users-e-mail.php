@@ -13,7 +13,7 @@
  * Plugin URI:        http://wordpress.org/plugins/notify-users-e-mail/
  * Description:       Notification of new posts by e-mail to all users
  * Version:           3.0.0
- * Author:            Valerio Souza, claudiosanches
+ * Author:            Valerio Souza, claudiosanches, ThalitaPinheiro
  * Author URI:        http://valeriosouza.com.br
  * Text Domain:       notify-users-e-mail
  * License:           GPL-2.0+
@@ -233,9 +233,9 @@ class Notify_Users_EMail {
 			'send_to'          => '',
 			'send_to_users'    => array_keys( get_editable_roles() ),
 			'subject_post'     => sprintf( __( 'New post published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
-			'body_post'        => __( 'A new post "{title}" - {link} has been published on {date}.', self::$settings_name ),
+			'body_post'        => __( 'A new post {title} - {link} has been published on {date}.', self::$settings_name ),
 			'subject_page'     => sprintf( __( 'New page published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
-			'body_page'        => __( 'A new page "{title}" - {link} has been published on {date}.', self::$settings_name ),
+			'body_page'        => __( 'A new page {title} - {link} has been published on {date}.', self::$settings_name ),
 			'subject_comment'  => sprintf( __( 'New comment published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
 			'body_comment'     => __( 'A new comment {link} has been published on {date}.', self::$settings_name ),
 		);

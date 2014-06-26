@@ -1,83 +1,75 @@
 === Notify Users E-Mail ===
 Contributors: valeriosza, claudiosanches, ThalitaPinheiro
 Donate link: http://valeriosouza.com.br/doacoes/
-Tags: notification, users, emails, post, new posts,
+Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter
 Requires at least: 3.0
-Tested up to: 3.9.1
-Stable tag: 3.0.0
+Tested up to: 3.9
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Notification of new posts by e-mail to all users
+Send an email to all users whenever a new post is published on your WordPress.
 
 == Description ==
 
 Notification of new posts by e-mail to all users
 
-This Plugin Notify of new posts by e-mail to all users your WordPress.
+This plugin notifies registered users via email of new posts, pages and comments published.
 
-= Descrição =
+The notification uses the E-mail PHP, check with your hosting your sending limit and the amount of registered users. 
 
-Esse plugin Notifica todos seus usuários via e-mail, a cada novo post.
+Are usually accepted 200 emails per hour. 
 
-= Descripción =
-
-Este complemento envia una notificación de nueva entrada, por correo, a todos los usuarios de tu WordPress.
-
+Soon a function to trigger via external SMTP.
 
 == Installation ==
 
 1. Upload the `Notify Users E-Mail` directory to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Start posting and to automatically publish an e-mail is sent.
-
-= Instalação: =
-
-1. Faça o upload do `Notify Users E-Mail` para a pasta `/wp-content/plugins/`
-1. Ative o plugin atravês da opção Plugins do Menu do seu WordPress
-1. Comece a postagem de contéudo e automáticamente ao publicar, um e-mail será enviado..
-
-= Instalación =
-1. Suba el `Notify Users E-Mail` para la carpeta `/wp-content/plugins/`
-1. Active el complemento a través de la opción 'Plugins' del Menú de tu WordPress.
-1. Empiece a añadir entradas y automaticamente, al añadir las nuevas entradas, un correo será enviado.
-
+1. Configure the plugin in 'Settings -> Notify Users E-Mail'.
+1. Register emails and select levels of users that can receive e-mail.
+1. Replace the messages according to your preference.
 
 == Contribute ==
 
 Use https://github.com/valeriosouza/notify-users-e-mail
 
-and
+== Frequently Asked Questions ==
 
-http://valeriosouza.com.br/doacoes/
+= What limit for sending mail? =
 
-= Colaborar =
+The limit is the one who decides your hosting provider, since we use a PHP function pro shooting. They are usually 200 emails per hour.
 
-Para colaborar, use o https://github.com/valeriosouza/notify-users-e-mail
+= Is to change the way of shooting? =
 
-e
+Yes, you can use an SMTP plugin. Soon we will launch a plugin for this function and also have this option in the plugin
 
-http://valeriosouza.com.br/doacoes/
+= What is the real purpose of this plugin? =
 
-= Contribuir =
+Imagine you have 100 people registered on your site and want to notify them of all posts. 
 
-Para contribuir, visite https://github.com/valeriosouza/notify-users-e-mail
-
-y
-
-http://valeriosouza.com.br/doacoes/
-
-
-= Dúvidas? =
-
-em breve
-
+This plugin simplifies sending an email with this notice.
 
 == Screenshots ==
 
-soon
+1. Enter email or choose levels of users with permission to receive emails.
+
+2. Personalize your message. The same can be done with pages and comments.
 
 == Changelog ==
+
+= 2.1.0 - 26/06/2014 =
+
+* New: Now it is possible to notify new pages created and new comments received.
+
+* New: New translations available
+
+* Unreal: Makes fresh coffee for you.
+
+= 2.0.0 - 16/04/2014 =
+
+* create new interface
 
 = 1.0.4 - 02/09/2013 =
 
@@ -101,6 +93,12 @@ soon
 = 0.1.0 - 12/07/2013 =
 
 * Lançada primeira versão beta
+
+== Upgrade Notice ==
+
+= 2.1.0 =
+
+New tasks created at the request of users
 
 == License ==
 

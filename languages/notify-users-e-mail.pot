@@ -1,82 +1,120 @@
-# Copyright (C) 2013 Notify Users E-Mail
+# Copyright (C) 2014 Notify Users E-Mail
 # This file is distributed under the same license as the Notify Users E-Mail package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Notify Users E-Mail 2.0.0\n"
+"Project-Id-Version: Notify Users E-Mail 3.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/notify-users-e-"
 "mail\n"
-"POT-Creation-Date: 2013-11-15 15:36:41+00:00\n"
+"POT-Creation-Date: 2014-06-26 01:47:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#. #-#-#-#-#  notify-users-e-mail.pot (Notify Users E-Mail 2.0.0)  #-#-#-#-#
+#. #-#-#-#-#  notify-users-e-mail.pot (Notify Users E-Mail 3.0.0)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: admin/class-notify-users-e-mail-admin.php:76
-#: admin/class-notify-users-e-mail-admin.php:77
+#: includes/class-notify-users-e-mail-admin.php:51
+#: includes/class-notify-users-e-mail-admin.php:52
 msgid "Notify Users E-Mail"
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:107
+#: includes/class-notify-users-e-mail-admin.php:78
 msgid "%s You can use the following placeholders:%s %s"
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:112
+#: includes/class-notify-users-e-mail-admin.php:83
 msgid "to display the title"
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:113
+#: includes/class-notify-users-e-mail-admin.php:84
 msgid "to display the URL"
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:114
+#: includes/class-notify-users-e-mail-admin.php:85
 msgid "to display the date of publication"
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:121
+#: includes/class-notify-users-e-mail-admin.php:92
 msgid "Email Settings"
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:129
+#: includes/class-notify-users-e-mail-admin.php:100
 msgid "Sent to"
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:135
+#: includes/class-notify-users-e-mail-admin.php:106
 msgid "Enter with the recipients for the email (separated by commas)."
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:143
+#: includes/class-notify-users-e-mail-admin.php:114
 msgid "Send to users"
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:149
+#: includes/class-notify-users-e-mail-admin.php:120
 msgid "Select the type of user that will receive notifications."
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:157
-msgid "Subject"
+#: includes/class-notify-users-e-mail-admin.php:128
+msgid "Subject to Post"
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:171
-msgid "Body"
+#: includes/class-notify-users-e-mail-admin.php:142
+msgid "Body to Post"
 msgstr ""
 
-#: admin/class-notify-users-e-mail-admin.php:328
+#: includes/class-notify-users-e-mail-admin.php:156
+msgid "Subject to Page"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:170
+msgid "Body to Page"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:184
+msgid "Subject to comment"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:198
+msgid "Body to Comment"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:343
 msgid "Settings"
 msgstr ""
 
-#: public/class-notify-users-e-mail.php:235
+#: includes/views/admin.php:23
+msgid ""
+"This plugin notifies registered users via email of new posts, pages and "
+"comments posted."
+msgstr ""
+
+#: notify-users-e-mail.php:235
 msgid "New post published at %s on {date}"
 msgstr ""
 
-#: public/class-notify-users-e-mail.php:236
+#: notify-users-e-mail.php:236
 msgid "A new post \"{title}\" - {link} has been published on {date}."
 msgstr ""
 
-#: public/class-notify-users-e-mail.php:321
+#: notify-users-e-mail.php:237
+msgid "New page published at %s on {date}"
+msgstr ""
+
+#: notify-users-e-mail.php:238
+msgid "A new page \"{title}\" - {link} has been published on {date}."
+msgstr ""
+
+#: notify-users-e-mail.php:239
+msgid "New comment published at %s on {date}"
+msgstr ""
+
+#: notify-users-e-mail.php:240
+msgid "A new comment {link} has been published on {date}."
+msgstr ""
+
+#: notify-users-e-mail.php:324
 msgid "\\a\\t"
 msgstr ""
 
@@ -89,7 +127,7 @@ msgid "Notification of new posts by e-mail to all users"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Valerio Souza, CodeHost, claudiosanches"
+msgid "Valerio Souza, claudiosanches"
 msgstr ""
 
 #. Author URI of the plugin/theme

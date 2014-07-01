@@ -4,7 +4,7 @@ Donate link: http://valeriosouza.com.br/doacoes/
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter
 Requires at least: 3.0
 Tested up to: 3.9
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ The notification uses the E-mail PHP, check with your hosting your sending limit
 
 Are usually accepted 200 emails per hour.
 
-Soon a function to trigger via external SMTP.
+If your hosting server does not allow sending emails, use a plugin like SMTP http://wordpress.org/plugins/my-smtp-wp/
 
 == Installation ==
 
@@ -41,9 +41,17 @@ Use https://github.com/valeriosouza/notify-users-e-mail
 
 The limit is the one who decides your hosting provider, since we use a PHP function pro shooting. They are usually 200 emails per hour.
 
+= I want to change the email sending, like I do? =
+
+Use an SMTP plugin and configure with the data from your email. It is the safest way to use and to avoid blockages or spam boxes.
+
+We recommend http://wordpress.org/plugins/my-smtp-wp/
+
 = Is to change the way of shooting? =
 
-Yes, you can use an SMTP plugin. Soon we will launch a plugin for this function and also have this option in the plugin
+Yes, you can use an SMTP plugin. 
+
+We recommend http://wordpress.org/plugins/my-smtp-wp/
 
 = What is the real purpose of this plugin? =
 
@@ -73,6 +81,12 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 2. Personalize your message. The same can be done with pages and comments.
 
 == Changelog ==
+
+= 3.0.1 - 01/07/2014 =
+
+* New: Adapted to work with the My SMTP WP plugin .
+
+* Unreal: Makes fresh coffee for you.
 
 = 3.0.0 - 26/06/2014 =
 
@@ -110,6 +124,10 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 * Lançada primeira versão beta
 
 == Upgrade Notice ==
+
+= 3.0.1 =
+
+Adapted to work with the My SMTP WP plugin .
 
 = 2.1.0 =
 

@@ -47,7 +47,7 @@ class Notify_Users_EMail_Admin {
 	 * @return   void
 	 */
 	public function add_plugin_admin_menu() {
-		add_options_page(
+		add_menu_page(
 			__( 'Notify Users E-Mail', 'notify-users-e-mail' ),
 			__( 'Notify Users E-Mail', 'notify-users-e-mail' ),
 			'manage_options',

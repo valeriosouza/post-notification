@@ -16,9 +16,9 @@ Notification of new posts by e-mail to all users
 
 This plugin notifies registered users via email of new posts, pages and comments published.
 
-The notification uses the E-mail PHP, check with your hosting your sending limit and the amount of registered users. 
+The notification uses the E-mail PHP, check with your hosting your sending limit and the amount of registered users.
 
-Are usually accepted 200 emails per hour. 
+Are usually accepted 200 emails per hour.
 
 Soon a function to trigger via external SMTP.
 
@@ -47,9 +47,24 @@ Yes, you can use an SMTP plugin. Soon we will launch a plugin for this function 
 
 = What is the real purpose of this plugin? =
 
-Imagine you have 100 people registered on your site and want to notify them of all posts. 
+Imagine you have 100 people registered on your site and want to notify them of all posts.
 
 This plugin simplifies sending an email with this notice.
+
+== For Developers ==
+
+= Custom email engine/function =
+
+If you don't want to send emails by `wp_mail()` you can do the following way:
+
+	add_filter( 'notify_users_email_use_wp_mail', '__return_false' );
+
+	function custom_email_engine( $emails, $subject, $message ) {
+		// custom actions here!
+	}
+
+	add_action( 'notify_users_email_custom_mail_engine', 'custom_email_engine', 10, 3 );
+
 
 == Screenshots ==
 

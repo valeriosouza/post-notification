@@ -324,7 +324,7 @@ class Notify_Users_EMail {
 	 */
 	protected function apply_placeholders( $string, $post_id ) {
 		$default_date_format = get_option( 'date_format' ) . ' ' . __( '\a\t', 'notify-users-e-mail' ) . ' ' . get_option( 'time_format' );
-		$date_format = apply_filters( $this->get_settings_name() . '_date_format', get_the_time( $default_date_format, $post_id ) );
+		$date_format = apply_filters( 'notify_users_email_date_format', get_the_time( $default_date_format, $post_id ) );
 
 		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post_id ) ), $string );
 		$string = str_replace( '{link}', esc_url( get_permalink( $post_id ) ), $string );
@@ -392,10 +392,10 @@ class Notify_Users_EMail {
 			$headers  = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
-			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
 				wp_mail( '', $subject_post, $body_post, $headers );
 			} else {
-				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_post, $body_post );
+				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_post, $body_post );
 			}
 		}
 	}
@@ -416,10 +416,10 @@ class Notify_Users_EMail {
 			$headers  = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
-			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
 				wp_mail( '', $subject_page, $body_page, $headers );
 			} else {
-				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_page, $body_page );
+				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_page, $body_page );
 			}
 		}
 	}
@@ -438,10 +438,10 @@ class Notify_Users_EMail {
 		$headers          = 'Bcc: ' . implode( ',', $emails );
 
 		// Send the emails.
-		if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+		if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
 			wp_mail( '', $subject_comment, $body_comment, $headers );
 		} else {
-			do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_comment, $body_comment );
+			do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_comment, $body_comment );
 		}
 	}
 }

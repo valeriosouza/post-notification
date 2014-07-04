@@ -48,8 +48,8 @@ class Notify_Users_EMail_Admin {
 	 */
 	public function add_plugin_admin_menu() {
 		add_menu_page(
-			__( 'Notify Users E-Mail', 'notify-users-e-mail' ),
-			__( 'Notify Users E-Mail', 'notify-users-e-mail' ),
+			__( 'Post Notification by Email', 'notify-users-e-mail' ),
+			__( 'Post Notification by Email', 'notify-users-e-mail' ),
 			'manage_options',
 			'notify-users-e-mail',
 			array( $this, 'display_plugin_admin_page' )
@@ -201,6 +201,19 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'body_comment',
+				'description' => $placeholders_description,
+				'default'     => ''
+			)
+		);
+
+		add_settings_field(
+			'txt_footer',
+			__( 'Text Footer', 'notify-users-e-mail' ),
+			array( $this, 'textarea_callback' ),
+			$this->settings_name,
+			$settings_section,
+			array(
+				'id'          => 'txt_footer',
 				'description' => $placeholders_description,
 				'default'     => ''
 			)

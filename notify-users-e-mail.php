@@ -389,13 +389,14 @@ class Notify_Users_EMail {
 			$emails   = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_post  = $this->apply_placeholders( $settings['subject_post'], $post_id );
 			$body_post     = $this->apply_placeholders( $settings['body_post'], $post_id );
+			$txt_footer     = $this->apply_placeholders( $settings['txt_footer'], $post_id );
 			$headers  = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
 			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
-				wp_mail( '', $subject_post, $body_post, $headers );
+				wp_mail( '', $subject_post, $body_post."<br><br>".$txt_footer, $headers );
 			} else {
-				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_post, $body_post );
+				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_post, $body_post."<br><br>".$txt_footer );
 			}
 		}
 	}
@@ -413,13 +414,14 @@ class Notify_Users_EMail {
 			$emails   = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_page  = $this->apply_placeholders( $settings['subject_page'], $post_id );
 			$body_page     = $this->apply_placeholders( $settings['body_page'], $post_id );
+			$txt_footer     = $this->apply_placeholders( $settings['txt_footer'], $post_id );
 			$headers  = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
 			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
-				wp_mail( '', $subject_page, $body_page, $headers );
+				wp_mail( '', $subject_page, $body_page."<br><br>".$txt_footer, $headers );
 			} else {
-				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_page, $body_page );
+				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_page, $body_page."<br><br>".$txt_footer );
 			}
 		}
 	}
@@ -435,13 +437,14 @@ class Notify_Users_EMail {
 		$emails           = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 		$subject_comment  = $this->apply_placeholders( $settings['subject_comment'], $post_id );
 		$body_comment     = $this->apply_placeholders( $settings['body_comment'], $post_id );
+		$txt_footer       = $this->apply_placeholders( $settings['txt_footer'], $post_id );
 		$headers          = 'Bcc: ' . implode( ',', $emails );
 
 		// Send the emails.
 		if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
-			wp_mail( '', $subject_comment, $body_comment, $headers );
+			wp_mail( '', $subject_comment, $body_comment."<br><br>".$txt_footer, $headers );
 		} else {
-			do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_comment, $body_comment );
+			do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_comment, $body_comment."<br><br>".$txt_footer );
 		}
 	}
 }

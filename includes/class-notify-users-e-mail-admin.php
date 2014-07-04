@@ -140,7 +140,7 @@ class Notify_Users_EMail_Admin {
 		add_settings_field(
 			'body_post',
 			__( 'Body to Post', 'notify-users-e-mail' ),
-			array( $this, 'textarea_callback' ),
+			array( $this, 'editor_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
@@ -168,7 +168,7 @@ class Notify_Users_EMail_Admin {
 		add_settings_field(
 			'body_page',
 			__( 'Body to Page', 'notify-users-e-mail' ),
-			array( $this, 'textarea_callback' ),
+			array( $this, 'editor_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
@@ -196,7 +196,7 @@ class Notify_Users_EMail_Admin {
 		add_settings_field(
 			'body_comment',
 			__( 'Body to Comment', 'notify-users-e-mail' ),
-			array( $this, 'textarea_callback' ),
+			array( $this, 'editor_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
@@ -209,7 +209,7 @@ class Notify_Users_EMail_Admin {
 		add_settings_field(
 			'txt_footer',
 			__( 'Text Footer', 'notify-users-e-mail' ),
-			array( $this, 'textarea_callback' ),
+			array( $this, 'editor_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
@@ -277,15 +277,14 @@ class Notify_Users_EMail_Admin {
 	 *
 	 * @param  array $args Arguments from the option.
 	 *
-	 * @return string      Input field HTML.
+	 * @return string      Text input field HTML.
 	 */
 	public function text_callback( $args ) {
 		$id = $args['id'];
 
 		// Sets current option.
 		$current = esc_html( $this->get_option_value( $id, $args['default'] ) );
-
-		$html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="regular-text" />', $id, $this->settings_name, $current );
+		$html   = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="regular-text" />', $id, $this->settings_name, $current );
 
 		// Displays the description.
 		if ( $args['description'] ) {
@@ -296,30 +295,28 @@ class Notify_Users_EMail_Admin {
 	}
 
 	/**
-	 * Textarea field callback.
+	 * Editor field callback.
 	 *
 	 * @param  array $args Arguments from the option.
 	 *
-	 * @return string      Input field HTML.
+	 * @return string      Editor field HTML.
 	 */
-	public function textarea_callback( $args ) {
+	public function editor_callback( $args ) {
 		$id = $args['id'];
 
 		// Sets current option.
 		$current = $this->get_option_value( $id, $args['default'] );
 
-		$textarea_name = $this->settings_name;
-		$textarea_name = $textarea_name.'['.$id.']';
-		
-		$html = sprintf( wp_editor( $current , $id, $settings = array('textarea_name'=>$textarea_name) ), $id, $this->settings_name, $current );
-		//print_r($this->settings_name[$id]);
-		//die();
+		echo '<div style="width: 600px;">';
+
+			wp_editor( $current, $id, array( 'textarea_name' => $this->settings_name, 'textarea_rows' => 10 ) );
+
+		echo '</div>';
+
 		// Displays the description.
 		if ( $args['description'] ) {
-			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );
+			echo sprintf( '<div class="description">%s</div>', $args['description'] );
 		}
-
-		echo $html;
 	}
 
 	/**
@@ -340,10 +337,8 @@ class Notify_Users_EMail_Admin {
 						$send_to_users[] = sanitize_text_field( $value );
 					}
 					$output[ $key ] = $send_to_users;
-				//} elseif ( 'body_post' == $key ) {
-				//	$output[ $key ] = wp_kses( $input[ $key ], array() );
 				} else {
-					$output[ $key ] = $input[ $key ] ;
+					$output[ $key ] = $input[ $key ];
 				}
 			}
 		}

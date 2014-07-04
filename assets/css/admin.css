@@ -1,0 +1,61 @@
+/* =Image upload
+-------------------------------------------------------------- */
+
+.notify-users-e-mail-upload-image {
+	position: relative;
+}
+
+.notify-users-e-mail-preview {
+	display: block;
+	float: none;
+	margin-bottom: 5px;
+}
+
+.notify-users-e-mail-default-image {
+	display: none;
+}
+
+.notify-users-e-mail-actions {
+	display: none;
+	padding: 2px;
+	position: absolute;
+	margin: 0;
+	left: 0;
+	top: 0;
+}
+
+.notify-users-e-mail-preview-wrap .notify-users-e-mail-preview[src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"] + .notify-users-e-mail-actions {
+	display: none;
+}
+
+.notify-users-e-mail-preview-wrap:hover > .notify-users-e-mail-actions {
+	display: block;
+}
+
+.notify-users-e-mail-actions li {
+	background: #eee;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	float: right;
+	margin: 0 0 0 2px;
+	padding: 1px;
+	text-align: center;
+}
+
+.notify-users-e-mail-actions li:hover {
+	background: #ddd;
+}
+
+.notify-users-e-mail-actions li a {
+	text-decoration: none;
+}
+
+.notify-users-e-mail-actions li a:hover {
+	text-decoration: none;
+}
+
+.notify-users-e-mail-actions .delete {
+	color: #d00;
+}

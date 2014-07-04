@@ -293,7 +293,7 @@ class Notify_Users_EMail_Admin {
 		$id = $args['id'];
 
 		// Sets current option.
-		$current = esc_html( $this->get_option_value( $id, $args['default'] ) );
+		$current = $this->get_option_value( $id, $args['default'] );
 
 		$textarea_name = $this->settings_name;
 		$textarea_name = $textarea_name.'['.$id.']';
@@ -327,10 +327,10 @@ class Notify_Users_EMail_Admin {
 						$send_to_users[] = sanitize_text_field( $value );
 					}
 					$output[ $key ] = $send_to_users;
-				} elseif ( 'body_post' == $key ) {
-					$output[ $key ] = wp_kses( $input[ $key ], array() );
+				//} elseif ( 'body_post' == $key ) {
+				//	$output[ $key ] = wp_kses( $input[ $key ], array() );
 				} else {
-					$output[ $key ] = sanitize_text_field( $input[ $key ] );
+					$output[ $key ] = $input[ $key ] ;
 				}
 			}
 		}

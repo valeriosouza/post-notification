@@ -84,6 +84,14 @@ class Notify_Users_EMail_Admin {
 			'notify-users-e-mail',
 			array( $this, 'display_plugin_admin_page' )
 		);
+		add_submenu_page(
+			'notify-users-e-mail',
+			__( 'Settings', 'notify-users-e-mail' ),
+			__( 'Settings', 'notify-users-e-mail' ),
+			'manage_options',
+			'notify-users-e-mail',
+			array( $this, 'display_plugin_admin_page' )
+		);
 	}
 
 	/**

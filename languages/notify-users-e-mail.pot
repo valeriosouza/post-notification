@@ -95,7 +95,7 @@ msgid "New post published at %s on {date}"
 msgstr ""
 
 #: notify-users-e-mail.php:236
-msgid "A new post \"{title}\" - {link} has been published on {date}."
+msgid "A new post \"{title}\" - {link_post} has been published on {date}."
 msgstr ""
 
 #: notify-users-e-mail.php:237
@@ -103,7 +103,7 @@ msgid "New page published at %s on {date}"
 msgstr ""
 
 #: notify-users-e-mail.php:238
-msgid "A new page \"{title}\" - {link} has been published on {date}."
+msgid "A new page \"{title}\" - {link_post} has been published on {date}."
 msgstr ""
 
 #: notify-users-e-mail.php:239
@@ -111,7 +111,7 @@ msgid "New comment published at %s on {date}"
 msgstr ""
 
 #: notify-users-e-mail.php:240
-msgid "A new comment {link} has been published on {date}."
+msgid "A new comment {link_post} has been published on {date}."
 msgstr ""
 
 #: notify-users-e-mail.php:324

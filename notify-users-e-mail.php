@@ -84,7 +84,7 @@ class Notify_Users_EMail {
 		add_action( 'publish_page', array( $this, 'send_notification_page' ) );
 
 		// Nofity users when publish a comment.
-		add_action( 'comment_post', array( $this, 'send_notification_comment' ) );
+		add_action( 'wp_insert_comment', array( $this, 'send_notification_comment' ) );
 	}
 
 	/**
@@ -233,11 +233,11 @@ class Notify_Users_EMail {
 			'send_to'          => '',
 			'send_to_users'    => array_keys( get_editable_roles() ),
 			'subject_post'     => sprintf( __( 'New post published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
-			'body_post'        => __( 'A new post {title} - {link} has been published on {date}.', self::$settings_name ),
+			'body_post'        => __( 'A new post {title} - {link_post} has been published on {date}.', self::$settings_name ),
 			'subject_page'     => sprintf( __( 'New page published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
-			'body_page'        => __( 'A new page {title} - {link} has been published on {date}.', self::$settings_name ),
+			'body_page'        => __( 'A new page {title} - {link_post} has been published on {date}.', self::$settings_name ),
 			'subject_comment'  => sprintf( __( 'New comment published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
-			'body_comment'     => __( 'A new comment {link} has been published on {date}.', self::$settings_name ),
+			'body_comment'     => __( 'A new comment {link_comment} has been published on {date}.', self::$settings_name ),
 		);
 
 		add_option( self::$settings_name, $options );
@@ -320,12 +320,14 @@ class Notify_Users_EMail {
 	 *
 	 * @return string          New string.
 	 */
-	protected function apply_placeholders( $string, $post_id ) {
+	protected function apply_placeholders( $string, $post_id, $comment_id, $comment ) {
 		$default_date_format = get_option( 'date_format' ) . ' ' . __( '\a\t', 'notify-users-e-mail' ) . ' ' . get_option( 'time_format' );
 		$date_format = apply_filters( $this->get_settings_name() . '_date_format', get_the_time( $default_date_format, $post_id ) );
+		$comment = get_comment($comment_id);
 
 		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post_id ) ), $string );
-		$string = str_replace( '{link}', esc_url( get_permalink( $post_id ) ), $string );
+		$string = str_replace( '{link_post}', esc_url( get_permalink( $post_id ) ), $string );
+		$string = str_replace( '{link_comment}', esc_url( get_comment_link($comment->comment_ID) ), $string );
 		$string = str_replace( '{date}', $date_format, $string );
 		//back is comming
 		//$string = str_replace( '{excerpt}', sanitize_text_field( get_the_excerpt( $post_id ) ), $string );

@@ -123,8 +123,8 @@ msgid "New post published at %s on {date}"
 msgstr "Novo post publicado no %s em {date}"
 
 #: notify-users-e-mail.php:236
-msgid "A new post {title} - {link} has been published on {date}."
-msgstr "Um novo post {title} - {link} foi publicado em {date}."
+msgid "A new post {title} - {link_post} has been published on {date}."
+msgstr "Um novo post {title} - {link_post} foi publicado em {date}."
 
 # @ notify-users-e-mail
 #: notify-users-e-mail.php:237
@@ -133,8 +133,8 @@ msgid "New page published at %s on {date}"
 msgstr "Nova página publicada no %s em {date}"
 
 #: notify-users-e-mail.php:238
-msgid "A new page {title} - {link} has been published on {date}."
-msgstr "Uma nova página {title} - {link} foi publicada em {date}."
+msgid "A new page {title} - {link_post} has been published on {date}."
+msgstr "Uma nova página {title} - {link_post} foi publicada em {date}."
 
 # @ notify-users-e-mail
 #: notify-users-e-mail.php:239
@@ -144,8 +144,8 @@ msgstr "Novo comentário publicado no %s em {date}"
 
 # @ notify-users-e-mail
 #: notify-users-e-mail.php:240
-msgid "A new comment {link} has been published on {date}."
-msgstr "Um novo comentário {link} foi publicado em {date}."
+msgid "A new comment {link_post} has been published on {date}."
+msgstr "Um novo comentário {link_post} foi publicado em {date}."
 
 # @ notify-users-e-mail
 #: notify-users-e-mail.php:324

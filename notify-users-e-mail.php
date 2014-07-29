@@ -12,7 +12,7 @@
  * Plugin Name:       Notify Users E-Mail
  * Plugin URI:        http://wordpress.org/plugins/notify-users-e-mail/
  * Description:       Notification of new posts by e-mail to all users
- * Version:           3.0.0
+ * Version:           3.0.1
  * Author:            Valerio Souza, claudiosanches, ThalitaPinheiro
  * Author URI:        http://valeriosouza.com.br
  * Text Domain:       notify-users-e-mail
@@ -42,7 +42,7 @@ class Notify_Users_EMail {
 	 *
 	 * @var string
 	 */
-	const VERSION = '3.0.0';
+	const VERSION = '3.0.1';
 
 	/**
 	 * Settings name.
@@ -85,8 +85,6 @@ class Notify_Users_EMail {
 
 		// Nofity users when publish a comment.
 		add_action( 'comment_post', array( $this, 'send_notification_comment' ) );
-
-		add_filter( 'wp_mail_content_type', array( $this, 'set_content_type' ));
 	}
 
 	/**
@@ -274,9 +272,9 @@ class Notify_Users_EMail {
 		$version = get_option( self::$settings_name . '_version' );
 
 		if ( empty( $version ) ) {
-			if ( get_option( 'notify_users_email' ) ) {
+			if ( get_option( 'notify_users_mail' ) ) {
 				$options = array(
-					'send_to'       => get_option( 'notify_users_email' ),
+					'send_to'       => get_option( 'notify_users_mail' ),
 					'send_to_users' => array_keys( get_editable_roles() ),
 					'subject_post'       => get_option( 'notify_users_subject_post' ),
 					'body_post'          => get_option( 'notify_users_body_post' ),
@@ -287,7 +285,7 @@ class Notify_Users_EMail {
 				);
 
 				// Remove old options.
-				delete_option( 'notify_users_email' );
+				delete_option( 'notify_users_mail' );
 				delete_option( 'notify_users_subject_post' );
 				delete_option( 'notify_users_body_post' );
 				delete_option( 'notify_users_subject_page' );
@@ -324,7 +322,7 @@ class Notify_Users_EMail {
 	 */
 	protected function apply_placeholders( $string, $post_id ) {
 		$default_date_format = get_option( 'date_format' ) . ' ' . __( '\a\t', 'notify-users-e-mail' ) . ' ' . get_option( 'time_format' );
-		$date_format = apply_filters( 'notify_users_email_date_format', get_the_time( $default_date_format, $post_id ) );
+		$date_format = apply_filters( $this->get_settings_name() . '_date_format', get_the_time( $default_date_format, $post_id ) );
 
 		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post_id ) ), $string );
 		$string = str_replace( '{link}', esc_url( get_permalink( $post_id ) ), $string );
@@ -373,9 +371,6 @@ class Notify_Users_EMail {
 		return $emails;
 	}
 
-	public function set_content_type( $content_type ){
-	return 'text/html';
-	}
 	/**
 	 * Nofity users when publish a post.
 	 *
@@ -389,14 +384,13 @@ class Notify_Users_EMail {
 			$emails   = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_post  = $this->apply_placeholders( $settings['subject_post'], $post_id );
 			$body_post     = $this->apply_placeholders( $settings['body_post'], $post_id );
-			$txt_footer     = $this->apply_placeholders( $settings['txt_footer'], $post_id );
 			$headers  = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
-			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
-				wp_mail( '', $subject_post, $body_post."<br><br>".$txt_footer, $headers );
+			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+				wp_mail( '', $subject_post, $body_post, $headers );
 			} else {
-				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_post, $body_post."<br><br>".$txt_footer );
+				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_post, $body_post );
 			}
 		}
 	}
@@ -414,14 +408,13 @@ class Notify_Users_EMail {
 			$emails   = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_page  = $this->apply_placeholders( $settings['subject_page'], $post_id );
 			$body_page     = $this->apply_placeholders( $settings['body_page'], $post_id );
-			$txt_footer     = $this->apply_placeholders( $settings['txt_footer'], $post_id );
 			$headers  = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
-			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
-				wp_mail( '', $subject_page, $body_page."<br><br>".$txt_footer, $headers );
+			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+				wp_mail( '', $subject_page, $body_page, $headers );
 			} else {
-				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_page, $body_page."<br><br>".$txt_footer );
+				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_page, $body_page );
 			}
 		}
 	}
@@ -437,14 +430,13 @@ class Notify_Users_EMail {
 		$emails           = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 		$subject_comment  = $this->apply_placeholders( $settings['subject_comment'], $post_id );
 		$body_comment     = $this->apply_placeholders( $settings['body_comment'], $post_id );
-		$txt_footer       = $this->apply_placeholders( $settings['txt_footer'], $post_id );
 		$headers          = 'Bcc: ' . implode( ',', $emails );
 
 		// Send the emails.
-		if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
-			wp_mail( '', $subject_comment, $body_comment."<br><br>".$txt_footer, $headers );
+		if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+			wp_mail( '', $subject_comment, $body_comment, $headers );
 		} else {
-			do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_comment, $body_comment."<br><br>".$txt_footer );
+			do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_comment, $body_comment );
 		}
 	}
 }

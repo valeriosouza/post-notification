@@ -26,7 +26,6 @@ if ( ! defined( 'WPINC' ) ) {
             settings_fields( $settings_name );
             do_settings_sections( $settings_name );
             submit_button();
-            print_r(get_comment_link($comment->comment_ID) );
         ?>
     </form>
 

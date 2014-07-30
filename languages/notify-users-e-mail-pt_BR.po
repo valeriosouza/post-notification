@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Notify Users E-Mail v3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-25 22:59-0300\n"
-"PO-Revision-Date: 2014-06-25 23:06-0300\n"
+"POT-Creation-Date: 2014-07-29 21:28-0300\n"
+"PO-Revision-Date: 2014-07-29 21:28-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -27,83 +27,90 @@ msgstr "Notificação de Usuários por E-Mail"
 
 # @ notify-users-e-mail
 #: includes/class-notify-users-e-mail-admin.php:78
+#: includes/class-notify-users-e-mail-admin.php:89
+#: includes/class-notify-users-e-mail-admin.php:100
 #, php-format
 msgid "%s You can use the following placeholders:%s %s"
 msgstr "%s Você pode usar os seguintes parâmetros:%s %s"
 
 # @ notify-users-e-mail
 #: includes/class-notify-users-e-mail-admin.php:83
+#: includes/class-notify-users-e-mail-admin.php:94
+#: includes/class-notify-users-e-mail-admin.php:105
 msgid "to display the title"
 msgstr "para mostrar o título"
 
 # @ notify-users-e-mail
 #: includes/class-notify-users-e-mail-admin.php:84
+#: includes/class-notify-users-e-mail-admin.php:95
+#: includes/class-notify-users-e-mail-admin.php:106
 msgid "to display the URL"
 msgstr "para mostrar a URL"
 
 # @ notify-users-e-mail
 #: includes/class-notify-users-e-mail-admin.php:85
+#: includes/class-notify-users-e-mail-admin.php:96
 msgid "to display the date of publication"
 msgstr "para mostrar a data de publicação"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:92
+#: includes/class-notify-users-e-mail-admin.php:113
 msgid "Email Settings"
 msgstr "Configurações de E-mail"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:100
+#: includes/class-notify-users-e-mail-admin.php:121
 msgid "Sent to"
 msgstr "Enviar para"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:106
+#: includes/class-notify-users-e-mail-admin.php:127
 msgid "Enter with the recipients for the email (separated by commas)."
 msgstr ""
 "Digite os emails que irão receber as notificações (separados por vírgulas)"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:114
+#: includes/class-notify-users-e-mail-admin.php:135
 msgid "Send to users"
 msgstr "Enviar para os usuários"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:120
+#: includes/class-notify-users-e-mail-admin.php:141
 msgid "Select the type of user that will receive notifications."
 msgstr "Selecione o nível dos usuários que podem receber as notificações"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:128
+#: includes/class-notify-users-e-mail-admin.php:149
 msgid "Subject to Post"
 msgstr "Assunto para Post"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:142
+#: includes/class-notify-users-e-mail-admin.php:163
 msgid "Body to Post"
 msgstr "Corpo para Mensagem de Post"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:156
+#: includes/class-notify-users-e-mail-admin.php:177
 msgid "Subject to Page"
 msgstr "Assunto para Página"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:170
+#: includes/class-notify-users-e-mail-admin.php:191
 msgid "Body to Page"
 msgstr "Corpo para Mensagem de Página"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:184
+#: includes/class-notify-users-e-mail-admin.php:205
 msgid "Subject to comment"
 msgstr "Assunto para Comentário"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:198
+#: includes/class-notify-users-e-mail-admin.php:219
 msgid "Body to Comment"
 msgstr "Corpo para Mensagem de Comentário"
 
 # @ notify-users-e-mail
-#: includes/class-notify-users-e-mail-admin.php:343
+#: includes/class-notify-users-e-mail-admin.php:364
 msgid "Settings"
 msgstr "Configurações"
 
@@ -133,21 +140,21 @@ msgid "New page published at %s on {date}"
 msgstr "Nova página publicada no %s em {date}"
 
 #: notify-users-e-mail.php:238
-msgid "A new page {title} - {link_post} has been published on {date}."
-msgstr "Uma nova página {title} - {link_post} foi publicada em {date}."
+msgid "A new page {title} - {link_page} has been published on {date}."
+msgstr "Uma nova página {title} - {link_page} foi publicada em {date}."
 
 # @ notify-users-e-mail
 #: notify-users-e-mail.php:239
 #, php-format
-msgid "New comment published at %s on {date}"
-msgstr "Novo comentário publicado no %s em {date}"
+msgid "New comment published at %s"
+msgstr "Novo comentário publicado no %s"
 
 # @ notify-users-e-mail
 #: notify-users-e-mail.php:240
-msgid "A new comment {link_post} has been published on {date}."
-msgstr "Um novo comentário {link_post} foi publicado em {date}."
+msgid "A new comment {link_comment} has been published."
+msgstr "Um novo comentário {link_comment} foi publicado em {date}."
 
 # @ notify-users-e-mail
 #: notify-users-e-mail.php:324
 msgid "\\a\\t"
-msgstr "em"
+msgstr "\\e\\m"

@@ -74,7 +74,7 @@ class Notify_Users_EMail_Admin {
 	 */
 	public function plugin_settings() {
 		$settings_section = 'settings_section';
-		$placeholders_description = sprintf(
+		$placeholders_description_post = sprintf(
 			__( '%s You can use the following placeholders:%s %s', 'notify-users-e-mail' ),
 			'<p>',
 			'</p>',
@@ -83,6 +83,27 @@ class Notify_Users_EMail_Admin {
 				__( 'to display the title', 'notify-users-e-mail' ),
 				__( 'to display the URL', 'notify-users-e-mail' ),
 				__( 'to display the date of publication', 'notify-users-e-mail' )
+			)
+		);
+		$placeholders_description_page = sprintf(
+			__( '%s You can use the following placeholders:%s %s', 'notify-users-e-mail' ),
+			'<p>',
+			'</p>',
+			sprintf(
+				'<ul><li><p><code>{title}</code> %s</p></li><li><p><code>{link_page}</code> %s</p></li><li><p><code>{date}</code> %s</p></li></ul>',
+				__( 'to display the title', 'notify-users-e-mail' ),
+				__( 'to display the URL', 'notify-users-e-mail' ),
+				__( 'to display the date of publication', 'notify-users-e-mail' )
+			)
+		);
+		$placeholders_description_comment = sprintf(
+			__( '%s You can use the following placeholders:%s %s', 'notify-users-e-mail' ),
+			'<p>',
+			'</p>',
+			sprintf(
+				'<ul><li><p><code>{title}</code> %s</p></li><li><p><code>{link_comment}</code> %s</p></li></ul>',
+				__( 'to display the title', 'notify-users-e-mail' ),
+				__( 'to display the URL', 'notify-users-e-mail' )
 			)
 		);
 
@@ -131,7 +152,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'subject_post',
-				'description' => $placeholders_description,
+				'description' => $placeholders_description_post,
 				'default'     => ''
 			)
 		);
@@ -145,7 +166,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'body_post',
-				'description' => $placeholders_description,
+				'description' => $placeholders_description_post,
 				'default'     => ''
 			)
 		);
@@ -159,7 +180,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'subject_page',
-				'description' => $placeholders_description,
+				'description' => $placeholders_description_page,
 				'default'     => ''
 			)
 		);
@@ -173,7 +194,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'body_page',
-				'description' => $placeholders_description,
+				'description' => $placeholders_description_page,
 				'default'     => ''
 			)
 		);
@@ -187,7 +208,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'subject_comment',
-				'description' => $placeholders_description,
+				'description' => $placeholders_description_comment,
 				'default'     => ''
 			)
 		);
@@ -201,7 +222,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'body_comment',
-				'description' => $placeholders_description,
+				'description' => $placeholders_description_comment,
 				'default'     => ''
 			)
 		);

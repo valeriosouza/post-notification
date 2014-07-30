@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Notify Users E-Mail.
  *
  * @package   Notify_Users_EMail
@@ -8,18 +8,18 @@
  * @link      http://wordpress.org/plugins/notify-users-e-mail/
  * @copyright 2013 CodeHost
  *
- * @wordpress-plugin
- * Plugin Name:       Notify Users E-Mail
- * Plugin URI:        http://wordpress.org/plugins/notify-users-e-mail/
- * Description:       Notification of new posts by e-mail to all users
- * Version:           3.0.2
- * Author:            Valerio Souza, claudiosanches, ThalitaPinheiro
- * Author URI:        http://valeriosouza.com.br
- * Text Domain:       notify-users-e-mail
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Domain Path:       /languages
- * GitHub Plugin URI: https://github.com/valeriosouza/notify-users-e-mail
+@wordpress-plugin
+Plugin Name:       Notify Users E-Mail
+Plugin URI:        http://wordpress.org/plugins/notify-users-e-mail/
+Description:       Notification of new posts by e-mail to all users
+Version:           3.0.2
+Author:            Valerio Souza, claudiosanches, ThalitaPinheiro
+Author URI:        http://valeriosouza.com.br
+Text Domain:       notify-users-e-mail
+License:           GPL-2.0+
+License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+Domain Path:       /languages
+GitHub Plugin URI: https://github.com/valeriosouza/notify-users-e-mail
  */
 
 // If this file is called directly, abort.

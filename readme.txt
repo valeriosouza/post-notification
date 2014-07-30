@@ -4,7 +4,7 @@ Donate link: http://valeriosouza.com.br/doacoes/
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter
 Requires at least: 3.0
 Tested up to: 3.9
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,12 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 == Changelog ==
 
+= 3.0.2 - 29/07/2014 =
+
+* Fixed: Resolved error comments link.
+
+* Unreal: It is possible to buy Google for $1.
+
 = 3.0.1 - 01/07/2014 =
 
 * New: Adapted to work with the My SMTP WP plugin .
@@ -124,6 +130,10 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 * Lançada primeira versão beta
 
 == Upgrade Notice ==
+
+= 3.0.2 =
+
+Resolved error comments link.
 
 = 3.0.1 =
 

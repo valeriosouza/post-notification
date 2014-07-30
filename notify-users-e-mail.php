@@ -320,10 +320,9 @@ class Notify_Users_EMail {
 	 *
 	 * @return string          New string.
 	 */
-	protected function apply_placeholders( $string, $post_id, $comment,$comment_id ) {
+	protected function apply_placeholders( $string, $post_id ) {
 		$default_date_format = get_option( 'date_format' ) . ' ' . __( '\a\t', 'notify-users-e-mail' ) . ' ' . get_option( 'time_format' );
 		$date_format = apply_filters( $this->get_settings_name() . '_date_format', get_the_time( $default_date_format, $post_id ) );
-		$comment = get_comment($comment_id);
 
 		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post_id ) ), $string );
 		$string = str_replace( '{link_post}', esc_url( get_permalink( $post_id ) ), $string );

@@ -4,7 +4,7 @@ Donate link: http://valeriosouza.com.br/doacoes/
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter
 Requires at least: 3.0
 Tested up to: 3.9
-Stable tag: 3.0.3
+Stable tag: 3.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,7 +51,7 @@ We recommend http://wordpress.org/plugins/my-smtp-wp/
 
 = Is to change the way of shooting? =
 
-Yes, you can use an SMTP plugin. 
+Yes, you can use an SMTP plugin.
 
 We recommend http://wordpress.org/plugins/my-smtp-wp/
 
@@ -84,30 +84,29 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 == Changelog ==
 
-= 3.0.3 - 03/08/2014 =
+= 3.1.0 - 03/08/2014 =
 
-* Fixed: Fix error duplicate emails and placeholders.
-
+* New: Added new {date} placeholder for comments.
+* New: Improved the date format with date_i18n().
+* Fixed: Fixed the duplicate emails.
+* Fixed: Fixed broken placeholders.
+* Fixed: Fixed the page and comments validation when save the options.
 * Unreal: The World not found.
 
 = 3.0.2 - 29/07/2014 =
 
 * Fixed: Resolved error comments link.
-
 * Unreal: It is possible to buy Google for $1.
 
 = 3.0.1 - 01/07/2014 =
 
 * New: Adapted to work with the My SMTP WP plugin .
-
 * Unreal: Makes fresh coffee for you.
 
 = 3.0.0 - 26/06/2014 =
 
 * New: Now it is possible to notify new pages created and new comments received.
-
 * New: New translations available
-
 * Unreal: Makes fresh coffee for you.
 
 = 2.0.0 - 16/04/2014 =
@@ -139,6 +138,9 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 == Upgrade Notice ==
 
+= 3.1.0 =
+Added new {date} placeholder for comments, Improved the date format with date_i18n(), Fixed the duplicate emails, Fixed broken placeholders, Fixed the page and comments validation when save the options.
+
 = 3.0.3 =
 
 Resolved error comments link.
@@ -152,8 +154,6 @@ Fix error duplicate emails and placeholders.
 Adapted to work with the My SMTP WP plugin .
 
 = 2.1.0 =
-
-New tasks created at the request of users
 
 == License ==
 

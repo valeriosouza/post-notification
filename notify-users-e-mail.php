@@ -327,7 +327,7 @@ class Notify_Users_EMail {
 		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post_id ) ), $string );
 		$string = str_replace( '{link_post}', esc_url( get_permalink( $post_id ) ), $string );
 		$string = str_replace( '{link_page}', esc_url( get_permalink( $post_id ) ), $string );
-		$string = str_replace( '{link_comment}', esc_url( get_comment_link($post_id) ), $string );
+		$string = str_replace( '{link_comment}', get_comment_link($post_id), $string );
 		$string = str_replace( '{date}', $date_format, $string );
 		//back is comming
 		//$string = str_replace( '{excerpt}', sanitize_text_field( get_the_excerpt( $post_id ) ), $string );
@@ -387,7 +387,7 @@ class Notify_Users_EMail {
 			$subject_post  = $this->apply_placeholders( $settings['subject_post'], $post_id );
 			$body_post     = $this->apply_placeholders( $settings['body_post'], $post_id );
 			$headers  = 'Bcc: ' . implode( ',', $emails );
-
+			//error_log( print_r( $this, true ) );
 			// Send the emails.
 			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
 				wp_mail( '', $subject_post, $body_post, $headers );

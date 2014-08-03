@@ -141,13 +141,9 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 = 3.1.0 =
 Added new {date} placeholder for comments, Improved the date format with date_i18n(), Fixed the duplicate emails, Fixed broken placeholders, Fixed the page and comments validation when save the options.
 
-= 3.0.3 =
-
-Resolved error comments link.
-
 = 3.0.2 =
 
-Fix error duplicate emails and placeholders.
+Resolved error comments link.
 
 = 3.0.1 =
 

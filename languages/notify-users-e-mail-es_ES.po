@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/notify-users-e-"
 "mail\n"
 "POT-Creation-Date: 2014-07-29 22:05-0300\n"
-"PO-Revision-Date: 2014-07-29 22:06-0300\n"
+"PO-Revision-Date: 2014-08-03 18:32-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es_ES\n"
@@ -137,7 +137,7 @@ msgstr "Una nueva entrada {title} - {link_post} ha sido publicada en {date}."
 #: notify-users-e-mail.php:237
 #, php-format
 msgid "New page published at %s on {date}"
-msgstr ""
+msgstr "Nueva entrada publicada a las %s"
 
 # @ notify-users-e-mail
 #: notify-users-e-mail.php:238

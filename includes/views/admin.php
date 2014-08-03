@@ -23,8 +23,8 @@ if ( ! defined( 'WPINC' ) ) {
     <?php echo '<p>' . __( 'This plugin notifies registered users via email of new posts, pages and comments posted.', 'notify-users-e-mail' ) . '</p>' ?>
     <form method="post" action="options.php">
         <?php
-            settings_fields( $settings_name );
-            do_settings_sections( $settings_name );
+            settings_fields( 'notify_users_email' );
+            do_settings_sections( 'notify_users_email' );
             submit_button();
         ?>
     </form>

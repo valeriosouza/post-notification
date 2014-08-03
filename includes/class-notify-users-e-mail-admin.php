@@ -10,7 +10,7 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
@@ -27,9 +27,6 @@ class Notify_Users_EMail_Admin {
 	 * settings page and menu.
 	 */
 	public function __construct() {
-		$plugin              = Notify_Users_EMail::get_instance();
-		$this->settings_name = $plugin->get_settings_name();
-
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
@@ -62,8 +59,6 @@ class Notify_Users_EMail_Admin {
 	 * @return void
 	 */
 	public function display_plugin_admin_page() {
-		$settings_name = $this->settings_name;
-
 		include_once 'views/admin.php';
 	}
 
@@ -101,9 +96,10 @@ class Notify_Users_EMail_Admin {
 			'<p>',
 			'</p>',
 			sprintf(
-				'<ul><li><p><code>{title}</code> %s</p></li><li><p><code>{link_comment}</code> %s</p></li></ul>',
+				'<ul><li><p><code>{title}</code> %s</p></li><li><p><code>{link_comment}</code> %s</p></li><li><p><code>{date}</code> %s</p></li></ul>',
 				__( 'to display the title', 'notify-users-e-mail' ),
-				__( 'to display the URL', 'notify-users-e-mail' )
+				__( 'to display the URL', 'notify-users-e-mail' ),
+				__( 'to display the date of comment publication', 'notify-users-e-mail' )
 			)
 		);
 
@@ -112,7 +108,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			__( 'Email Settings', 'notify-users-e-mail' ),
 			'__return_false',
-			$this->settings_name
+			'notify_users_email'
 		);
 
 		// Sent to.
@@ -120,7 +116,7 @@ class Notify_Users_EMail_Admin {
 			'send_to',
 			__( 'Sent to', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
-			$this->settings_name,
+			'notify_users_email',
 			$settings_section,
 			array(
 				'id'          => 'send_to',
@@ -134,7 +130,7 @@ class Notify_Users_EMail_Admin {
 			'send_to_users',
 			__( 'Send to users', 'notify-users-e-mail' ),
 			array( $this, 'users_callback' ),
-			$this->settings_name,
+			'notify_users_email',
 			$settings_section,
 			array(
 				'id'          => 'send_to_users',
@@ -148,7 +144,7 @@ class Notify_Users_EMail_Admin {
 			'subject_post',
 			__( 'Subject to Post', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
-			$this->settings_name,
+			'notify_users_email',
 			$settings_section,
 			array(
 				'id'          => 'subject_post',
@@ -162,7 +158,7 @@ class Notify_Users_EMail_Admin {
 			'body_post',
 			__( 'Body to Post', 'notify-users-e-mail' ),
 			array( $this, 'textarea_callback' ),
-			$this->settings_name,
+			'notify_users_email',
 			$settings_section,
 			array(
 				'id'          => 'body_post',
@@ -176,7 +172,7 @@ class Notify_Users_EMail_Admin {
 			'subject_page',
 			__( 'Subject to Page', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
-			$this->settings_name,
+			'notify_users_email',
 			$settings_section,
 			array(
 				'id'          => 'subject_page',
@@ -190,7 +186,7 @@ class Notify_Users_EMail_Admin {
 			'body_page',
 			__( 'Body to Page', 'notify-users-e-mail' ),
 			array( $this, 'textarea_callback' ),
-			$this->settings_name,
+			'notify_users_email',
 			$settings_section,
 			array(
 				'id'          => 'body_page',
@@ -204,7 +200,7 @@ class Notify_Users_EMail_Admin {
 			'subject_comment',
 			__( 'Subject to comment', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
-			$this->settings_name,
+			'notify_users_email',
 			$settings_section,
 			array(
 				'id'          => 'subject_comment',
@@ -218,7 +214,7 @@ class Notify_Users_EMail_Admin {
 			'body_comment',
 			__( 'Body to Comment', 'notify-users-e-mail' ),
 			array( $this, 'textarea_callback' ),
-			$this->settings_name,
+			'notify_users_email',
 			$settings_section,
 			array(
 				'id'          => 'body_comment',
@@ -228,7 +224,7 @@ class Notify_Users_EMail_Admin {
 		);
 
 		// Register settings.
-		register_setting( $this->settings_name, $this->settings_name, array( $this, 'validate_options' ) );
+		register_setting( 'notify_users_email', 'notify_users_email', array( $this, 'validate_options' ) );
 	}
 
 	/**
@@ -240,7 +236,7 @@ class Notify_Users_EMail_Admin {
 	 * @return array           Option value.
 	 */
 	protected function get_option_value( $id, $default = '' ) {
-		$options = get_option( $this->settings_name );
+		$options = get_option( 'notify_users_email' );
 
 		if ( isset( $options[ $id ] ) ) {
 			$default = $options[ $id ];
@@ -264,7 +260,7 @@ class Notify_Users_EMail_Admin {
 		// Sets current option.
 		$current = $this->get_option_value( $id, $args['default'] );
 
-		$html = sprintf( '<select id="%1$s" name="%2$s[%1$s][]" multiple="multiple">', $id, $this->settings_name );
+		$html = sprintf( '<select id="%1$s" name="%2$s[%1$s][]" multiple="multiple">', $id, 'notify_users_email' );
 		foreach ( $roles as $role_value => $role_name ) {
 			$current_item = in_array( $role_value, $current ) ? ' selected="selected"' : '';
 			$html .= sprintf( '<option value="%s"%s>%s</option>', $role_value, $current_item, $role_name );
@@ -293,7 +289,7 @@ class Notify_Users_EMail_Admin {
 		// Sets current option.
 		$current = esc_html( $this->get_option_value( $id, $args['default'] ) );
 
-		$html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="regular-text" />', $id, $this->settings_name, $current );
+		$html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="regular-text" />', $id, 'notify_users_email', $current );
 
 		// Displays the description.
 		if ( $args['description'] ) {
@@ -316,7 +312,7 @@ class Notify_Users_EMail_Admin {
 		// Sets current option.
 		$current = esc_html( $this->get_option_value( $id, $args['default'] ) );
 
-		$html = sprintf( '<textarea id="%1$s" name="%2$s[%1$s]" cols="60" rows="5">%3$s</textarea>', $id, $this->settings_name, $current );
+		$html = sprintf( '<textarea id="%1$s" name="%2$s[%1$s]" cols="60" rows="5">%3$s</textarea>', $id, 'notify_users_email', $current );
 
 		// Displays the description.
 		if ( $args['description'] ) {
@@ -344,7 +340,7 @@ class Notify_Users_EMail_Admin {
 						$send_to_users[] = sanitize_text_field( $value );
 					}
 					$output[ $key ] = $send_to_users;
-				} elseif ( 'body_post' == $key ) {
+				} elseif ( in_array( $key, array( 'body_post', 'body_page', 'body_comment' ) ) ) {
 					$output[ $key ] = wp_kses( $input[ $key ], array() );
 				} else {
 					$output[ $key ] = sanitize_text_field( $input[ $key ] );

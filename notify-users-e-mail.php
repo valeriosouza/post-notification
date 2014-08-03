@@ -23,7 +23,7 @@ GitHub Plugin URI: https://github.com/valeriosouza/notify-users-e-mail
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
@@ -43,13 +43,6 @@ class Notify_Users_EMail {
 	 * @var string
 	 */
 	const VERSION = '3.0.2';
-
-	/**
-	 * Settings name.
-	 *
-	 * @var      string
-	 */
-	protected static $settings_name = 'notify_users_email';
 
 	/**
 	 * Instance of this class.
@@ -94,15 +87,6 @@ class Notify_Users_EMail {
 	 */
 	private function admin_include() {
 		require_once 'includes/class-notify-users-e-mail-admin.php';
-	}
-
-	/**
-	 * Return the settings name.
-	 *
-	 * @return string Settings name variable.
-	 */
-	public function get_settings_name() {
-		return self::$settings_name;
 	}
 
 	/**
@@ -200,16 +184,16 @@ class Notify_Users_EMail {
 		$options = array(
 			'send_to'          => '',
 			'send_to_users'    => array_keys( get_editable_roles() ),
-			'subject_post'     => sprintf( __( 'New post published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
-			'body_post'        => __( 'A new post {title} - {link_post} has been published on {date}.', self::$settings_name ),
-			'subject_page'     => sprintf( __( 'New page published at %s on {date}', self::$settings_name ), get_bloginfo( 'name' ) ),
-			'body_page'        => __( 'A new page {title} - {link_page} has been published on {date}.', self::$settings_name ),
-			'subject_comment'  => sprintf( __( 'New comment published at %s', self::$settings_name ), get_bloginfo( 'name' ) ),
-			'body_comment'     => __( 'A new comment {link_comment} has been published.', self::$settings_name ),
+			'subject_post'     => sprintf( __( 'New post published at %s on {date}', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
+			'body_post'        => __( 'A new post {title} - {link_post} has been published on {date}.', 'notify-users-e-mail' ),
+			'subject_page'     => sprintf( __( 'New page published at %s on {date}', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
+			'body_page'        => __( 'A new page {title} - {link_page} has been published on {date}.', 'notify-users-e-mail' ),
+			'subject_comment'  => sprintf( __( 'New comment published at %s', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
+			'body_comment'     => __( 'A new comment {link_comment} has been published.', 'notify-users-e-mail' ),
 		);
 
-		add_option( self::$settings_name, $options );
-		add_option( self::$settings_name . '_version', self::VERSION );
+		add_option( 'notify_users_email', $options );
+		add_option( 'notify_users_email_version', self::VERSION );
 	}
 
 	/**
@@ -220,19 +204,19 @@ class Notify_Users_EMail {
 	 * @return   void
 	 */
 	public function update() {
-		$version = get_option( self::$settings_name . '_version' );
+		$version = get_option( 'notify_users_email_version' );
 
 		if ( empty( $version ) ) {
 			if ( get_option( 'notify_users_mail' ) ) {
 				$options = array(
-					'send_to'       => get_option( 'notify_users_mail' ),
-					'send_to_users' => array_keys( get_editable_roles() ),
-					'subject_post'       => get_option( 'notify_users_subject_post' ),
-					'body_post'          => get_option( 'notify_users_body_post' ),
-					'subject_page'       => get_option( 'notify_users_subject_page' ),
-					'body_page'          => get_option( 'notify_users_body_page' ),
-					'subject_comment'       => get_option( 'notify_users_subject_comment' ),
-					'body_comment'          => get_option( 'notify_users_body_comment' ),
+					'send_to'         => get_option( 'notify_users_mail' ),
+					'send_to_users'   => array_keys( get_editable_roles() ),
+					'subject_post'    => get_option( 'notify_users_subject_post' ),
+					'body_post'       => get_option( 'notify_users_body_post' ),
+					'subject_page'    => get_option( 'notify_users_subject_page' ),
+					'body_page'       => get_option( 'notify_users_body_page' ),
+					'subject_comment' => get_option( 'notify_users_subject_comment' ),
+					'body_comment'    => get_option( 'notify_users_body_comment' ),
 				);
 
 				// Remove old options.
@@ -245,8 +229,8 @@ class Notify_Users_EMail {
 				delete_option( 'notify_users_body_comment' );
 
 				// Save new options.
-				update_option( self::$settings_name, $options );
-				update_option( self::$settings_name . '_version', self::VERSION );
+				update_option( 'notify_users_email', $options );
+				update_option( 'notify_users_email_version', self::VERSION );
 			}
 		}
 	}

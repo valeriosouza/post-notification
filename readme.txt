@@ -4,7 +4,7 @@ Donate link: http://valeriosouza.com.br/doacoes/
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter
 Requires at least: 3.0
 Tested up to: 3.9
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,8 @@ The notification uses the E-mail PHP, check with your hosting your sending limit
 Are usually accepted 200 emails per hour.
 
 If your hosting server does not allow sending emails, use a plugin like SMTP http://wordpress.org/plugins/my-smtp-wp/
+
+Want to keep up with the latest news from this plugin? Follow Twitter [@valeriooficial](https://twitter.com/valeriooficial) and [@claudiosmweb](https://twitter.com/claudiosmweb) and the hashtag [#notifyuserswp](https://twitter.com/search?f=realtime&q=%23notifyuserswp&src=typd).
 
 == Installation ==
 
@@ -82,6 +84,12 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 == Changelog ==
 
+= 3.0.3 - 03/08/2014 =
+
+* Fixed: Fix error duplicate emails and placeholders.
+
+* Unreal: The World not found.
+
 = 3.0.2 - 29/07/2014 =
 
 * Fixed: Resolved error comments link.
@@ -131,9 +139,13 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 == Upgrade Notice ==
 
-= 3.0.2 =
+= 3.0.3 =
 
 Resolved error comments link.
+
+= 3.0.2 =
+
+Fix error duplicate emails and placeholders.
 
 = 3.0.1 =
 

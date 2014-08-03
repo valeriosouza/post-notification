@@ -78,13 +78,13 @@ class Notify_Users_EMail {
 		}
 
 		// Nofity users when publish a post.
-		add_action( 'publish_post', array( $this, 'send_notification_post' ) );
+		add_action( 'publish_post', array( $this, 'send_notification_post' ), 10, 2 );
 
 		// Nofity users when publish a page.
-		add_action( 'publish_page', array( $this, 'send_notification_page' ) );
+		add_action( 'publish_page', array( $this, 'send_notification_page' ), 10, 2 );
 
 		// Nofity users when publish a comment.
-		add_action( 'wp_insert_comment', array( $this, 'send_notification_comment' ) );
+		add_action( 'wp_insert_comment', array( $this, 'send_notification_comment' ), 10, 2 );
 	}
 
 	/**
@@ -151,38 +151,6 @@ class Notify_Users_EMail {
 	}
 
 	/**
-	 * Fired when the plugin is deactivated.
-	 *
-	 * @param  boolean $network_wide True if WPMU superadmin uses
-	 *                               "Network Deactivate" action, false if
-	 *                               WPMU is disabled or plugin is
-	 *                               deactivated on an individual blog.
-	 *
-	 * @return void
-	 */
-	public static function deactivate( $network_wide ) {
-		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-			if ( $network_wide ) {
-
-				// Get all blog ids
-				$blog_ids = self::get_blog_ids();
-
-				foreach ( $blog_ids as $blog_id ) {
-					switch_to_blog( $blog_id );
-					self::single_deactivate();
-				}
-
-				restore_current_blog();
-			} else {
-				self::single_deactivate();
-			}
-
-		} else {
-			self::single_deactivate();
-		}
-	}
-
-	/**
 	 * Fired when a new site is activated with a WPMU environment.
 	 *
 	 * @param    int    $blog_id    ID of the new blog.
@@ -222,12 +190,12 @@ class Notify_Users_EMail {
 	 * @return   void
 	 */
 	private static function single_activate() {
-        if ( ! current_user_can( 'activate_plugins' ) ) {
-            return;
-        }
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			return;
+		}
 
-        $plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
-        check_admin_referer( 'activate-plugin_' . $plugin );
+		$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
+		check_admin_referer( 'activate-plugin_' . $plugin );
 
 		$options = array(
 			'send_to'          => '',
@@ -242,23 +210,6 @@ class Notify_Users_EMail {
 
 		add_option( self::$settings_name, $options );
 		add_option( self::$settings_name . '_version', self::VERSION );
-	}
-
-	/**
-	 * Fired for each blog when the plugin is deactivated.
-	 *
-	 * @return   void
-	 */
-	private static function single_deactivate() {
-        if ( ! current_user_can( 'activate_plugins' ) ) {
-            return;
-        }
-
-        $plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
-        check_admin_referer( 'deactivate-plugin_' . $plugin );
-
-		delete_option( self::$settings_name );
-		delete_option( self::$settings_name . '_version' );
 	}
 
 	/**
@@ -313,24 +264,45 @@ class Notify_Users_EMail {
 	}
 
 	/**
-	 * Apply placeholders.
+	 * Get formated date.
 	 *
-	 * @param  string $string  String to apply the placeholder.
-	 * @param  int    $post_id Post ID.
-	 *
-	 * @return string          New string.
+	 * @return string
 	 */
-	protected function apply_placeholders( $string, $post_id ) {
-		$default_date_format = get_option( 'date_format' ) . ' ' . __( '\a\t', 'notify-users-e-mail' ) . ' ' . get_option( 'time_format' );
-		$date_format = apply_filters( $this->get_settings_name() . '_date_format', get_the_time( $default_date_format, $post_id ) );
+	protected function get_formated_date( $date ) {
+		$format = get_option( 'date_format' ) . ' ' . _x( '\a\t', 'date format', 'notify-users-e-mail' ) . ' ' . get_option( 'time_format' );
 
-		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post_id ) ), $string );
-		$string = str_replace( '{link_post}', esc_url( get_permalink( $post_id ) ), $string );
-		$string = str_replace( '{link_page}', esc_url( get_permalink( $post_id ) ), $string );
-		$string = str_replace( '{link_comment}', get_comment_link($post_id), $string );
-		$string = str_replace( '{date}', $date_format, $string );
-		//back is comming
-		//$string = str_replace( '{excerpt}', sanitize_text_field( get_the_excerpt( $post_id ) ), $string );
+		return apply_filters( 'notify_users_email_date_format', date_i18n( $format, strtotime( $date ) ) );
+	}
+
+	/**
+	 * Apply content placeholders.
+	 *
+	 * @param  string  $string  String to apply the placeholders.
+	 * @param  WP_Post $post    Post/page data.
+	 *
+	 * @return string           New content.
+	 */
+	protected function apply_content_placeholders( $string, $post ) {
+		$string = str_replace( '{title}', sanitize_text_field( $post->post_title ), $string );
+		$string = str_replace( '{link_post}', esc_url( get_permalink( $post->ID ) ), $string );
+		$string = str_replace( '{link_page}', esc_url( get_permalink( $post->ID ) ), $string );
+		$string = str_replace( '{date}', $this->get_formated_date( $post->post_date ), $string );
+
+		return $string;
+	}
+
+	/**
+	 * Apply comment placeholders.
+	 *
+	 * @param  string   $string  String to apply the placehoders.
+	 * @param  stdClass $comment Comment data.
+	 *
+	 * @return string            New content.
+	 */
+	protected function apply_comment_placeholders( $string, $comment ) {
+		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $comment->comment_post_ID ) ), $string );
+		$string = str_replace( '{link_comment}', get_comment_link( $comment->comment_ID ), $string );
+		$string = str_replace( '{date}', $this->get_formated_date( $comment->comment_date ), $string );
 
 		return $string;
 	}
@@ -376,78 +348,99 @@ class Notify_Users_EMail {
 	/**
 	 * Nofity users when publish a post.
 	 *
-	 * @param  int $post_id Current post ID.
+	 * @param  int     $id   Post ID.
+	 * @param  WP_Post $post Post data.
 	 *
 	 * @return void
 	 */
-	public function send_notification_post( $post_id ) {
+	public function send_notification_post( $id, $post ) {
 		if ( 'publish' == $_POST['post_status'] && 'publish' != $_POST['original_post_status'] ) {
-			$settings = get_option( $this->get_settings_name() );
-			$emails   = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
-			$subject_post  = $this->apply_placeholders( $settings['subject_post'], $post_id );
-			$body_post     = $this->apply_placeholders( $settings['body_post'], $post_id );
-			$headers  = 'Bcc: ' . implode( ',', $emails );
-			//error_log( print_r( $this, true ) );
+
+			// Prevents sent twice.
+			$sended = get_post_meta( $id, '_notify_users_email_sended', true );
+			if ( $sended ) {
+				return;
+			}
+
+			$settings     = get_option( 'notify_users_email' );
+			$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
+			$subject_post = $this->apply_content_placeholders( $settings['subject_post'], $post );
+			$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
+			$headers      = 'Bcc: ' . implode( ',', $emails );
+
 			// Send the emails.
-			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
 				wp_mail( '', $subject_post, $body_post, $headers );
 			} else {
-				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_post, $body_post );
+				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_post, $body_post );
 			}
+
+			add_post_meta( $id, '_notify_users_email_sended', true );
 		}
 	}
 
 	/**
 	 * Nofity users when publish a page.
 	 *
-	 * @param  int $post_id Current post ID.
+	 * @param  int     $id   Post ID.
+	 * @param  WP_Post $post Post data.
 	 *
 	 * @return void
 	 */
-	public function send_notification_page( $post_id ) {
+	public function send_notification_page( $id, $post ) {
 		if ( 'publish' == $_POST['post_status'] && 'publish' != $_POST['original_post_status'] ) {
-			$settings = get_option( $this->get_settings_name() );
-			$emails   = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
-			$subject_page  = $this->apply_placeholders( $settings['subject_page'], $post_id );
-			$body_page     = $this->apply_placeholders( $settings['body_page'], $post_id );
-			$headers  = 'Bcc: ' . implode( ',', $emails );
+
+			// Prevents sent twice.
+			$sended = get_post_meta( $id, '_notify_users_email_sended', true );
+			if ( $sended ) {
+				return;
+			}
+
+			$settings     = get_option( 'notify_users_email' );
+			$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
+			$subject_page = $this->apply_content_placeholders( $settings['subject_page'], $post );
+			$body_page    = $this->apply_content_placeholders( $settings['body_page'], $post );
+			$headers      = 'Bcc: ' . implode( ',', $emails );
 
 			// Send the emails.
-			if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
 				wp_mail( '', $subject_page, $body_page, $headers );
 			} else {
-				do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_page, $body_page );
+				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_page, $body_page );
 			}
+
+			add_post_meta( $id, '_notify_users_email_sended', true );
 		}
 	}
+
 	/**
 	 * Nofity users when publish a comment.
 	 *
-	 * @param int $post_id Current post ID.
+	 * @param int      $id Comment ID.
+	 * @param stdClass $id Comment data.
 	 *
 	 * @return void
 	 */
-	public function send_notification_comment( $post_id ) {
-		$settings         = get_option( $this->get_settings_name() );
-		$emails           = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
-		$subject_comment  = $this->apply_placeholders( $settings['subject_comment'], $post_id );
-		$body_comment     = $this->apply_placeholders( $settings['body_comment'], $post_id );
-		$headers          = 'Bcc: ' . implode( ',', $emails );
+	public function send_notification_comment( $id, $comment ) {
+		$settings        = get_option( 'notify_users_email' );
+		$emails          = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
+		$subject_comment = $this->apply_comment_placeholders( $settings['subject_comment'], $comment );
+		$body_comment    = $this->apply_comment_placeholders( $settings['body_comment'], $comment );
+		$headers         = 'Bcc: ' . implode( ',', $emails );
 
 		// Send the emails.
-		if ( apply_filters( $this->get_settings_name() . '_use_wp_mail', true ) ) {
+		if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
 			wp_mail( '', $subject_comment, $body_comment, $headers );
 		} else {
-			do_action( $this->get_settings_name() . '_custom_mail_engine', $emails, $subject_comment, $body_comment );
+			do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_comment, $body_comment );
 		}
 	}
 }
 
 /**
- * Register plugin activation and deactivation.
+ * Register plugin activation.
  */
 register_activation_hook( __FILE__, array( 'Notify_Users_EMail', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'Notify_Users_EMail', 'deactivate' ) );
 
 /**
  * Initialize the plugin.

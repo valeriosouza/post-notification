@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Notify Users E-Mail 3.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/notify-users-e-"
 "mail\n"
-"POT-Creation-Date: 2014-08-03 21:14:19+00:00\n"
+"POT-Creation-Date: 2014-08-03 21:22:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,19 +28,25 @@ msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:78
 #: includes/class-notify-users-e-mail-admin.php:89
-#: includes/class-notify-users-e-mail-admin.php:100
 msgid "to display the title"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:79
 #: includes/class-notify-users-e-mail-admin.php:90
-#: includes/class-notify-users-e-mail-admin.php:101
 msgid "to display the URL"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:80
 #: includes/class-notify-users-e-mail-admin.php:91
 msgid "to display the date of publication"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:100
+msgid "to display the post title"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:101
+msgid "to display the coment URL"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:102

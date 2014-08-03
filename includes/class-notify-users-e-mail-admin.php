@@ -97,8 +97,8 @@ class Notify_Users_EMail_Admin {
 			'</p>',
 			sprintf(
 				'<ul><li><p><code>{title}</code> %s</p></li><li><p><code>{link_comment}</code> %s</p></li><li><p><code>{date}</code> %s</p></li></ul>',
-				__( 'to display the title', 'notify-users-e-mail' ),
-				__( 'to display the URL', 'notify-users-e-mail' ),
+				__( 'to display the post title', 'notify-users-e-mail' ),
+				__( 'to display the coment URL', 'notify-users-e-mail' ),
 				__( 'to display the date of comment publication', 'notify-users-e-mail' )
 			)
 		);

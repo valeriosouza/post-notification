@@ -1,0 +1,161 @@
+# Copyright (C) 2014 Notify Users E-Mail
+# This file is distributed under the same license as the Notify Users E-Mail package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Notify Users E-Mail 3.1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/notify-users-e-"
+"mail\n"
+"POT-Creation-Date: 2014-08-03 21:22:02+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-09-03 21:10+0100\n"
+"Last-Translator: \n"
+"Language-Team: snowbeachking\n"
+"X-Generator: Poedit 1.6.9\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+
+#. Plugin Name of the plugin/theme
+#: includes/class-notify-users-e-mail-admin.php:48
+#: includes/class-notify-users-e-mail-admin.php:49
+msgid "Notify Users E-Mail"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:73
+#: includes/class-notify-users-e-mail-admin.php:84
+#: includes/class-notify-users-e-mail-admin.php:95
+msgid "%s You can use the following placeholders:%s %s"
+msgstr "%s Du kannst die folgenden Platzhalter verwenden:%s %s"
+
+#: includes/class-notify-users-e-mail-admin.php:78
+#: includes/class-notify-users-e-mail-admin.php:89
+msgid "to display the title"
+msgstr "zeigt den Titel an"
+
+#: includes/class-notify-users-e-mail-admin.php:79
+#: includes/class-notify-users-e-mail-admin.php:90
+msgid "to display the URL"
+msgstr "zeigt die URL an"
+
+#: includes/class-notify-users-e-mail-admin.php:80
+#: includes/class-notify-users-e-mail-admin.php:91
+msgid "to display the date of publication"
+msgstr "zeigt das Ver&ouml;ffentlichungsdatum an"
+
+#: includes/class-notify-users-e-mail-admin.php:100
+msgid "to display the post title"
+msgstr "zeigt den Beitragstitel an"
+
+#: includes/class-notify-users-e-mail-admin.php:101
+msgid "to display the coment URL"
+msgstr "zeigt die Kommentar-URL an"
+
+#: includes/class-notify-users-e-mail-admin.php:102
+msgid "to display the date of comment publication"
+msgstr "zeigt das Ver&ouml;ffentlichungsdatum des Kommentars an"
+
+#: includes/class-notify-users-e-mail-admin.php:109
+msgid "Email Settings"
+msgstr "E-Mail Einstellungen"
+
+#: includes/class-notify-users-e-mail-admin.php:117
+msgid "Sent to"
+msgstr "Senden an"
+
+#: includes/class-notify-users-e-mail-admin.php:123
+msgid "Enter with the recipients for the email (separated by commas)."
+msgstr ""
+"Trage die E-Mail-Adressen der Empf&auml;nger ein (mit Kommas getrennt)."
+
+#: includes/class-notify-users-e-mail-admin.php:131
+msgid "Send to users"
+msgstr "An Benutzer senden"
+
+#: includes/class-notify-users-e-mail-admin.php:137
+msgid "Select the type of user that will receive notifications."
+msgstr ""
+"W&auml;hle die Benutzerrollen aus, die Benachrichtigungen erhalten sollen."
+
+#: includes/class-notify-users-e-mail-admin.php:145
+msgid "Subject to Post"
+msgstr "Betreff f&uuml;r Beitrag"
+
+#: includes/class-notify-users-e-mail-admin.php:159
+msgid "Body to Post"
+msgstr "Nachricht f&uuml;r Beitrag"
+
+#: includes/class-notify-users-e-mail-admin.php:173
+msgid "Subject to Page"
+msgstr "Betreff f&uuml;r Seite"
+
+#: includes/class-notify-users-e-mail-admin.php:187
+msgid "Body to Page"
+msgstr "Nachricht f&uuml;r Seite"
+
+#: includes/class-notify-users-e-mail-admin.php:201
+msgid "Subject to comment"
+msgstr "Betreff f&uuml;r Kommentar"
+
+#: includes/class-notify-users-e-mail-admin.php:215
+msgid "Body to Comment"
+msgstr "Nachricht f&uuml;r Kommentar"
+
+#: includes/class-notify-users-e-mail-admin.php:360
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/views/admin.php:23
+msgid ""
+"This plugin notifies registered users via email of new posts, pages and "
+"comments posted."
+msgstr ""
+"Dieses Plugin informiert registrierte Benutzer via E-Mail &uuml;ber neu "
+"hinzugef&uuml;gte Beitr&auml;ge, Seiten und Kommentare."
+
+#: notify-users-e-mail.php:187
+msgid "New post published at %s on {date}"
+msgstr "Neuer Beitrag ver&ouml;ffentlicht auf %s am {date}"
+
+#: notify-users-e-mail.php:188
+msgid "A new post {title} - {link_post} has been published on {date}."
+msgstr ""
+"Ein neuer Beitrag {title} - {link_post} wurde am {date} ver&ouml;ffentlicht."
+
+#: notify-users-e-mail.php:189
+msgid "New page published at %s on {date}"
+msgstr "Neue Seite ver&ouml;ffentlicht auf %s am {date}"
+
+#: notify-users-e-mail.php:190
+msgid "A new page {title} - {link_page} has been published on {date}."
+msgstr ""
+"Eine neue Seite {title} - {link_page} wurde am {date} ver&ouml;ffentlicht."
+
+#: notify-users-e-mail.php:191
+msgid "New comment published at %s"
+msgstr "Neuer Kommentar ver&ouml;ffentlicht am {date}"
+
+#: notify-users-e-mail.php:192
+msgid "A new comment {link_comment} has been published."
+msgstr "Ein neuer Kommentar {link_comment} wurde ver&ouml;ffentlicht."
+
+#: notify-users-e-mail.php:256
+msgctxt "date format"
+msgid "\\a\\t"
+msgstr "\\u\\m"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/notify-users-e-mail/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Notification of new posts by e-mail to all users"
+msgstr "Benachrichtigung neuer Eintr&auml;ge via E-Mail an alle Benutzer"
+
+#. Author of the plugin/theme
+msgid "Valerio Souza, claudiosanches, ThalitaPinheiro"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://valeriosouza.com.br"
+msgstr ""

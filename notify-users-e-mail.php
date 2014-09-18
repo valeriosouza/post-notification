@@ -287,6 +287,8 @@ class Notify_Users_EMail {
 		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $comment->comment_post_ID ) ), $string );
 		$string = str_replace( '{link_comment}', get_comment_link( $comment->comment_ID ), $string );
 		$string = str_replace( '{date}', $this->get_formated_date( $comment->comment_date ), $string );
+		$string = str_replace( '{body}', sanitize_text_field( $comment->comment_content ), $string );
+		$string = str_replace( '{author}', sanitize_text_field( $comment->comment_author ), $string );
 
 		return $string;
 	}

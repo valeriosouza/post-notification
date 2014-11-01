@@ -343,7 +343,7 @@ class Notify_Users_EMail_Admin {
 		$current = $this->get_option_value( $id, $args['default'] );
 
 		echo '<div style="width: 600px;">';
-				wp_editor( $current, $id, array( 'textarea_name' => $this->settings_name . '[' . $id . ']', 'textarea_rows' => 10 ) );
+				wp_editor( $current, $id, array( 'textarea_name' => 'notify_users_email' . '[' . $id . ']', 'textarea_rows' => 10 ) );
 		echo '</div>';
 
 		// Displays the description.

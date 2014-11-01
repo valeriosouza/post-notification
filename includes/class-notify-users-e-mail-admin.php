@@ -33,9 +33,39 @@ class Notify_Users_EMail_Admin {
 		// Init plugin options.
 		add_action( 'admin_init', array( $this, 'plugin_settings' ) );
 
+		// Admin scripts.
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+
 		// Add an action link pointing to the options page.
 		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . 'notify-users-e-mail' . '.php' );
 		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
+	}
+
+	/**
+	* Load admin scripts.
+	*
+	* @return void
+	*/
+	public function admin_scripts( $hook ) {
+		// Checks if is the settings page.
+		if ( 'toplevel_page_notify-users-e-mail' == $hook ) {
+			// Media Upload.
+			wp_enqueue_media();
+
+			// Theme Options.
+			wp_enqueue_style( 'notify-users-e-mail-admin', plugins_url( 'assets/css/admin.css', plugin_dir_path( __FILE__ ) ), array(), Notify_Users_EMail::VERSION, 'all' );
+			wp_enqueue_script( 'notify-users-e-mail-admin', plugins_url( 'assets/js/admin.js', plugin_dir_path( __FILE__ ) ), array( 'jquery' ), Notify_Users_EMail::VERSION, true );
+
+			// Localize strings.
+			wp_localize_script(
+				'notify-users-e-mail-admin',
+				'notify_users_e_mail_params',
+				array(
+					'uploadTitle'   => __( 'Choose a file', 'notify-users-e-mail' ),
+					'uploadButton'  => __( 'Add file', 'notify-users-e-mail' ),
+				)
+			);
+		}
 	}
 
 	/**
@@ -157,7 +187,7 @@ class Notify_Users_EMail_Admin {
 		add_settings_field(
 			'body_post',
 			__( 'Body to Post', 'notify-users-e-mail' ),
-			array( $this, 'textarea_callback' ),
+			array( $this, 'editor_callback' ),
 			'notify_users_email',
 			$settings_section,
 			array(
@@ -185,7 +215,7 @@ class Notify_Users_EMail_Admin {
 		add_settings_field(
 			'body_page',
 			__( 'Body to Page', 'notify-users-e-mail' ),
-			array( $this, 'textarea_callback' ),
+			array( $this, 'editor_callback' ),
 			'notify_users_email',
 			$settings_section,
 			array(
@@ -213,7 +243,7 @@ class Notify_Users_EMail_Admin {
 		add_settings_field(
 			'body_comment',
 			__( 'Body to Comment', 'notify-users-e-mail' ),
-			array( $this, 'textarea_callback' ),
+			array( $this, 'editor_callback' ),
 			'notify_users_email',
 			$settings_section,
 			array(
@@ -281,7 +311,7 @@ class Notify_Users_EMail_Admin {
 	 *
 	 * @param  array $args Arguments from the option.
 	 *
-	 * @return string      Input field HTML.
+	 * @return string      Text input field HTML.
 	 */
 	public function text_callback( $args ) {
 		$id = $args['id'];
@@ -300,23 +330,59 @@ class Notify_Users_EMail_Admin {
 	}
 
 	/**
-	 * Textarea field callback.
+	 * Editor field callback.
 	 *
 	 * @param  array $args Arguments from the option.
 	 *
-	 * @return string      Input field HTML.
+	 * @return string      Editor field HTML.
 	 */
-	public function textarea_callback( $args ) {
+	public function editor_callback( $args ) {
+		$id = $args['id'];
+
+		// Sets current option.
+		$current = $this->get_option_value( $id, $args['default'] );
+
+		echo '<div style="width: 600px;">';
+				wp_editor( $current, $id, array( 'textarea_name' => $this->settings_name . '[' . $id . ']', 'textarea_rows' => 10 ) );
+		echo '</div>';
+
+		// Displays the description.
+		if ( $args['description'] ) {
+			echo sprintf( '<div class="description">%s</div>', $args['description'] );
+		}
+	}
+
+		/**
+	 * Image field callback.
+	 *
+	 * @param array $args Arguments from the option.
+	 *
+	 * @return string Image field HTML.
+	 */
+	public function image_callback( $args ) {
 		$id = $args['id'];
 
 		// Sets current option.
 		$current = esc_html( $this->get_option_value( $id, $args['default'] ) );
 
-		$html = sprintf( '<textarea id="%1$s" name="%2$s[%1$s]" cols="60" rows="5">%3$s</textarea>', $id, 'notify_users_email', $current );
+		// Gets placeholder image.
+		$image = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+		$html  = '<div class="notify-users-e-mail-upload-image">';
+		$html .= '<span class="notify-users-e-mail-default-image">' . $image . '</span>';
+
+		if ( $current ) {
+			$image = wp_get_attachment_image_src( $current, 'medium' );
+			$image = $image[0];
+		}
+
+		$html .= sprintf( '<input id="%1$s" name="%2$s[%1$s]" type="hidden" class="notify-users-e-mail-image" value="%3$s" /><div class="notify-users-e-mail-preview-wrap"><img src="%4$s" class="notify-users-e-mail-preview" style="max-height: 150px; width: auto;" alt="" /><ul class="notify-users-e-mail-actions"><li><a href="#" class="notify-users-e-mail-delete" title="%6$s"><span class="dashicons dashicons-no"></span></a></li></ul></div><input id="%1$s-button" class="button" type="button" value="%5$s" />', $id, $this->settings_name, $current, $image, __( 'Select image', 'notify-users-e-mail' ), __( 'Remove image', 'notify-users-e-mail' ) );
+
+		$html .= '<br class="clear" />';
+		$html .= '</div>';
 
 		// Displays the description.
 		if ( $args['description'] ) {
-			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );
+			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
 		}
 
 		echo $html;
@@ -343,7 +409,7 @@ class Notify_Users_EMail_Admin {
 				} elseif ( in_array( $key, array( 'body_post', 'body_page', 'body_comment' ) ) ) {
 					$output[ $key ] = wp_kses( $input[ $key ], array() );
 				} else {
-					$output[ $key ] = sanitize_text_field( $input[ $key ] );
+					$output[ $key ] =  $input[ $key ];
 				}
 			}
 		}

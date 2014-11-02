@@ -350,7 +350,8 @@ class Notify_Users_EMail {
 			$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_post = $this->apply_content_placeholders( $settings['subject_post'], $post );
 			$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
-			$headers      = 'Bcc: ' . implode( ',', $emails );
+			//$headers      = 'Bcc: ' . implode( ',', $emails );
+			$headers = array('Content-Type: text/html; charset=UTF-8','Bcc: ' . implode( ',', $emails ));
 
 			// Send the emails.
 			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
@@ -384,7 +385,8 @@ class Notify_Users_EMail {
 			$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_page = $this->apply_content_placeholders( $settings['subject_page'], $post );
 			$body_page    = $this->apply_content_placeholders( $settings['body_page'], $post );
-			$headers      = 'Bcc: ' . implode( ',', $emails );
+			//$headers      = 'Bcc: ' . implode( ',', $emails );
+			$headers = array('Content-Type: text/html; charset=UTF-8','Bcc: ' . implode( ',', $emails ));
 
 			// Send the emails.
 			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
@@ -410,7 +412,8 @@ class Notify_Users_EMail {
 		$emails          = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 		$subject_comment = $this->apply_comment_placeholders( $settings['subject_comment'], $comment );
 		$body_comment    = $this->apply_comment_placeholders( $settings['body_comment'], $comment );
-		$headers         = 'Bcc: ' . implode( ',', $emails );
+		//$headers         = 'Bcc: ' . implode( ',', $emails );
+		$headers = array('Content-Type: text/html; charset=UTF-8','Bcc: ' . implode( ',', $emails ));
 
 		// Send the emails.
 		if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {

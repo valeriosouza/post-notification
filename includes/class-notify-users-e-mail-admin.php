@@ -407,7 +407,8 @@ class Notify_Users_EMail_Admin {
 					}
 					$output[ $key ] = $send_to_users;
 				} elseif ( in_array( $key, array( 'body_post', 'body_page', 'body_comment' ) ) ) {
-					$output[ $key ] = wp_kses( $input[ $key ], array() );
+					//$output[ $key ] = wp_kses( $input[ $key ], array() );
+					$output[ $key ] = $input[ $key ];
 				} else {
 					$output[ $key ] =  $input[ $key ];
 				}

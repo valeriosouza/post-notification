@@ -24,10 +24,10 @@ If your hosting server does not allow sending emails, use a plugin like SMTP htt
 
 Now we are in:
 
-Portuguese(Brazil)
-Spanish - ThalitaPinheiro
-German(Germany) -snowbeachking 
-Chinese - junxiu6
+Portuguese(Brazil)<br>
+Spanish - ThalitaPinheiro<br>
+German(Germany) -snowbeachking<br> 
+Chinese - junxiu6<br>
 
 Want to help?
 

@@ -1,14 +1,11 @@
-# Copyright (C) 2014 Notify Users E-Mail
-# This file is distributed under the same license as the Notify Users E-Mail package.
+#
 # Translators:
 # Junxiu Liu <junxiu6@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Post Notification by Email\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/notify-users-e-"
-"mail\n"
-"POT-Creation-Date: 2014-08-03 21:22:02+00:00\n"
-"PO-Revision-Date: 2014-11-02 18:36-0300\n"
+"POT-Creation-Date: 2014-11-02 19:48-0300\n"
+"PO-Revision-Date: 2014-11-03 20:32-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/post-"
 "notification-by-email/language/zh/)\n"
@@ -18,101 +15,164 @@ msgstr ""
 "Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#. Plugin Name of the plugin/theme
-#: includes/class-notify-users-e-mail-admin.php:48
-#: includes/class-notify-users-e-mail-admin.php:49
+#: includes/class-notify-users-e-mail-admin.php:51
+#: includes/class-notify-users-e-mail-admin.php:52
+msgid "Notify Users E-Mail Settings"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:76
+#: includes/class-notify-users-e-mail-admin.php:77
 msgid "Notify Users E-Mail"
 msgstr "用户邮件通知"
 
-#: includes/class-notify-users-e-mail-admin.php:73
-#: includes/class-notify-users-e-mail-admin.php:84
-#: includes/class-notify-users-e-mail-admin.php:95
+#: includes/class-notify-users-e-mail-admin.php:101
+#: includes/class-notify-users-e-mail-admin.php:112
+#: includes/class-notify-users-e-mail-admin.php:123
+#, php-format
 msgid "%s You can use the following placeholders:%s %s"
 msgstr "%s 你可以使用以下的占位符:%s %s"
 
-#: includes/class-notify-users-e-mail-admin.php:78
-#: includes/class-notify-users-e-mail-admin.php:89
+#: includes/class-notify-users-e-mail-admin.php:106
+#: includes/class-notify-users-e-mail-admin.php:117
 msgid "to display the title"
 msgstr "显示标题"
 
-#: includes/class-notify-users-e-mail-admin.php:79
-#: includes/class-notify-users-e-mail-admin.php:90
+#: includes/class-notify-users-e-mail-admin.php:107
+#: includes/class-notify-users-e-mail-admin.php:118
 msgid "to display the URL"
 msgstr "显示网址"
 
-#: includes/class-notify-users-e-mail-admin.php:80
-#: includes/class-notify-users-e-mail-admin.php:91
+#: includes/class-notify-users-e-mail-admin.php:108
+#: includes/class-notify-users-e-mail-admin.php:119
 msgid "to display the date of publication"
 msgstr "显示发表日期"
 
-#: includes/class-notify-users-e-mail-admin.php:100
+#: includes/class-notify-users-e-mail-admin.php:128
 msgid "to display the post title"
 msgstr "显示发表文章的标题"
 
-#: includes/class-notify-users-e-mail-admin.php:101
+#: includes/class-notify-users-e-mail-admin.php:129
 msgid "to display the coment URL"
 msgstr "显示评论的网址"
 
-#: includes/class-notify-users-e-mail-admin.php:102
+#: includes/class-notify-users-e-mail-admin.php:130
 msgid "to display the date of comment publication"
 msgstr "显示评论发表的日期"
 
-#: includes/class-notify-users-e-mail-admin.php:109
+#: includes/class-notify-users-e-mail-admin.php:137
 msgid "Email Settings"
 msgstr "邮件设置"
 
-#: includes/class-notify-users-e-mail-admin.php:117
+#: includes/class-notify-users-e-mail-admin.php:145
 msgid "Sent to"
 msgstr "发送给"
 
-#: includes/class-notify-users-e-mail-admin.php:123
+#: includes/class-notify-users-e-mail-admin.php:151
 msgid "Enter with the recipients for the email (separated by commas)."
 msgstr "输入收件人地址(英文逗号分隔)"
 
-#: includes/class-notify-users-e-mail-admin.php:131
+#: includes/class-notify-users-e-mail-admin.php:159
 msgid "Send to users"
 msgstr "发送的用户"
 
-#: includes/class-notify-users-e-mail-admin.php:137
+#: includes/class-notify-users-e-mail-admin.php:165
 msgid "Select the type of user that will receive notifications."
 msgstr "选择需要接收通知的用户类别"
 
-#: includes/class-notify-users-e-mail-admin.php:145
+#: includes/class-notify-users-e-mail-admin.php:173
 msgid "Subject to Post"
 msgstr "文章标题"
 
-#: includes/class-notify-users-e-mail-admin.php:159
+#: includes/class-notify-users-e-mail-admin.php:187
 msgid "Body to Post"
 msgstr "文章主体"
 
-#: includes/class-notify-users-e-mail-admin.php:173
+#: includes/class-notify-users-e-mail-admin.php:201
 msgid "Subject to Page"
 msgstr "页面标题"
 
-#: includes/class-notify-users-e-mail-admin.php:187
+#: includes/class-notify-users-e-mail-admin.php:215
 msgid "Body to Page"
 msgstr "页面主体"
 
-#: includes/class-notify-users-e-mail-admin.php:201
+#: includes/class-notify-users-e-mail-admin.php:229
 msgid "Subject to comment"
 msgstr "评论标题"
 
-#: includes/class-notify-users-e-mail-admin.php:215
+#: includes/class-notify-users-e-mail-admin.php:243
 msgid "Body to Comment"
 msgstr "评论主体"
 
-#: includes/class-notify-users-e-mail-admin.php:360
+#: includes/class-notify-users-e-mail-admin.php:388
 msgid "Settings"
 msgstr "设置"
 
-#: includes/views/admin.php:23
+#: includes/views/admin.php:23 includes/views/welcome.php:23
 msgid ""
 "This plugin notifies registered users via email of new posts, pages and "
 "comments posted."
 msgstr "新的文章，页面和评论发布后，本插件通过邮件通知注册用户"
 
+#: includes/views/welcome.php:22
+msgid "Welcome to "
+msgstr ""
+
+#: includes/views/welcome.php:27 includes/views/welcome.php:75
+msgid "Go to Configuration Plugin"
+msgstr ""
+
+#: includes/views/welcome.php:31
+msgid "Whats new in this release"
+msgstr ""
+
+#: includes/views/welcome.php:32
+msgid "We now have translations in Chinese and German"
+msgstr ""
+
+#: includes/views/welcome.php:35
+msgid "Want to help translate?"
+msgstr ""
+
+#: includes/views/welcome.php:36
+msgid "Visit "
+msgstr ""
+
+#: includes/views/welcome.php:36
+msgid "Transifex to help."
+msgstr ""
+
+#: includes/views/welcome.php:41
+msgid "Want to request new features?"
+msgstr ""
+
+#: includes/views/welcome.php:42
+msgid "Visit our "
+msgstr ""
+
+#: includes/views/welcome.php:45
+msgid "Keep up with the news"
+msgstr ""
+
+#: includes/views/welcome.php:46
+msgid ""
+"We are preparing many new features, stay tuned by subscribing to our email "
+"Marketing. We promise not to send Spam."
+msgstr ""
+
+#: includes/views/welcome.php:58
+msgid "Email Address"
+msgstr ""
+
+#: includes/views/welcome.php:66
+msgid "Subscribe"
+msgstr ""
+
 #: notify-users-e-mail.php:187
+#, php-format
 msgid "New post published at %s on {date}"
 msgstr "新文章发布于at %s on {date}"
 
@@ -121,6 +181,7 @@ msgid "A new post {title} - {link_post} has been published on {date}."
 msgstr "一篇新文章 {title} - {link_post} 发布于 {date}."
 
 #: notify-users-e-mail.php:189
+#, php-format
 msgid "New page published at %s on {date}"
 msgstr "新页面发布于 at %s on {date}"
 
@@ -129,30 +190,10 @@ msgid "A new page {title} - {link_page} has been published on {date}."
 msgstr "一篇新页面 {title} - {link_page} 发布于 {date}."
 
 #: notify-users-e-mail.php:191
+#, php-format
 msgid "New comment published at %s"
 msgstr "新评论发布于 %s"
 
 #: notify-users-e-mail.php:192
 msgid "A new comment {link_comment} has been published."
 msgstr "一个新评论已经发布 {link_comment} ."
-
-#: notify-users-e-mail.php:256
-msgctxt "date format"
-msgid "\\a\\t"
-msgstr "\\a\\t"
-
-#. Plugin URI of the plugin/theme
-msgid "http://wordpress.org/plugins/notify-users-e-mail/"
-msgstr "http://wordpress.org/plugins/notify-users-e-mail/"
-
-#. Description of the plugin/theme
-msgid "Notification of new posts by e-mail to all users"
-msgstr "新文章发布通知所有用户"
-
-#. Author of the plugin/theme
-msgid "Valerio Souza, claudiosanches, ThalitaPinheiro"
-msgstr "Valerio Souza, claudiosanches, ThalitaPinheiro"
-
-#. Author URI of the plugin/theme
-msgid "http://valeriosouza.com.br"
-msgstr "http://valeriosouza.com.br"

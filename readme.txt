@@ -22,6 +22,21 @@ Are usually accepted 200 emails per hour.
 
 If your hosting server does not allow sending emails, use a plugin like SMTP http://wordpress.org/plugins/my-smtp-wp/
 
+Now we are in:
+
+Portuguese(Brazil)
+Spanish - ThalitaPinheiro
+German(Germany) -snowbeachking 
+Chinese - junxiu6
+
+Want to help?
+
+If you can translate, help in https://www.transifex.com/projects/p/post-notification-by-email/
+
+Known to develop, help in https://github.com/valeriosouza/notify-users-e-mail
+
+Have suggestions for new features? https://github.com/valeriosouza/notify-users-e-mail/issues/new
+
 Want to keep up with the latest news from this plugin? Follow Twitter [@valeriooficial](https://twitter.com/valeriooficial) and [@claudiosmweb](https://twitter.com/claudiosmweb) and the hashtag [#notifyuserswp](https://twitter.com/search?f=realtime&q=%23notifyuserswp&src=typd).
 
 == Installation ==
@@ -84,6 +99,11 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 == Changelog ==
 
+= 3.1.1 - 03/11/2014 =
+
+* New: Added translate Chinese and German.
+* New: Screen for Help.
+
 = 3.1.0 - 03/08/2014 =
 
 * New: Added new {date} placeholder for comments.
@@ -137,6 +157,11 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 * Lançada primeira versão beta
 
 == Upgrade Notice ==
+
+= 3.1.1 =
+
+* New: Added translate Chinese and German.
+* New: Screen for Help.
 
 = 3.1.0 =
 Added new {date} placeholder for comments, Improved the date format with date_i18n(), Fixed the duplicate emails, Fixed broken placeholders, Fixed the page and comments validation when save the options.

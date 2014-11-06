@@ -4,7 +4,7 @@ Donate link: http://valeriosouza.com.br/doacoes/
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 3.1.1
+Stable tag: 3.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,10 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 == Changelog ==
 
+= 3.1.2 - 06/11/2014 =
+
+* Fixed: Resolved error latest version of PHP.
+
 = 3.1.1 - 03/11/2014 =
 
 * New: Added translate Chinese and German.
@@ -157,6 +161,10 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 * Lançada primeira versão beta
 
 == Upgrade Notice ==
+
+= 3.1.2 =
+
+* Fixed: Resolved error latest version of PHP.
 
 = 3.1.1 =
 

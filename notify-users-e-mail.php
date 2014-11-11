@@ -27,6 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
+define( '__NTF_USR_FILE__', __FILE__ );
+
 if ( ! class_exists( 'Notify_Users_EMail' ) ) :
 
 /**

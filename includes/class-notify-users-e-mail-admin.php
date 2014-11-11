@@ -37,7 +37,7 @@ class Notify_Users_EMail_Admin {
 		add_action( 'admin_init', array( $this, 'plugin_settings' ) );
 
 		// Add an action link pointing to the options page.
-		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . 'notify-users-e-mail' . '.php' );
+		$plugin_basename = plugin_basename( plugin_dir_path( __NTF_USR_FILE__ ) . 'notify-users-e-mail' . '.php' );
 		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
 	}
 

@@ -19,7 +19,7 @@ if ( ! defined( 'WPINC' ) ) {
 <div class="wrap about-wrap">
 
     <?php screen_icon( 'options-general' ); ?>
-    <h1><?php echo __( 'Welcome to ', 'notify-users-e-mail' ); ?><?php echo esc_html( get_admin_page_title() ); ?></h1>
+    <h1><?php echo __( 'Welcome to', 'notify-users-e-mail' ); ?> <?php echo esc_html( get_admin_page_title() ); ?></h1>
     <div class="about-text"><?php echo __( 'This plugin notifies registered users via email of new posts, pages and comments posted.', 'notify-users-e-mail' ); ?></div>
     <hr>
     <div class="changelog">
@@ -28,18 +28,18 @@ if ( ! defined( 'WPINC' ) ) {
         </div>
         <div class="feature-section col two-col">
             <div class="col-1">
-                <h3><?php echo __( 'Whats new in this release', 'notify-users-e-mail' ); ?></h3>
+                <h3><?php echo __( "What's new in this release", 'notify-users-e-mail' ); ?></h3>
                 <p><?php echo __( 'We now have translations in Chinese and German', 'notify-users-e-mail' ); ?></p>
             </div>
             <div class="col-2 last-feature">
                 <h3><?php echo __( 'Want to help translate?', 'notify-users-e-mail' ); ?></h3>
-                <p><?php echo __( 'Visit ', 'notify-users-e-mail' ); ?><a target="_blank" href="https://www.transifex.com/organization/valeriosouza/dashboard/post-notification-by-email"><?php echo __( 'Transifex to help.', 'notify-users-e-mail' ); ?></a></p>
+                <p><?php echo __( 'Visit ', 'notify-users-e-mail' ); ?> <a target="_blank" href="https://www.transifex.com/organization/valeriosouza/dashboard/post-notification-by-email"><?php echo __( 'Transifex to help.', 'notify-users-e-mail' ); ?></a></p>
             </div>
         </div>
         <div class="feature-section col two-col">
             <div class="col-1">
                 <h3><?php echo __( 'Want to request new features?', 'notify-users-e-mail' ); ?></h3>
-                <p><?php echo __( 'Visit our ', 'notify-users-e-mail' ); ?><a target="_blank" href="https://github.com/valeriosouza/notify-users-e-mail">GitHub</a></p>
+                <p><?php echo __( 'Visit our ', 'notify-users-e-mail' ); ?> <a target="_blank" href="https://github.com/valeriosouza/notify-users-e-mail">GitHub</a></p>
             </div>
             <div class="col-2 last-feature">
                 <h3><?php echo __( 'Keep up with the news', 'notify-users-e-mail' ); ?></h3>

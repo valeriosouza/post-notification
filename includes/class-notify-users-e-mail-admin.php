@@ -72,14 +72,41 @@ class Notify_Users_EMail_Admin {
 	}
 
 	/**
+	 * Register the welcome menu for this plugin into the WordPress Dashboard menu.
+	 *
+	 * @return   void
+	 */
+	public function add_plugin_welcome_menu() {
+		add_menu_page(
+			__( 'Post Notification by Email', 'notify-users-e-mail' ),
+			__( 'Post Notification by Email', 'notify-users-e-mail' ),
+			'manage_options',
+			'notify-users-e-mail',
+			array( $this, 'display_plugin_welcome_page' ),
+			''
+		);
+	}
+
+	/**
+	 * Render the settings page for this plugin.
+	 *
+	 * @return void
+	 */
+	public function display_plugin_welcome_page() {
+		include_once 'views/welcome.php';
+	}
+
+
+		/**
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
 	 *
 	 * @return   void
 	 */
 	public function add_plugin_admin_menu() {
-		add_menu_page(
-			__( 'Post Notification by Email', 'notify-users-e-mail' ),
-			__( 'Post Notification by Email', 'notify-users-e-mail' ),
+		add_submenu_page(
+			'notify-users-e-mail',
+			__( 'Post Notification by Email Settings', 'notify-users-e-mail' ),
+			__( 'Settings', 'notify-users-e-mail' ),
 			'manage_options',
 			'notify-users-e-mail-settings',
 			array( $this, 'display_plugin_admin_page' )
@@ -93,31 +120,6 @@ class Notify_Users_EMail_Admin {
 	 */
 	public function display_plugin_admin_page() {
 		include_once 'views/admin.php';
-	}
-
-
-	/**
-	 * Register the welcome menu for this plugin into the WordPress Dashboard menu.
-	 *
-	 * @return   void
-	 */
-	public function add_plugin_welcome_menu() {
-		add_options_page(
-			__( 'Notify Users E-Mail', 'notify-users-e-mail' ),
-			__( 'Notify Users E-Mail', 'notify-users-e-mail' ),
-			'manage_options',
-			'notify-users-e-mail',
-			array( $this, 'display_plugin_welcome_page' )
-		);
-	}
-
-	/**
-	 * Render the settings page for this plugin.
-	 *
-	 * @return void
-	 */
-	public function display_plugin_welcome_page() {
-		include_once 'views/welcome.php';
 	}
 
 	/**

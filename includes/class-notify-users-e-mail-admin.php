@@ -140,17 +140,6 @@ class Notify_Users_EMail_Admin {
 				__( 'to display the date of publication', 'notify-users-e-mail' )
 			)
 		);
-		$placeholders_description_page = sprintf(
-			__( '%s You can use the following placeholders:%s %s', 'notify-users-e-mail' ),
-			'<p>',
-			'</p>',
-			sprintf(
-				'<ul><li><p><code>{title}</code> %s</p></li><li><p><code>{link_page}</code> %s</p></li><li><p><code>{date}</code> %s</p></li></ul>',
-				__( 'to display the title', 'notify-users-e-mail' ),
-				__( 'to display the URL', 'notify-users-e-mail' ),
-				__( 'to display the date of publication', 'notify-users-e-mail' )
-			)
-		);
 		$placeholders_description_comment = sprintf(
 			__( '%s You can use the following placeholders:%s %s', 'notify-users-e-mail' ),
 			'<p>',
@@ -223,34 +212,6 @@ class Notify_Users_EMail_Admin {
 			array(
 				'id'          => 'body_post',
 				'description' => $placeholders_description_post,
-				'default'     => ''
-			)
-		);
-
-		// Email Subject Page.
-		add_settings_field(
-			'subject_page',
-			__( 'Subject to Page', 'notify-users-e-mail' ),
-			array( $this, 'text_callback' ),
-			'notify_users_email',
-			$settings_section,
-			array(
-				'id'          => 'subject_page',
-				'description' => $placeholders_description_page,
-				'default'     => ''
-			)
-		);
-
-		// Email Body Prefix Page.
-		add_settings_field(
-			'body_page',
-			__( 'Body to Page', 'notify-users-e-mail' ),
-			array( $this, 'editor_callback' ),
-			'notify_users_email',
-			$settings_section,
-			array(
-				'id'          => 'body_page',
-				'description' => $placeholders_description_page,
 				'default'     => ''
 			)
 		);
@@ -436,7 +397,7 @@ class Notify_Users_EMail_Admin {
 						$send_to_users[] = sanitize_text_field( $value );
 					}
 					$output[ $key ] = $send_to_users;
-				} elseif ( in_array( $key, array( 'body_post', 'body_page', 'body_comment' ) ) ) {
+				} elseif ( in_array( $key, array( 'body_post', 'body_comment' ) ) ) {
 					//$output[ $key ] = wp_kses( $input[ $key ], array() );
 					$output[ $key ] = $input[ $key ];
 				} else {

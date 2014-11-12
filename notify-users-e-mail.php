@@ -75,9 +75,6 @@ class Notify_Users_EMail {
 		// Nofity users when publish a post.
 		add_action( 'publish_post', array( $this, 'send_notification_post' ), 10, 2 );
 
-		// Nofity users when publish a page.
-		add_action( 'publish_page', array( $this, 'send_notification_page' ), 10, 2 );
-
 		// Nofity users when publish a comment.
 		add_action( 'wp_insert_comment', array( $this, 'send_notification_comment' ), 10, 2 );
 	}
@@ -188,8 +185,6 @@ class Notify_Users_EMail {
 			'send_to_users'    => array_keys( get_editable_roles() ),
 			'subject_post'     => sprintf( __( 'New post published at %s on {date}', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
 			'body_post'        => __( 'A new post {title} - {link_post} has been published on {date}.', 'notify-users-e-mail' ),
-			'subject_page'     => sprintf( __( 'New page published at %s on {date}', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
-			'body_page'        => __( 'A new page {title} - {link_page} has been published on {date}.', 'notify-users-e-mail' ),
 			'subject_comment'  => sprintf( __( 'New comment published at %s', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
 			'body_comment'     => __( 'A new comment {link_comment} has been published.', 'notify-users-e-mail' ),
 		);
@@ -215,8 +210,6 @@ class Notify_Users_EMail {
 					'send_to_users'   => array_keys( get_editable_roles() ),
 					'subject_post'    => get_option( 'notify_users_subject_post' ),
 					'body_post'       => get_option( 'notify_users_body_post' ),
-					'subject_page'    => get_option( 'notify_users_subject_page' ),
-					'body_page'       => get_option( 'notify_users_body_page' ),
 					'subject_comment' => get_option( 'notify_users_subject_comment' ),
 					'body_comment'    => get_option( 'notify_users_body_comment' ),
 				);
@@ -225,8 +218,6 @@ class Notify_Users_EMail {
 				delete_option( 'notify_users_mail' );
 				delete_option( 'notify_users_subject_post' );
 				delete_option( 'notify_users_body_post' );
-				delete_option( 'notify_users_subject_page' );
-				delete_option( 'notify_users_body_page' );
 				delete_option( 'notify_users_subject_comment' );
 				delete_option( 'notify_users_body_comment' );
 
@@ -271,7 +262,6 @@ class Notify_Users_EMail {
 	protected function apply_content_placeholders( $string, $post ) {
 		$string = str_replace( '{title}', sanitize_text_field( $post->post_title ), $string );
 		$string = str_replace( '{link_post}', esc_url( get_permalink( $post->ID ) ), $string );
-		$string = str_replace( '{link_page}', esc_url( get_permalink( $post->ID ) ), $string );
 		$string = str_replace( '{date}', $this->get_formated_date( $post->post_date ), $string );
 
 		return $string;
@@ -332,6 +322,21 @@ class Notify_Users_EMail {
 	}
 
 	/**
+	 * Apply footer texts.
+	 *
+	 * @param  string   $string  String to apply the placehoders.
+	 * @param  stdClass $comment Comment data.
+	 *
+	 * @return string            New content.
+	 */
+	protected function apply_footer_text( $text ) {
+		$text = "Envio de teste";
+
+		return $text;
+	}
+
+
+	/**
 	 * Nofity users when publish a post.
 	 *
 	 * @param  int     $id   Post ID.
@@ -360,41 +365,6 @@ class Notify_Users_EMail {
 				wp_mail( '', $subject_post, $body_post, $headers );
 			} else {
 				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_post, $body_post );
-			}
-
-			add_post_meta( $id, '_notify_users_email_sended', true );
-		}
-	}
-
-	/**
-	 * Nofity users when publish a page.
-	 *
-	 * @param  int     $id   Post ID.
-	 * @param  WP_Post $post Post data.
-	 *
-	 * @return void
-	 */
-	public function send_notification_page( $id, $post ) {
-		if ( 'publish' == $_POST['post_status'] && 'publish' != $_POST['original_post_status'] ) {
-
-			// Prevents sent twice.
-			$sended = get_post_meta( $id, '_notify_users_email_sended', true );
-			if ( $sended ) {
-				return;
-			}
-
-			$settings     = get_option( 'notify_users_email' );
-			$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
-			$subject_page = $this->apply_content_placeholders( $settings['subject_page'], $post );
-			$body_page    = $this->apply_content_placeholders( $settings['body_page'], $post );
-			//$headers      = 'Bcc: ' . implode( ',', $emails );
-			$headers = array('Content-Type: text/html; charset=UTF-8','Bcc: ' . implode( ',', $emails ));
-
-			// Send the emails.
-			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
-				wp_mail( '', $subject_page, $body_page, $headers );
-			} else {
-				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_page, $body_page );
 			}
 
 			add_post_meta( $id, '_notify_users_email_sended', true );

@@ -262,7 +262,7 @@ class Notify_Users_EMail {
 	protected function apply_content_placeholders( $string, $post ) {
 		$string = str_replace( '{title}', sanitize_text_field( $post->post_title ), $string );
 		$string = str_replace( '{link_post}', esc_url( get_permalink( $post->ID ) ), $string );
-		$string = str_replace( '{content_post}', get_post_field('post_content', $post->ID), $string );
+		$string = str_replace( '{content_post}', apply_filters( 'the_content',get_post_field('post_content', $post->ID)), $string );
 		$string = str_replace( '{date}', $this->get_formated_date( $post->post_date ), $string );
 
 		return $string;
@@ -374,8 +374,7 @@ class Notify_Users_EMail {
 		$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 		$subject_post = $this->apply_content_placeholders( $settings['subject_post'], $post );
 		$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
-		//$headers      = 'Bcc: ' . implode( ',', $emails );
-		$headers = array(
+		$headers 	  = array(
 			'Content-Type: text/html; charset=UTF-8',
 			'Bcc: ' . implode( ',', $emails )
 		);
@@ -403,8 +402,10 @@ class Notify_Users_EMail {
 		$emails          = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 		$subject_comment = $this->apply_comment_placeholders( $settings['subject_comment'], $comment );
 		$body_comment    = $this->apply_comment_placeholders( $settings['body_comment'], $comment );
-		//$headers         = 'Bcc: ' . implode( ',', $emails );
-		$headers = array('Content-Type: text/html; charset=UTF-8','Bcc: ' . implode( ',', $emails ));
+		$headers 		 = array(
+			'Content-Type: text/html; charset=UTF-8',
+			'Bcc: ' . implode( ',', $emails )
+		);
 
 		// Send the emails.
 		if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {

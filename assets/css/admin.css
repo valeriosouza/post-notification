@@ -59,3 +59,9 @@
 .notify-users-e-mail-actions .delete {
 	color: #d00;
 }
+
+
+.post-notification-by-email_page_notify-users-e-mail-settings .input-select2 {
+	min-width: 350px;
+	margin-bottom: 5px;
+}

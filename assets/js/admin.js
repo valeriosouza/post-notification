@@ -57,5 +57,20 @@
 			$( '.notify-users-e-mail-preview', wrapper ).attr( 'src', defaultImage );
 		});
 
+
+		$( '.input-select2-tags' ).each(function(k, el){
+			var $el = $( el ),
+				data = $el.data( 'options' ),
+				opts = {
+					multiple: true,
+					placeholder: notify_users_e_mail_params.selectPostType,
+					allowClear: true,
+					minimumResultsForSearch: -1,
+					data: data
+				};
+
+			$el.select2( opts )
+		});
+
 	});
 }( jQuery ));

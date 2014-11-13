@@ -73,7 +73,7 @@ class Notify_Users_EMail {
 		}
 
 		// Nofity users when publish a post.
-		add_action( 'publish_post', array( $this, 'send_notification_post' ), 10, 2 );
+		add_action( 'wp_insert_post', array( $this, 'send_notification_post' ), 10, 2 );
 
 		// Nofity users when publish a comment.
 		add_action( 'wp_insert_comment', array( $this, 'send_notification_comment' ), 10, 2 );
@@ -351,31 +351,43 @@ class Notify_Users_EMail {
 	 * @return void
 	 */
 	public function send_notification_post( $id, $post ) {
-		if ( 'publish' == $_POST['post_status'] && 'publish' != $_POST['original_post_status'] ) {
-
-			// Prevents sent twice.
-			$sended = get_post_meta( $id, '_notify_users_email_sended', true );
-			if ( $sended ) {
-				return;
-			}
-
-			$settings     = get_option( 'notify_users_email' );
-			$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
-			$subject_post = $this->apply_content_placeholders( $settings['subject_post'], $post );
-			//$body_post    = $this->body_text( $text );
-			$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
-			//$headers      = 'Bcc: ' . implode( ',', $emails );
-			$headers = array('Content-Type: text/html; charset=UTF-8','Bcc: ' . implode( ',', $emails ));
-
-			// Send the emails.
-			if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
-				wp_mail( '', $subject_post, $body_post, $headers );
-			} else {
-				do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_post, $body_post );
-			}
-
-			add_post_meta( $id, '_notify_users_email_sended', true );
+		if ( 'publish' != $post->post_status ) {
+ 			return;
 		}
+
+		if ( empty( $_POST['original_post_status'] ) || 'publish' == $_POST['original_post_status'] ){
+			return;
+		}
+
+		// Prevent sending twice
+		$sent = get_post_meta( $id, '_notify_users_email_sended', true );
+		if ( $sent ) {
+			return;
+		}
+
+		$settings = get_option( 'notify_users_email' );
+
+		if ( ! in_array( $post->post_type, (array) $settings['conditional_post_type'] ) ){
+			return;
+		}
+
+		$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
+		$subject_post = $this->apply_content_placeholders( $settings['subject_post'], $post );
+		$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
+		//$headers      = 'Bcc: ' . implode( ',', $emails );
+		$headers = array(
+			'Content-Type: text/html; charset=UTF-8',
+			'Bcc: ' . implode( ',', $emails )
+		);
+
+		// Send the emails.
+		if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
+			wp_mail( '', $subject_post, $body_post, $headers );
+		} else {
+			do_action( 'notify_users_email_custom_mail_engine', $emails, $subject_post, $body_post );
+		}
+
+		add_post_meta( $id, '_notify_users_email_sended', true );
 	}
 
 	/**

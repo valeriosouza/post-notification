@@ -152,6 +152,7 @@ class Notify_Users_EMail_Admin {
 			)
 		);
 
+
 		// Set the settings section.
 		add_settings_section(
 			$settings_section,
@@ -187,6 +188,7 @@ class Notify_Users_EMail_Admin {
 				'default'     => array()
 			)
 		);
+
 
 		// Email Subject Post.
 		add_settings_field(
@@ -244,8 +246,34 @@ class Notify_Users_EMail_Admin {
 			)
 		);
 
+
+		// Set the conditional section.
+		add_settings_section(
+			'conditional_section',
+			__( 'Conditional Settings', 'notify-users-e-mail' ),
+			'__return_false',
+			'notify_users_email'
+		);
+
+		// Email Body Prefix Comment.
+		add_settings_field(
+			'body_comment',
+			esc_attr__( 'Post Types', 'notify-users-e-mail' ),
+			array( $this, 'select2_callback' ),
+			'notify_users_email',
+			'conditional_section',
+			array(
+				'id'          => 'conditional_post_type',
+				'options'     => array( 'post', 'page' ),
+				'description' => esc_attr__( 'Which Post Types will trigger a notification', 'notify-users-e-mail' ),
+				'default'     => array( 'post', 'page' )
+			)
+		);
+
+
 		// Register settings.
 		register_setting( 'notify_users_email', 'notify_users_email', array( $this, 'validate_options' ) );
+
 	}
 
 	/**
@@ -314,6 +342,49 @@ class Notify_Users_EMail_Admin {
 
 		// Displays the description.
 		if ( $args['description'] ) {
+			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );
+		}
+
+		echo $html;
+	}
+
+	/**
+	 * Select2 field callback.
+	 *
+	 * @param  array $args Arguments from the option.
+	 *
+	 * @return string      Text input field HTML.
+	 */
+	public function select2_callback( $args ) {
+		// Have some defaults boy...
+		$defaults = array(
+			'multiple' => false,
+			'options' => array(),
+			'default' => null,
+			'id' => null,
+			'class' => array(),
+		);
+
+		// Parse the args gracefully
+		$args = wp_parse_args( $args, $defaults );
+
+		$id = $args['id'];
+
+		// Sets current option.
+		$current = esc_attr( $this->get_option_value( $id, $args['default'] ) );
+		$options_json = json_encode( $args['options'] );
+		$classes = (array) $args['class'];
+
+		if ( $args['multiple'] === true ){
+			$classes[] = 'input-select2-tags';
+		} else {
+			$classes[] = 'input-select2';
+		}
+
+		$html = sprintf( '<input type="hidden" id="%1$s" name="%2$s[%1$s]" value="%3$s" data-options="%4$s" class="' . implode( ' ', $classes ) . '" />', $id, 'notify_users_email', $current, $options_json );
+
+		// Displays the description.
+		if ( ! empty( $args['description'] ) ) {
 			$html .= sprintf( '<div class="description">%s</div>', $args['description'] );
 		}
 

@@ -324,10 +324,10 @@ class Notify_Users_EMail {
 	/**
 	 * Apply body texts.
 	 *
-	 * @param  string   $string  String to apply the placehoders.
-	 * @param  stdClass $comment Comment data.
+	 * @param  string  $text  String to apply the placeholders.
+	 * @param  WP_Post $post    Post/page data.
 	 *
-	 * @return string            New content.
+	 * @return string           New content.
 	 */
 	public function body_text( $text, $post ) {
 		$text = '<p>';
@@ -360,7 +360,7 @@ class Notify_Users_EMail {
 			$settings     = get_option( 'notify_users_email' );
 			$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_post = $this->apply_content_placeholders( $settings['subject_post'], $post );
-			$body_post    = $this->body_text( $text );
+			$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
 			//$headers      = 'Bcc: ' . implode( ',', $emails );
 			$headers = array('Content-Type: text/html; charset=UTF-8','Bcc: ' . implode( ',', $emails ));
 

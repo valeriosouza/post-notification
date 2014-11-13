@@ -117,8 +117,8 @@ class Notify_Users_EMail_Admin {
 			__( 'Post Notification by Email', 'notify-users-e-mail' ),
 			__( 'Welcome', 'notify-users-e-mail' ),
 			'manage_options',
-			'notify-users-e-mail',
-			array( $this, 'display_plugin_admin_page' )
+			'notify-users-e-mail'
+			//array( $this, '' )
 		);
 	}
 

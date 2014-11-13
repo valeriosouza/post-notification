@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Notify Users E-Mail v3.0.0\n"
-"POT-Creation-Date: 2014-11-13 19:50-0300\n"
-"PO-Revision-Date: 2014-11-13 19:50-0300\n"
+"POT-Creation-Date: 2014-11-13 21:44-0300\n"
+"PO-Revision-Date: 2014-11-13 21:44-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -24,41 +24,41 @@ msgstr ""
 msgid "Add file"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:79
-msgid "Select Post Types"
-msgstr ""
-
+#: includes/class-notify-users-e-mail-admin.php:91
 #: includes/class-notify-users-e-mail-admin.php:92
-#: includes/class-notify-users-e-mail-admin.php:93
-#: includes/class-notify-users-e-mail-admin.php:118
+#: includes/class-notify-users-e-mail-admin.php:117
 msgid "Post Notification by Email"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:119
+#: includes/class-notify-users-e-mail-admin.php:118
 msgid "Welcome"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:134
+#: includes/class-notify-users-e-mail-admin.php:133
 msgid "Post Notification by Email Settings"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:135
-#: includes/class-notify-users-e-mail-admin.php:527
+#: includes/class-notify-users-e-mail-admin.php:134
+#: includes/class-notify-users-e-mail-admin.php:571
 msgid "Settings"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:159
+#: includes/class-notify-users-e-mail-admin.php:158
 #: includes/class-notify-users-e-mail-admin.php:170
 #, php-format
 msgid "%s You can use the following placeholders:%s %s"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:164
+#: includes/class-notify-users-e-mail-admin.php:163
 msgid "to display the title"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:165
+#: includes/class-notify-users-e-mail-admin.php:164
 msgid "to display the URL"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:165
+msgid "to display the content"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:166
@@ -133,15 +133,29 @@ msgstr ""
 msgid "Which Post Types will trigger a notification"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:476
+#: includes/class-notify-users-e-mail-admin.php:341
+#, php-format
+msgid "Which terms from %s will send a notification"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:344
+#, php-format
+msgid "Select the %s"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:442
+msgid "Choose some Options"
+msgstr ""
+
+#: includes/class-notify-users-e-mail-admin.php:517
 msgid "Select image"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:476
+#: includes/class-notify-users-e-mail-admin.php:517
 msgid "Remove image"
 msgstr ""
 
-#: includes/views/admin.php:23 includes/views/welcome.php:23
+#: includes/views/admin.php:23
 msgid ""
 "This plugin notifies registered users via email of new posts, pages and "
 "comments posted."
@@ -151,36 +165,44 @@ msgstr ""
 msgid "Welcome to"
 msgstr ""
 
+#: includes/views/welcome.php:23
+msgid ""
+"This plugin notifies registered users via email of new posts, comments, and "
+"any post type posted."
+msgstr ""
+
 #: includes/views/welcome.php:27 includes/views/welcome.php:75
 msgid "Go to Configuration Plugin"
 msgstr ""
 
 #: includes/views/welcome.php:31
-msgid "What's new in this release"
+msgid "What's new in this release."
 msgstr ""
 
 #: includes/views/welcome.php:32
-msgid "We now have translations in Chinese and German"
+msgid ""
+"Now it is possible to choose which post type and taxonomy which emails are "
+"sent."
 msgstr ""
 
 #: includes/views/welcome.php:35
-msgid "Want to help translate?"
+msgid "More beautiful with HTML content!"
 msgstr ""
 
 #: includes/views/welcome.php:36
-msgid "Visit "
-msgstr ""
-
-#: includes/views/welcome.php:36
-msgid "Transifex to help."
+msgid ""
+"New HTML editors allow you to customize the contents of the email, and even "
+"embed images, videos and what more do you want to. "
 msgstr ""
 
 #: includes/views/welcome.php:41
-msgid "Want to request new features?"
+msgid "Contents of the post directly in the body of the email!"
 msgstr ""
 
 #: includes/views/welcome.php:42
-msgid "Visit our "
+msgid ""
+"It is now possible to send the entire contents of the post directly in your "
+"email. This is amazing."
 msgstr ""
 
 #: includes/views/welcome.php:45

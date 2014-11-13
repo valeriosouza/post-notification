@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 
     <?php screen_icon( 'options-general' ); ?>
     <h1><?php echo __( 'Welcome to', 'notify-users-e-mail' ); ?> <?php echo esc_html( get_admin_page_title() ); ?></h1>
-    <div class="about-text"><?php echo __( 'This plugin notifies registered users via email of new posts, pages and comments posted.', 'notify-users-e-mail' ); ?></div>
+    <div class="about-text"><?php echo __( 'This plugin notifies registered users via email of new posts, comments, and any post type posted.', 'notify-users-e-mail' ); ?></div>
     <hr>
     <div class="changelog">
         <div class="return-to-dashboard">
@@ -28,18 +28,18 @@ if ( ! defined( 'WPINC' ) ) {
         </div>
         <div class="feature-section col two-col">
             <div class="col-1">
-                <h3><?php echo __( "What's new in this release", 'notify-users-e-mail' ); ?></h3>
-                <p><?php echo __( 'We now have translations in Chinese and German', 'notify-users-e-mail' ); ?></p>
+                <h3><?php echo __( "What's new in this release.", 'notify-users-e-mail' ); ?></h3>
+                <p><?php echo __( 'Now it is possible to choose which post type and taxonomy which emails are sent.', 'notify-users-e-mail' ); ?></p>
             </div>
             <div class="col-2 last-feature">
-                <h3><?php echo __( 'Want to help translate?', 'notify-users-e-mail' ); ?></h3>
-                <p><?php echo __( 'Visit ', 'notify-users-e-mail' ); ?> <a target="_blank" href="https://www.transifex.com/organization/valeriosouza/dashboard/post-notification-by-email"><?php echo __( 'Transifex to help.', 'notify-users-e-mail' ); ?></a></p>
+                <h3><?php echo __( 'More beautiful with HTML content!', 'notify-users-e-mail' ); ?></h3>
+                <p><?php echo __( 'New HTML editors allow you to customize the contents of the email, and even embed images, videos and what more do you want to. ', 'notify-users-e-mail' ); ?></p>
             </div>
         </div>
         <div class="feature-section col two-col">
             <div class="col-1">
-                <h3><?php echo __( 'Want to request new features?', 'notify-users-e-mail' ); ?></h3>
-                <p><?php echo __( 'Visit our ', 'notify-users-e-mail' ); ?> <a target="_blank" href="https://github.com/valeriosouza/notify-users-e-mail">GitHub</a></p>
+                <h3><?php echo __( 'Contents of the post directly in the body of the email!', 'notify-users-e-mail' ); ?></h3>
+                <p><?php echo __( 'It is now possible to send the entire contents of the post directly in your email. This is amazing.', 'notify-users-e-mail' ); ?></p>
             </div>
             <div class="col-2 last-feature">
                 <h3><?php echo __( 'Keep up with the news', 'notify-users-e-mail' ); ?></h3>
@@ -61,7 +61,7 @@ if ( ! defined( 'WPINC' ) ) {
                     <div id="mce-responses" class="clear">
                     <div class="response" id="mce-error-response" style="display:none"></div>
                     <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    </div><!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                     <div style="position: absolute; left: -5000px;"><input type="text" name="b_ca9d9abf6c437e15a8c81ab8d_ea36b8afd2" tabindex="-1" value=""></div>
                     <div class="clear"><input type="submit" value="<?php echo __( 'Subscribe', 'notify-users-e-mail' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button button-primary"></div>
                     </div>

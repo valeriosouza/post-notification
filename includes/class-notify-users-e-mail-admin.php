@@ -24,7 +24,7 @@ class Notify_Users_EMail_Admin {
 
 	/**
 	 * Initialize the plugin by loading admin scripts & styles and adding a
-	 * settings page and menu.
+	 * settings co and menu.
 	 */
 	public function __construct() {
 		// Add the options page and menu item.
@@ -50,18 +50,20 @@ class Notify_Users_EMail_Admin {
 	* @return void
 	*/
 	public function admin_scripts( $hook ) {
+
 		// Checks if is the settings page.
-		if ( 'toplevel_page_notify-users-e-mail' == $hook ) {
+		if ( 'post-notification-by-email_page_notify-users-e-mail-settings' == $hook ) {
 			// Media Upload.
 			wp_enqueue_media();
 
-			wp_register_style( 'select2', plugins_url( 'assets/css/select2.css', plugin_dir_path( __FILE__ ) ), array( 'select2' ), '3.5.2', 'all' );
+			wp_register_style( 'select2', plugins_url( 'assets/css/select2.css', plugin_dir_path( __FILE__ ) ), array(  ), '3.5.2', 'all' );
 			wp_register_script( 'select2', plugins_url( 'assets/js/vendor/select2/select2.min.js', plugin_dir_path( __FILE__ ) ), array( 'jquery' ), '3.5.2', true );
 
 
 
 			// Theme Options.
 			wp_enqueue_style( 'notify-users-e-mail-admin', plugins_url( 'assets/css/admin.css', plugin_dir_path( __FILE__ ) ), array( 'select2' ), Notify_Users_EMail::VERSION, 'all' );
+
 			wp_enqueue_script( 'notify-users-e-mail-admin', plugins_url( 'assets/js/admin.js', plugin_dir_path( __FILE__ ) ), array( 'jquery', 'select2' ), Notify_Users_EMail::VERSION, true );
 
 			// Localize strings.
@@ -71,6 +73,7 @@ class Notify_Users_EMail_Admin {
 				array(
 					'uploadTitle'   => __( 'Choose a file', 'notify-users-e-mail' ),
 					'uploadButton'  => __( 'Add file', 'notify-users-e-mail' ),
+					'selectPostType'  => __( 'Select Post Types', 'notify-users-e-mail' ),
 				)
 			);
 		}
@@ -262,16 +265,26 @@ class Notify_Users_EMail_Admin {
 
 		// Email Body Prefix Comment.
 		add_settings_field(
-			'body_comment',
+			'conditional_post_type',
 			esc_attr__( 'Post Types', 'notify-users-e-mail' ),
 			array( $this, 'select2_callback' ),
 			'notify_users_email',
 			'conditional_section',
 			array(
 				'id'          => 'conditional_post_type',
-				'options'     => array( 'post', 'page' ),
+				'options'     => array(
+					array(
+						'id' => 'post',
+						'text' => esc_attr__( 'Posts' ),
+					),
+					array(
+						'id' => 'page',
+						'text' => esc_attr__( 'Pages' ),
+					),
+				),
 				'description' => esc_attr__( 'Which Post Types will trigger a notification', 'notify-users-e-mail' ),
-				'default'     => array( 'post', 'page' )
+				'default'     => array( 'post', 'page' ),
+				'multiple'    => true,
 			)
 		);
 
@@ -376,14 +389,14 @@ class Notify_Users_EMail_Admin {
 		$id = $args['id'];
 
 		// Sets current option.
-		$current = esc_attr( $this->get_option_value( $id, $args['default'] ) );
-		$options_json = json_encode( $args['options'] );
+		$current = implode( ',', array_filter( array_map( 'trim', (array) $this->get_option_value( $id, $args['default'] ) ) ) );
+		$options_json = htmlspecialchars( json_encode( $args['options'] ) );
 		$classes = (array) $args['class'];
 
 		if ( $args['multiple'] === true ){
-			$classes[] = 'input-select2-tags';
+			$classes[] = 'input-select2 input-select2-tags';
 		} else {
-			$classes[] = 'input-select2';
+			$classes[] = 'input-select2 input-select2-single';
 		}
 
 		$html = sprintf( '<input type="hidden" id="%1$s" name="%2$s[%1$s]" value="%3$s" data-options="%4$s" class="' . implode( ' ', $classes ) . '" />', $id, 'notify_users_email', $current, $options_json );
@@ -473,6 +486,8 @@ class Notify_Users_EMail_Admin {
 						$send_to_users[] = sanitize_text_field( $value );
 					}
 					$output[ $key ] = $send_to_users;
+				} elseif ( 'conditional_post_type' === $key ) {
+					$output[ $key ] = array_filter( array_unique( array_map( 'trim', explode( ',',  $value ) ) ) );
 				} elseif ( in_array( $key, array( 'body_post', 'body_comment' ) ) ) {
 					//$output[ $key ] = wp_kses( $input[ $key ], array() );
 					$output[ $key ] = $input[ $key ];

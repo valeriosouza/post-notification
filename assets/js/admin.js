@@ -63,7 +63,7 @@
 				data = $el.data( 'options' ),
 				opts = {
 					multiple: true,
-					placeholder: notify_users_e_mail_params.selectPostType,
+					placeholder: $el.attr( 'placeholder' ),
 					allowClear: true,
 					minimumResultsForSearch: -1,
 					data: data

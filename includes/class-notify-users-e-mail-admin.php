@@ -76,7 +76,6 @@ class Notify_Users_EMail_Admin {
 				array(
 					'uploadTitle'   => __( 'Choose a file', 'notify-users-e-mail' ),
 					'uploadButton'  => __( 'Add file', 'notify-users-e-mail' ),
-					'selectPostType'  => __( 'Select Post Types', 'notify-users-e-mail' ),
 				)
 			);
 		}
@@ -307,6 +306,46 @@ class Notify_Users_EMail_Admin {
 		);
 
 
+		$taxonomies = array( 'post_tag', 'category' );
+
+		foreach ( $taxonomies as $taxonomy ) {
+			if ( is_string( $taxonomy ) ){
+				$taxonomy = get_taxonomy( $taxonomy );
+			}
+
+			$options = array();
+			$terms =  get_terms( $taxonomy->name, array(
+				'hide_empty' => false,
+			) );
+
+			foreach ( $terms as $term ) {
+				$options[] = array(
+					'id' => $term->term_id,
+					'text' => $term->name,
+					'slug' => $term->slug,
+					'taxonomy' => $taxonomy->name,
+				);
+			}
+
+			// Email Body Prefix Comment.
+			add_settings_field(
+				'conditional_taxonomy_' . $taxonomy->name,
+				$taxonomy->labels->name,
+				array( $this, 'select2_callback' ),
+				'notify_users_email',
+				'conditional_section',
+				array(
+					'id'          => 'conditional_taxonomy_' . $taxonomy->name,
+					'options'     => $options,
+					'description' => sprintf( esc_attr__( 'Which terms from %s will send a notification', 'notify-users-e-mail' ), $taxonomy->labels->singular_name ),
+					'default'     => '',
+					'multiple'    => true,
+					'placeholder' => sprintf( esc_attr__( 'Select the %s', 'notify-users-e-mail' ), $taxonomy->labels->name ),
+				)
+			);
+
+		}
+
 		// Register settings.
 		register_setting( 'notify_users_email', 'notify_users_email', array( $this, 'validate_options' ) );
 
@@ -399,6 +438,7 @@ class Notify_Users_EMail_Admin {
 			'default' => null,
 			'id' => null,
 			'class' => array(),
+			'placeholder' => esc_attr__( 'Choose some Options', 'notify-users-e-mail' ),
 		);
 
 		// Parse the args gracefully
@@ -417,7 +457,7 @@ class Notify_Users_EMail_Admin {
 			$classes[] = 'input-select2 input-select2-single';
 		}
 
-		$html = sprintf( '<input type="hidden" id="%1$s" name="%2$s[%1$s]" value="%3$s" data-options="%4$s" class="' . implode( ' ', $classes ) . '" />', $id, 'notify_users_email', $current, $options_json );
+		$html = sprintf( '<input type="hidden" id="%1$s" name="%2$s[%1$s]" value="%3$s" data-options="%4$s" placeholder="%5$s" class="' . implode( ' ', $classes ) . '" />', $id, 'notify_users_email', $current, $options_json, $args['placeholder'] );
 
 		// Displays the description.
 		if ( ! empty( $args['description'] ) ) {
@@ -506,6 +546,9 @@ class Notify_Users_EMail_Admin {
 					$output[ $key ] = $send_to_users;
 				} elseif ( 'conditional_post_type' === $key ) {
 					$output[ $key ] = array_filter( array_unique( array_map( 'trim', explode( ',',  $value ) ) ) );
+				} elseif ( strrpos( $key, 'conditional_taxonomy_' ) !== false ) {
+					$taxonomy = str_replace( 'conditional_taxonomy_', '', $key );
+					$output[ $key ] = array_filter( array_unique( array_map( 'absint', array_map( 'trim', explode( ',',  $value ) ) ) ) );
 				} elseif ( in_array( $key, array( 'body_post', 'body_comment' ) ) ) {
 					//$output[ $key ] = wp_kses( $input[ $key ], array() );
 					$output[ $key ] = $input[ $key ];

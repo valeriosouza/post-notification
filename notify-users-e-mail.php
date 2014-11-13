@@ -371,6 +371,36 @@ class Notify_Users_EMail {
 			return;
 		}
 
+
+		$keep_running = false;
+		foreach ( $settings as $key => $value ) {
+			if ( strrpos( $key, 'conditional_taxonomy_' ) === false ) {
+				continue;
+			}
+
+			$terms = array_filter( array_unique( array_map( 'absint', array_map( 'trim', $value ) ) ) );
+
+			if ( empty( $terms ) ){
+				continue;
+			}
+
+			if ( $keep_running === true ){
+				continue;
+			}
+
+			$taxonomy = str_replace( 'conditional_taxonomy_', '', $key );
+
+			foreach ( $terms as $key => $term ) {
+				if ( has_term( $term, $taxonomy, $post ) ){
+					$keep_running = true;
+				}
+			}
+		}
+
+		if ( ! $keep_running ) {
+			return;
+		}
+
 		$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 		$subject_post = $this->apply_content_placeholders( $settings['subject_post'], $post );
 		$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );

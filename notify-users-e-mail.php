@@ -360,7 +360,8 @@ class Notify_Users_EMail {
 			$settings     = get_option( 'notify_users_email' );
 			$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_post = $this->apply_content_placeholders( $settings['subject_post'], $post );
-			$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
+			$body_post    = $this->body_text( $text, $post );
+			//$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
 			//$headers      = 'Bcc: ' . implode( ',', $emails );
 			$headers = array('Content-Type: text/html; charset=UTF-8','Bcc: ' . implode( ',', $emails ));
 

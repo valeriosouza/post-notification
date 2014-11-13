@@ -83,7 +83,7 @@ class Notify_Users_EMail_Admin {
 			'manage_options',
 			'notify-users-e-mail',
 			array( $this, 'display_plugin_welcome_page' ),
-			''
+			'dashicons-email'
 		);
 	}
 

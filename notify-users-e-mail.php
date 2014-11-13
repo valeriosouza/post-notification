@@ -262,6 +262,7 @@ class Notify_Users_EMail {
 	protected function apply_content_placeholders( $string, $post ) {
 		$string = str_replace( '{title}', sanitize_text_field( $post->post_title ), $string );
 		$string = str_replace( '{link_post}', esc_url( get_permalink( $post->ID ) ), $string );
+		$string = str_replace( '{content_post}', get_post_field('post_content', $post->ID), $string );
 		$string = str_replace( '{date}', $this->get_formated_date( $post->post_date ), $string );
 
 		return $string;
@@ -328,9 +329,10 @@ class Notify_Users_EMail {
 	 * @param  WP_Post $post    Post/page data.
 	 *
 	 * @return string           New content.
+	 * In Development - Not Working
 	 */
-	public function body_text( $text, $post ) {
-		$text = '<p>';
+	public function body_text( $post ) {
+		$text = '<p>Head';
 		$text .= $this->apply_content_placeholders( $settings['body_post'], $post );
 		$text .= 'Body';
 		$text .= '</p>';
@@ -360,8 +362,8 @@ class Notify_Users_EMail {
 			$settings     = get_option( 'notify_users_email' );
 			$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_post = $this->apply_content_placeholders( $settings['subject_post'], $post );
-			$body_post    = $this->body_text( $text, $post );
-			//$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
+			//$body_post    = $this->body_text( $text );
+			$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
 			//$headers      = 'Bcc: ' . implode( ',', $emails );
 			$headers = array('Content-Type: text/html; charset=UTF-8','Bcc: ' . implode( ',', $emails ));
 

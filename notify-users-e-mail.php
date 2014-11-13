@@ -322,15 +322,19 @@ class Notify_Users_EMail {
 	}
 
 	/**
-	 * Apply footer texts.
+	 * Apply body texts.
 	 *
 	 * @param  string   $string  String to apply the placehoders.
 	 * @param  stdClass $comment Comment data.
 	 *
 	 * @return string            New content.
 	 */
-	protected function apply_footer_text( $text ) {
-		$text = "Envio de teste";
+	public function body_text( $text, $post ) {
+		$text = '<p>';
+		$text .= $this->apply_content_placeholders( $settings['body_post'], $post );
+		$text .= 'Body';
+		$text .= '</p>';
+		$text .= 'Texto do footer';
 
 		return $text;
 	}
@@ -356,7 +360,7 @@ class Notify_Users_EMail {
 			$settings     = get_option( 'notify_users_email' );
 			$emails       = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_post = $this->apply_content_placeholders( $settings['subject_post'], $post );
-			$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
+			$body_post    = $this->body_text( $text );
 			//$headers      = 'Bcc: ' . implode( ',', $emails );
 			$headers = array('Content-Type: text/html; charset=UTF-8','Bcc: ' . implode( ',', $emails ));
 

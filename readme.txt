@@ -33,9 +33,9 @@ Want to help?
 
 If you can translate, help in https://www.transifex.com/projects/p/post-notification-by-email/
 
-Known to develop, help in https://github.com/valeriosouza/notify-users-e-mail
+Known to develop, help in https://github.com/valeriosouza/post-notification-by-email
 
-Have suggestions for new features? https://github.com/valeriosouza/notify-users-e-mail/issues/new
+Have suggestions for new features? https://github.com/valeriosouza/post-notification-by-email/issues/new
 
 Want to keep up with the latest news from this plugin? Follow Twitter [@valeriosza](https://twitter.com/valeriosza)
 

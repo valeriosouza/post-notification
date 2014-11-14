@@ -1,6 +1,6 @@
 <?php
 /**
- * Notify Users E-Mail.
+ * Post Notification by Email.
  *
  * @package   Notify_Users_EMail_Admin
  * @author    Valerio Souza <eu@valeriosouza.com.br>

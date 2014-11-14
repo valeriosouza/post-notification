@@ -1,8 +1,8 @@
 <?php
 /*
- * Notify Users E-Mail.
+ * Post Notification by Email.
  *
- * @package   Notify_Users_EMail
+ * @package   Post Notification by Email
  * @author    Valerio Souza <eu@valeriosouza.com.br>
  * @license   GPL-2.0+
  * @link      http://wordpress.org/plugins/notify-users-e-mail/
@@ -19,7 +19,7 @@ Text Domain:       notify-users-e-mail
 License:           GPL-2.0+
 License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
 Domain Path:       /languages
-GitHub Plugin URI: https://github.com/valeriosouza/notify-users-e-mail
+GitHub Plugin URI: https://github.com/valeriosouza/post-notification-by-email
  */
 
 // If this file is called directly, abort.
@@ -34,7 +34,7 @@ if ( ! class_exists( 'Notify_Users_EMail' ) ) :
 /**
  * Notify Users E-Mail class.
  *
- * @package Notify_Users_EMail
+ * @package Post Notification by Email
  * @author  Valerio Souza <eu@valeriosouza.com.br>
  */
 class Notify_Users_EMail {

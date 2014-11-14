@@ -568,7 +568,7 @@ class Notify_Users_EMail_Admin {
 	public function add_action_links( $links ) {
 		return array_merge(
 			array(
-				'settings' => '<a href="' . admin_url( 'options-general.php?page=notify-users-e-mail' ) . '">' . __( 'Settings', 'notify-users-e-mail' ) . '</a>'
+				'settings' => '<a href="' . admin_url( 'admin.php?page=notify-users-e-mail' ) . '">' . __( 'Settings', 'notify-users-e-mail' ) . '</a>'
 			),
 			$links
 		);

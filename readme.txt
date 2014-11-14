@@ -1,10 +1,10 @@
-=== Notify Users E-Mail ===
-Contributors: valeriosza, claudiosanches, ThalitaPinheiro
-Donate link: http://valeriosouza.com.br/doacoes/
-Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter
+=== Post Notification by Email (Old Notify Users Email) ===
+Contributors: valeriosza, claudiosanches
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P5QTGDB64SU8E&lc=US&item_name=WordPress%20Plugins&no_note=0&cn=Adicionar%20instru%c3%a7%c3%b5es%20especiais%20para%20o%20vendedor%3a&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
+Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter,posts, post type
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 3.1.3
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,15 +12,15 @@ Send an email to all users whenever a new post is published on your WordPress.
 
 == Description ==
 
-Notification of new posts by e-mail to all users
-
-This plugin notifies registered users via email of new posts, pages and comments published.
+This plugin notifies registered users via email of new posts, pages, post types and comments published.
 
 The notification uses the E-mail PHP, check with your hosting your sending limit and the amount of registered users.
 
 Are usually accepted 200 emails per hour.
 
 If your hosting server does not allow sending emails, use a plugin like SMTP http://wordpress.org/plugins/my-smtp-wp/
+
+Special thanks to [Gustavo Bordoni](https://twitter.com/webord) and investors who made cash donation.
 
 Now we are in:
 
@@ -37,14 +37,14 @@ Known to develop, help in https://github.com/valeriosouza/notify-users-e-mail
 
 Have suggestions for new features? https://github.com/valeriosouza/notify-users-e-mail/issues/new
 
-Want to keep up with the latest news from this plugin? Follow Twitter [@valeriooficial](https://twitter.com/valeriooficial) and [@claudiosmweb](https://twitter.com/claudiosmweb) and the hashtag [#notifyuserswp](https://twitter.com/search?f=realtime&q=%23notifyuserswp&src=typd).
+Want to keep up with the latest news from this plugin? Follow Twitter [@valeriosza](https://twitter.com/valeriosza)
 
 == Installation ==
 
-1. Upload the `Notify Users E-Mail` directory to the `/wp-content/plugins/` directory
+1. Upload the `Post Notification by Email` directory to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Start posting and to automatically publish an e-mail is sent.
-1. Configure the plugin in 'Settings -> Notify Users E-Mail'.
+1. Configure the plugin in 'Post Notification by Email' Menu.
 1. Register emails and select levels of users that can receive e-mail.
 1. Replace the messages according to your preference.
 
@@ -95,9 +95,20 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 1. Enter email or choose levels of users with permission to receive emails.
 
-2. Personalize your message. The same can be done with pages and comments.
+2. Personalize your message. Use image, colors and whatever you decide..
+
+3. Conditions for sending the email.
 
 == Changelog ==
+
+= 4.0.0 - 14/11/2014 =
+
+* New: New name.
+* New: New menu and page.
+* New: Added new {content_post} placeholder for content of posts.
+* New: Added conditions for sending the email.
+* New: Added new fields editor and HTML email.
+* Unreal: We will dominate the world
 
 = 3.1.2 - 06/11/2014 =
 
@@ -162,6 +173,14 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 == Upgrade Notice ==
 
+= 4.0.0 =
+
+* New: New name.
+* New: New menu and page.
+* New: Added new {content_post} placeholder for content of posts.
+* New: Added conditions for sending the email.
+* New: Added new fields editor and HTML email.
+
 = 3.1.2 =
 
 * Fixed: Resolved error latest version of PHP.
@@ -186,8 +205,8 @@ Adapted to work with the My SMTP WP plugin .
 
 == License ==
 
-Notify Users E-Mail is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Post Notification by Email is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-Notify Users E-Mail is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+Post Notification by Email is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with Notify Users E-Mail. If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with Post Notification by Email. If not, see <http://www.gnu.org/licenses/>.

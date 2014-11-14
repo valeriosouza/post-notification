@@ -9,11 +9,11 @@
  * @copyright 2013 CodeHost
  *
 @wordpress-plugin
-Plugin Name:       Notify Users E-Mail
+Plugin Name:       Post Notification by Email
 Plugin URI:        http://wordpress.org/plugins/notify-users-e-mail/
 Description:       Notification of new posts by e-mail to all users
-Version:           3.1.3
-Author:            Valerio Souza, claudiosanches, ThalitaPinheiro
+Version:           4.0.0
+Author:            Valerio Souza, claudiosanches
 Author URI:        http://valeriosouza.com.br
 Text Domain:       notify-users-e-mail
 License:           GPL-2.0+
@@ -44,7 +44,7 @@ class Notify_Users_EMail {
 	 *
 	 * @var string
 	 */
-	const VERSION = '3.1.3';
+	const VERSION = '4.0.0';
 
 	/**
 	 * Instance of this class.

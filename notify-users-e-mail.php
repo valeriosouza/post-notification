@@ -180,14 +180,33 @@ class Notify_Users_EMail {
 		$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
 		check_admin_referer( 'activate-plugin_' . $plugin );
 
+		$args = array(
+			'type'                     => 'post',
+			'child_of'                 => 0,
+			'parent'                   => '',
+			'orderby'                  => 'id',
+			'order'                    => 'ASC',
+			'hide_empty'               => 1,
+			'hierarchical'             => 1,
+			'exclude'                  => '',
+			'include'                  => '',
+			'number'                   => '',
+			'taxonomy'                 => 'category',
+			'pad_counts'               => false 
+
+		); 
+		$list_categories = get_categories( $args );
+
 		$options = array(
-			'send_to'          		=> '',
-			'send_to_users'    		=> array_keys( get_editable_roles() ),
-			'subject_post'     		=> sprintf( __( 'New post published at %s on {date}', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
-			'body_post'        		=> __( 'A new post {title} - {link_post} has been published on {date}.', 'notify-users-e-mail' ),
-			'subject_comment'  		=> sprintf( __( 'New comment published at %s', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
-			'body_comment'     		=> __( 'A new comment {link_comment} has been published.', 'notify-users-e-mail' ),
-			'conditional_post_type'	=> array( 'post', 'page' ),
+			'send_to'          				=> '',
+			'send_to_users'    				=> array_keys( get_editable_roles() ),
+			'subject_post'     				=> sprintf( __( 'New post published at %s on {date}', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
+			'body_post'        				=> __( 'A new post {title} - {link_post} has been published on {date}.', 'notify-users-e-mail' ),
+			'subject_comment'  				=> sprintf( __( 'New comment published at %s', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
+			'body_comment'     				=> __( 'A new comment {link_comment} has been published.', 'notify-users-e-mail' ),
+			'conditional_post_type'			=> array( 'post', 'page' ),
+			'conditional_taxonomy_post_tag' => '',
+			'conditional_taxonomy_category' => $list_categories->term_id,
 		);
 
 		add_option( 'notify_users_email', $options );

@@ -24,7 +24,7 @@ if ( ! defined( 'WPINC' ) ) {
     <hr>
     <div class="changelog">
         <div class="return-to-dashboard">
-                <a href="<?php get_admin_url(); ?>/wp-admin/options-general.php?page=notify-users-e-mail-settings"><?php echo __( 'Go to Configuration Plugin', 'notify-users-e-mail' ); ?></a>
+                <a href="<?php get_admin_url(); ?>/wp-admin/admin.php?page=notify-users-e-mail-settings"><?php echo __( 'Go to Configuration Plugin', 'notify-users-e-mail' ); ?></a>
         </div>
         <div class="feature-section col two-col">
             <div class="col-1">
@@ -72,7 +72,7 @@ if ( ! defined( 'WPINC' ) ) {
             </div>
         </div>
         <div class="return-to-dashboard">
-                <a href="<?php get_admin_url(); ?>/wp-admin/options-general.php?page=notify-users-e-mail-settings"><?php echo __( 'Go to Configuration Plugin', 'notify-users-e-mail' ); ?></a>
+                <a href="<?php get_admin_url(); ?>/wp-admin/admin.php?page=notify-users-e-mail-settings"><?php echo __( 'Go to Configuration Plugin', 'notify-users-e-mail' ); ?></a>
         </div>
     </div>
 </div>

@@ -181,12 +181,13 @@ class Notify_Users_EMail {
 		check_admin_referer( 'activate-plugin_' . $plugin );
 
 		$options = array(
-			'send_to'          => '',
-			'send_to_users'    => array_keys( get_editable_roles() ),
-			'subject_post'     => sprintf( __( 'New post published at %s on {date}', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
-			'body_post'        => __( 'A new post {title} - {link_post} has been published on {date}.', 'notify-users-e-mail' ),
-			'subject_comment'  => sprintf( __( 'New comment published at %s', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
-			'body_comment'     => __( 'A new comment {link_comment} has been published.', 'notify-users-e-mail' ),
+			'send_to'          		=> '',
+			'send_to_users'    		=> array_keys( get_editable_roles() ),
+			'subject_post'     		=> sprintf( __( 'New post published at %s on {date}', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
+			'body_post'        		=> __( 'A new post {title} - {link_post} has been published on {date}.', 'notify-users-e-mail' ),
+			'subject_comment'  		=> sprintf( __( 'New comment published at %s', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
+			'body_comment'     		=> __( 'A new comment {link_comment} has been published.', 'notify-users-e-mail' ),
+			'conditional_post_type'	=> array( 'post', 'page' ),
 		);
 
 		add_option( 'notify_users_email', $options );

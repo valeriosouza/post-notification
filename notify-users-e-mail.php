@@ -225,6 +225,8 @@ class Notify_Users_EMail {
 				update_option( 'notify_users_email', $options );
 				update_option( 'notify_users_email_version', self::VERSION );
 			}
+		} elseif ($version <> self::VERSION) {
+			update_option( 'notify_users_email_version', self::VERSION );
 		}
 	}
 

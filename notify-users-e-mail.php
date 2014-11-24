@@ -196,6 +196,10 @@ class Notify_Users_EMail {
 
 		); 
 		$list_categories = get_categories( $args );
+		$array_category = array();
+		foreach ($list_categories as $item_category) {
+			$array_category[] = $item_category->cat_ID; 
+		};
 
 		$options = array(
 			'send_to'          				=> '',
@@ -206,7 +210,7 @@ class Notify_Users_EMail {
 			'body_comment'     				=> __( 'A new comment {link_comment} has been published.', 'notify-users-e-mail' ),
 			'conditional_post_type'			=> array( 'post', 'page' ),
 			'conditional_taxonomy_post_tag' => '',
-			'conditional_taxonomy_category' => $list_categories->term_id,
+			'conditional_taxonomy_category' => $array_category,
 		);
 
 		add_option( 'notify_users_email', $options );

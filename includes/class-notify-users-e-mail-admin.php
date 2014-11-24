@@ -59,15 +59,15 @@ class Notify_Users_EMail_Admin {
 			// Media Upload.
 			wp_enqueue_media();
 
-			wp_register_style( 'select2', plugins_url( 'assets/css/select2.css', plugin_dir_path( __FILE__ ) ), array(  ), '3.5.2', 'all' );
-			wp_register_script( 'select2', plugins_url( 'assets/js/vendor/select2/select2.min.js', plugin_dir_path( __FILE__ ) ), array( 'jquery' ), '3.5.2', true );
+			wp_register_style( 'select2', plugins_url( 'asset/css/select2.css', plugin_dir_path( __FILE__ ) ), array(  ), '3.5.2', 'all' );
+			wp_register_script( 'select2', plugins_url( 'asset/js/vendor/select2/select2.min.js', plugin_dir_path( __FILE__ ) ), array( 'jquery' ), '3.5.2', true );
 
 
 
 			// Theme Options.
-			wp_enqueue_style( 'notify-users-e-mail-admin', plugins_url( 'assets/css/admin.css', plugin_dir_path( __FILE__ ) ), array( 'select2' ), Notify_Users_EMail::VERSION, 'all' );
+			wp_enqueue_style( 'notify-users-e-mail-admin', plugins_url( 'asset/css/admin.css', plugin_dir_path( __FILE__ ) ), array( 'select2' ), Notify_Users_EMail::VERSION, 'all' );
 
-			wp_enqueue_script( 'notify-users-e-mail-admin', plugins_url( 'assets/js/admin.js', plugin_dir_path( __FILE__ ) ), array( 'jquery', 'select2' ), Notify_Users_EMail::VERSION, true );
+			wp_enqueue_script( 'notify-users-e-mail-admin', plugins_url( 'asset/js/admin.js', plugin_dir_path( __FILE__ ) ), array( 'jquery', 'select2' ), Notify_Users_EMail::VERSION, true );
 
 			// Localize strings.
 			wp_localize_script(
@@ -196,7 +196,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'send_to',
-				'description' => sprintf( '<p>' . __( 'Enter with the recipients for the email (separated by commas).', 'notify-users-e-mail' ) . '</p>' ),
+				'description' => sprintf( '<p>' . __( 'Enter email address (separated by commas) for emails to be sent regardless of settings below. A registered user may receive two emails if you list it here.', 'notify-users-e-mail' ) . '</p>' ),
 				'default'     => ''
 			)
 		);
@@ -210,7 +210,7 @@ class Notify_Users_EMail_Admin {
 			$settings_section,
 			array(
 				'id'          => 'send_to_users',
-				'description' => '<p>' . __( 'Select the type of user that will receive notifications.', 'notify-users-e-mail' ) . '</p>',
+				'description' => '<p>' . __( 'Select the type of user that will receive notifications. You can choose more than one type using ctrl+click.', 'notify-users-e-mail' ) . '</p>',
 				'default'     => array()
 			)
 		);
@@ -219,7 +219,7 @@ class Notify_Users_EMail_Admin {
 		// Email Subject Post.
 		add_settings_field(
 			'subject_post',
-			__( 'Subject to Post', 'notify-users-e-mail' ),
+			__( 'Email subject for new posts, pages and post types.', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
 			'notify_users_email',
 			$settings_section,
@@ -233,7 +233,7 @@ class Notify_Users_EMail_Admin {
 		// Email Body Prefix Post.
 		add_settings_field(
 			'body_post',
-			__( 'Body to Post', 'notify-users-e-mail' ),
+			__( 'Email body for new posts, pages and post types.', 'notify-users-e-mail' ),
 			array( $this, 'editor_callback' ),
 			'notify_users_email',
 			$settings_section,
@@ -247,7 +247,7 @@ class Notify_Users_EMail_Admin {
 		// Email Subject Comment.
 		add_settings_field(
 			'subject_comment',
-			__( 'Subject to comment', 'notify-users-e-mail' ),
+			__( 'Email subject for new comments', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
 			'notify_users_email',
 			$settings_section,
@@ -261,7 +261,7 @@ class Notify_Users_EMail_Admin {
 		// Email Body Prefix Comment.
 		add_settings_field(
 			'body_comment',
-			__( 'Body to Comment', 'notify-users-e-mail' ),
+			__( 'Email body for new comments', 'notify-users-e-mail' ),
 			array( $this, 'editor_callback' ),
 			'notify_users_email',
 			$settings_section,

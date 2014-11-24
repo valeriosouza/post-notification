@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Notify Users E-Mail v3.0.0\n"
-"POT-Creation-Date: 2014-11-13 21:44-0300\n"
-"PO-Revision-Date: 2014-11-13 21:44-0300\n"
+"POT-Creation-Date: 2014-11-24 21:40-0300\n"
+"PO-Revision-Date: 2014-11-24 21:40-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -86,7 +86,10 @@ msgid "Sent to"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:199
-msgid "Enter with the recipients for the email (separated by commas)."
+msgid ""
+"Enter email address (separated by commas) for emails to be sent regardless "
+"of settings below. A registered user may receive two emails if you list it "
+"here."
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:207
@@ -94,23 +97,25 @@ msgid "Send to users"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:213
-msgid "Select the type of user that will receive notifications."
+msgid ""
+"Select the type of user that will receive notifications. You can choose more "
+"than one type using ctrl+click."
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:222
-msgid "Subject to Post"
+msgid "Email subject for new posts, pages and post types."
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:236
-msgid "Body to Post"
+msgid "Email body for new posts, pages and post types."
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:250
-msgid "Subject to comment"
+msgid "Email subject for new comments"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:264
-msgid "Body to Comment"
+msgid "Email body for new comments"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:279
@@ -223,20 +228,20 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: notify-users-e-mail.php:186
+#: notify-users-e-mail.php:207
 #, php-format
 msgid "New post published at %s on {date}"
 msgstr ""
 
-#: notify-users-e-mail.php:187
+#: notify-users-e-mail.php:208
 msgid "A new post {title} - {link_post} has been published on {date}."
 msgstr ""
 
-#: notify-users-e-mail.php:188
+#: notify-users-e-mail.php:209
 #, php-format
 msgid "New comment published at %s"
 msgstr ""
 
-#: notify-users-e-mail.php:189
+#: notify-users-e-mail.php:210
 msgid "A new comment {link_comment} has been published."
 msgstr ""

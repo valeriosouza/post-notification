@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P5QTG
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter,posts, post type
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 4.0.0
+Stable tag: 4.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,18 +18,24 @@ The notification uses the E-mail PHP, check with your hosting your sending limit
 
 Are usually accepted 200 emails per hour.
 
-If your hosting server does not allow sending emails, use a plugin like SMTP http://wordpress.org/plugins/my-smtp-wp/
+If your hosting server does not allow sending emails, use a plugin like SMTP http://wordpress.org/plugins/my-smtp-wp/ or read our FAQ
 
 Special thanks to [Gustavo Bordoni](https://twitter.com/webord) and investors who made cash donation.
 
-Now we are in:
+= Heads up: =
+
+Read the [FAQ](https://wordpress.org/plugins/notify-users-e-mail/faq/) before use.
+
+Want to help? Use the [support](https://wordpress.org/support/plugin/notify-users-e-mail)
+
+= Now we are in: =
 
 Portuguese(Brazil)<br>
 Spanish - ThalitaPinheiro<br>
 German(Germany) -snowbeachking<br> 
 Chinese - junxiu6<br>
 
-Want to help?
+= Want to help? =
 
 If you can translate, help in https://www.transifex.com/projects/p/post-notification-by-email/
 
@@ -69,6 +75,18 @@ We recommend http://wordpress.org/plugins/my-smtp-wp/
 Yes, you can use an SMTP plugin.
 
 We recommend http://wordpress.org/plugins/my-smtp-wp/
+
+= Is there any other way to send emails? =
+
+Yes, you can use SendGrid, Mandrill and the Amazon SES. Almost everyone has a WordPress plugin or accept a SMTP configuration.
+
+= I installed the plugin and does not send email. What can be? =
+
+Open the settings screen and see if there is any category or post type registered.
+
+= I want you to always send for all categories, how do? =
+
+On the settings screen select all categories. By default, when you install the plugin he already choose all categories registered.
 
 = What is the real purpose of this plugin? =
 

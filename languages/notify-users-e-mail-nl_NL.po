@@ -1,18 +1,18 @@
 # 
 # Translators:
-# Junxiu Liu <junxiu6@gmail.com>, 2014
+# Thom, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Post Notification by Email\n"
 "POT-Creation-Date: 2014-11-24 21:40-0300\n"
 "PO-Revision-Date: 2014-11-25 00:02+0000\n"
 "Last-Translator: Valério Souza <valeriosza@gmail.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/post-notification-email/language/zh_CN/)\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/post-notification-email/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:77
 msgid "Choose a file"
-msgstr ""
+msgstr "Bestand kiezen"
 
 #: includes/class-notify-users-e-mail-admin.php:78
 msgid "Add file"
-msgstr ""
+msgstr "Bestand toevoegen"
 
 #: includes/class-notify-users-e-mail-admin.php:91
 #: includes/class-notify-users-e-mail-admin.php:92
@@ -35,7 +35,7 @@ msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:118
 msgid "Welcome"
-msgstr "欢迎"
+msgstr "Welkom"
 
 #: includes/class-notify-users-e-mail-admin.php:133
 msgid "Post Notification by Email Settings"
@@ -44,33 +44,33 @@ msgstr ""
 #: includes/class-notify-users-e-mail-admin.php:134
 #: includes/class-notify-users-e-mail-admin.php:571
 msgid "Settings"
-msgstr "设置"
+msgstr "Instellingen"
 
 #: includes/class-notify-users-e-mail-admin.php:158
 #: includes/class-notify-users-e-mail-admin.php:170
 #, php-format
 msgid "%s You can use the following placeholders:%s %s"
-msgstr "%s 你可以使用以下的占位符:%s %s"
+msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:163
 msgid "to display the title"
-msgstr "显示标题"
+msgstr "om de titel te weergeven"
 
 #: includes/class-notify-users-e-mail-admin.php:164
 msgid "to display the URL"
-msgstr "显示网址"
+msgstr "om de URL te weergeven"
 
 #: includes/class-notify-users-e-mail-admin.php:165
 msgid "to display the content"
-msgstr ""
+msgstr "om de inhoud te weergeven"
 
 #: includes/class-notify-users-e-mail-admin.php:166
 msgid "to display the date of publication"
-msgstr "显示发表日期"
+msgstr "om de datum van publicatie te weergeven"
 
 #: includes/class-notify-users-e-mail-admin.php:175
 msgid "to display the post title"
-msgstr "显示发表文章的标题"
+msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:176
 msgid "to display the comment URL"
@@ -78,15 +78,15 @@ msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:177
 msgid "to display the date of comment publication"
-msgstr "显示评论发表的日期"
+msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:185
 msgid "Email Settings"
-msgstr "邮件设置"
+msgstr "E-mailinstellingen"
 
 #: includes/class-notify-users-e-mail-admin.php:193
 msgid "Sent to"
-msgstr "发送给"
+msgstr "Verzonden naar"
 
 #: includes/class-notify-users-e-mail-admin.php:199
 msgid ""
@@ -97,7 +97,7 @@ msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:207
 msgid "Send to users"
-msgstr "发送的用户"
+msgstr "Verzenden naar gebruikers"
 
 #: includes/class-notify-users-e-mail-admin.php:213
 msgid ""
@@ -127,15 +127,15 @@ msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:287
 msgid "Post Types"
-msgstr ""
+msgstr "Bericht Typen"
 
 #: includes/class-notify-users-e-mail-admin.php:296
 msgid "Posts"
-msgstr "文章"
+msgstr "Berichten"
 
 #: includes/class-notify-users-e-mail-admin.php:300
 msgid "Pages"
-msgstr "页面"
+msgstr "Pagina's"
 
 #: includes/class-notify-users-e-mail-admin.php:303
 msgid "Which Post Types will trigger a notification"
@@ -149,7 +149,7 @@ msgstr ""
 #: includes/class-notify-users-e-mail-admin.php:344
 #, php-format
 msgid "Select the %s"
-msgstr ""
+msgstr "Selecteer de %s"
 
 #: includes/class-notify-users-e-mail-admin.php:442
 msgid "Choose some Options"
@@ -157,21 +157,21 @@ msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:517
 msgid "Select image"
-msgstr ""
+msgstr "Afbeelding selecteren"
 
 #: includes/class-notify-users-e-mail-admin.php:517
 msgid "Remove image"
-msgstr ""
+msgstr "Afbeelding verwijderen"
 
 #: includes/views/admin.php:23
 msgid ""
 "This plugin notifies registered users via email of new posts, pages and "
 "comments posted."
-msgstr "新的文章，页面和评论发布后，本插件通过邮件通知注册用户"
+msgstr ""
 
 #: includes/views/welcome.php:22
 msgid "Welcome to"
-msgstr ""
+msgstr "Welkom bij"
 
 #: includes/views/welcome.php:23
 msgid ""
@@ -185,7 +185,7 @@ msgstr ""
 
 #: includes/views/welcome.php:31
 msgid "What's new in this release."
-msgstr ""
+msgstr "Wat is er nieuw in deze versie."
 
 #: includes/views/welcome.php:32
 msgid ""
@@ -225,26 +225,26 @@ msgstr ""
 
 #: includes/views/welcome.php:58
 msgid "Email Address"
-msgstr ""
+msgstr "E-mailadres"
 
 #: includes/views/welcome.php:66
 msgid "Subscribe"
-msgstr "d你个月"
+msgstr "Abonneren"
 
 #: notify-users-e-mail.php:207
 #, php-format
 msgid "New post published at %s on {date}"
-msgstr "新文章发布于at %s on {date}"
+msgstr ""
 
 #: notify-users-e-mail.php:208
 msgid "A new post {title} - {link_post} has been published on {date}."
-msgstr "一篇新文章 {title} - {link_post} 发布于 {date}."
+msgstr ""
 
 #: notify-users-e-mail.php:209
 #, php-format
 msgid "New comment published at %s"
-msgstr "新评论发布于 %s"
+msgstr ""
 
 #: notify-users-e-mail.php:210
 msgid "A new comment {link_comment} has been published."
-msgstr "一个新评论已经发布 {link_comment} ."
+msgstr "Een nieuwe reactie {link_comment} is gepubliceerd."

@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+[post-notification-email.notify-users-e-mail]
+file_filter = languages/notify-users-e-mail-<lang>.po
+source_file = languages/notify-users-e-mail.pot
+source_lang = en_US
+type = PO
+minimum_perc = 30

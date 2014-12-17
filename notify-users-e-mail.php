@@ -408,7 +408,7 @@ class Notify_Users_EMail {
 					continue;
 				}
 
-				$terms = array_filter( array_unique( array_map( 'absint', array_map( 'trim', $value ) ) ) );
+				$terms = array_filter( array_unique( array_map( 'absint', array_map( 'trim', (array) $value ) ) ) );
 
 				if ( empty( $terms ) ){
 					continue;

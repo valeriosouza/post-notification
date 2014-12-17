@@ -29,8 +29,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( '__NTF_USR_FILE__', __FILE__ );
 
-if ( ! class_exists( 'Notify_Users_EMail' ) ) :
-
 /**
  * Notify Users E-Mail class.
  *
@@ -192,13 +190,13 @@ class Notify_Users_EMail {
 			'include'                  => '',
 			'number'                   => '',
 			'taxonomy'                 => 'category',
-			'pad_counts'               => false 
+			'pad_counts'               => false,
 
-		); 
+		);
 		$list_categories = get_categories( $args );
 		$array_category = array();
-		foreach ($list_categories as $item_category) {
-			$array_category[] = $item_category->cat_ID; 
+		foreach ( $list_categories as $item_category ) {
+			$array_category[] = $item_category->cat_ID;
 		};
 
 		$options = array(
@@ -391,39 +389,45 @@ class Notify_Users_EMail {
 			return;
 		}
 
-		$settings = get_option( 'notify_users_email' );
+		$settings = get_option( 'notify_users_email', array() );
 
 		if ( ! in_array( $post->post_type, (array) $settings['conditional_post_type'] ) ){
 			return;
 		}
 
+		$obj_taxonomies = get_object_taxonomies( $post->post_type, 'names' );
 
-		$keep_running = false;
-		foreach ( $settings as $key => $value ) {
-			if ( strrpos( $key, 'conditional_taxonomy_' ) === false ) {
-				continue;
-			}
-
-			$terms = array_filter( array_unique( array_map( 'absint', array_map( 'trim', $value ) ) ) );
-
-			if ( empty( $terms ) ){
-				continue;
-			}
-
-			if ( $keep_running === true ){
-				continue;
-			}
-
-			$taxonomy = str_replace( 'conditional_taxonomy_', '', $key );
-
-			foreach ( $terms as $key => $term ) {
-				if ( has_term( $term, $taxonomy, $post ) ){
-					$keep_running = true;
-				}
-			}
+		$run = array();
+		foreach ( $obj_taxonomies as $taxonomy ) {
+			$run[ $taxonomy ] = true;
 		}
 
-		if ( ! $keep_running ) {
+		if ( 0 !== count( $run ) ){
+			foreach ( $settings as $key => $value ) {
+				if ( false === strrpos( $key, 'conditional_taxonomy_' ) ) {
+					continue;
+				}
+
+				$terms = array_filter( array_unique( array_map( 'absint', array_map( 'trim', $value ) ) ) );
+
+				if ( empty( $terms ) ){
+					continue;
+				}
+
+				$taxonomy = str_replace( 'conditional_taxonomy_', '', $key );
+				$run[ $taxonomy ] = false;
+
+				foreach ( $terms as $key => $term ) {
+					if ( has_term( $term, $taxonomy, $post ) ){
+						$run[ $taxonomy ] = true;
+					}
+				}
+			}
+		} else {
+			$run = array( true );
+		}
+
+		if ( in_array( false, $run ) ){
 			return;
 		}
 
@@ -432,7 +436,7 @@ class Notify_Users_EMail {
 		$body_post    = $this->apply_content_placeholders( $settings['body_post'], $post );
 		$headers 	  = array(
 			'Content-Type: text/html; charset=UTF-8',
-			'Bcc: ' . implode( ',', $emails )
+			'Bcc: ' . implode( ',', $emails ),
 		);
 
 		// Send the emails.
@@ -481,5 +485,3 @@ register_activation_hook( __FILE__, array( 'Notify_Users_EMail', 'activate' ) );
  * Initialize the plugin.
  */
 add_action( 'plugins_loaded', array( 'Notify_Users_EMail', 'get_instance' ), 0 );
-
-endif;

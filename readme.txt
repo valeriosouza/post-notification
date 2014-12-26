@@ -30,14 +30,27 @@ Want to help? Use the [support](https://wordpress.org/support/plugin/notify-user
 
 = Now we are in: =
 
-Portuguese(Brazil)<br>
-Spanish - ThalitaPinheiro<br>
-German(Germany) -snowbeachking<br> 
-Chinese - junxiu6<br>
+8 languages:
+
+English
+
+Portuguese
+
+French
+
+Polish
+
+German
+
+Spanish
+
+Dutch
+
+Chinese
 
 = Want to help? =
 
-If you can translate, help in https://www.transifex.com/projects/p/post-notification-by-email/
+If you can translate, help in https://www.transifex.com/projects/p/post-notification-email/ in WP-Translations.
 
 Known to develop, help in https://github.com/valeriosouza/post-notification-by-email
 
@@ -119,6 +132,10 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 == Changelog ==
 
+= 4.0.3 - 25/12/2014 =
+
+* Fixed: Resolved bugs and errors.
+
 = 4.0.2 - 24/11/2014 =
 
 * Fixed: Resolved bugs and errors.
@@ -198,6 +215,10 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 * Lançada primeira versão beta
 
 == Upgrade Notice ==
+
+= 4.0.3 =
+
+* Fixed: Resolved bugs and errors.
 
 = 4.0.2 =
 

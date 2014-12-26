@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Notify Users E-Mail v3.0.0\n"
-"POT-Creation-Date: 2014-11-24 21:40-0300\n"
-"PO-Revision-Date: 2014-11-24 21:40-0300\n"
+"POT-Creation-Date: 2014-12-25 22:13-0300\n"
+"PO-Revision-Date: 2014-12-25 22:14-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -228,20 +228,20 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: notify-users-e-mail.php:207
+#: notify-users-e-mail.php:205
 #, php-format
 msgid "New post published at %s on {date}"
 msgstr ""
 
-#: notify-users-e-mail.php:208
+#: notify-users-e-mail.php:206
 msgid "A new post {title} - {link_post} has been published on {date}."
 msgstr ""
 
-#: notify-users-e-mail.php:209
+#: notify-users-e-mail.php:207
 #, php-format
 msgid "New comment published at %s"
 msgstr ""
 
-#: notify-users-e-mail.php:210
+#: notify-users-e-mail.php:208
 msgid "A new comment {link_comment} has been published."
 msgstr ""

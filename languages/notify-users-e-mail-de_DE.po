@@ -1,13 +1,14 @@
-# 
+#
 # Translators:
 # snowbeachking, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Post Notification by Email\n"
 "POT-Creation-Date: 2014-11-24 21:40-0300\n"
-"PO-Revision-Date: 2014-11-25 00:21+0000\n"
-"Last-Translator: Valério Souza <valeriosza@gmail.com>\n"
-"Language-Team: German (Germany) (http://www.transifex.com/projects/p/post-notification-email/language/de_DE/)\n"
+"PO-Revision-Date: 2014-12-25 22:56-0300\n"
+"Last-Translator: Valerio <valeriosza@gmail.com>\n"
+"Language-Team: German (Germany) (http://www.transifex.com/projects/p/post-"
+"notification-email/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,8 +17,8 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__\n"
-"X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: includes/class-notify-users-e-mail-admin.php:77
 msgid "Choose a file"
@@ -101,8 +102,8 @@ msgstr "An Benutzer senden"
 
 #: includes/class-notify-users-e-mail-admin.php:213
 msgid ""
-"Select the type of user that will receive notifications. You can choose more"
-" than one type using ctrl+click."
+"Select the type of user that will receive notifications. You can choose more "
+"than one type using ctrl+click."
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:222
@@ -167,7 +168,9 @@ msgstr ""
 msgid ""
 "This plugin notifies registered users via email of new posts, pages and "
 "comments posted."
-msgstr "Dieses Plugin informiert registrierte Benutzer via E-Mail über neu hinzugefügte Beiträge, Seiten und Kommentare."
+msgstr ""
+"Dieses Plugin informiert registrierte Benutzer via E-Mail über neu "
+"hinzugefügte Beiträge, Seiten und Kommentare."
 
 #: includes/views/welcome.php:22
 msgid "Welcome to"
@@ -201,7 +204,10 @@ msgstr "Sch&ouml;ner mit HTML Inhalt!"
 msgid ""
 "New HTML editors allow you to customize the contents of the email, and even "
 "embed images, videos and what more do you want to. "
-msgstr "Der neue HTML Editor erm&ouml;glicht dir den Inhalt der E-Mail individuell zu gestalten, es k&ouml;nnen sogar Bilder, Videos und was du sonst noch m&ouml;chtest hinzugef&uuml;gt werden."
+msgstr ""
+"Der neue HTML Editor erm&ouml;glicht dir den Inhalt der E-Mail individuell "
+"zu gestalten, es k&ouml;nnen sogar Bilder, Videos und was du sonst noch "
+"m&ouml;chtest hinzugef&uuml;gt werden."
 
 #: includes/views/welcome.php:41
 msgid "Contents of the post directly in the body of the email!"
@@ -211,7 +217,9 @@ msgstr "Inhalte des Beitrags direkt in der E-Mail Nachricht!"
 msgid ""
 "It is now possible to send the entire contents of the post directly in your "
 "email. This is amazing."
-msgstr "Es ist nun möglich den kompletten Inhalt des Beitrags in der E-Mail zu verschicken. Das ist fantastisch!"
+msgstr ""
+"Es ist nun möglich den kompletten Inhalt des Beitrags in der E-Mail zu "
+"verschicken. Das ist fantastisch!"
 
 #: includes/views/welcome.php:45
 msgid "Keep up with the news"
@@ -221,7 +229,10 @@ msgstr "Verfolge unsere News"
 msgid ""
 "We are preparing many new features, stay tuned by subscribing to our email "
 "Marketing. We promise not to send Spam."
-msgstr "Wir bereiten viele neue Funktionen vor, halte dich auf dem Laufenden indem du unseren Newsletter abonnierst. Wir versprechen, dass wir keine Spam Nachrichten versenden werden."
+msgstr ""
+"Wir bereiten viele neue Funktionen vor, halte dich auf dem Laufenden indem "
+"du unseren Newsletter abonnierst. Wir versprechen, dass wir keine Spam "
+"Nachrichten versenden werden."
 
 #: includes/views/welcome.php:58
 msgid "Email Address"

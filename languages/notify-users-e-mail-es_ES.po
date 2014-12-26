@@ -1,13 +1,14 @@
-# 
+#
 # Translators:
 # Thalita Nick Pinheiro Gomes <thalitanpg@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Post Notification by Email\n"
 "POT-Creation-Date: 2014-11-24 21:40-0300\n"
-"PO-Revision-Date: 2014-11-25 00:02+0000\n"
-"Last-Translator: Valério Souza <valeriosza@gmail.com>\n"
-"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/post-notification-email/language/es_ES/)\n"
+"PO-Revision-Date: 2014-12-25 22:56-0300\n"
+"Last-Translator: Valerio <valeriosza@gmail.com>\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/post-"
+"notification-email/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,8 +17,8 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__\n"
-"X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: includes/class-notify-users-e-mail-admin.php:77
 msgid "Choose a file"
@@ -101,8 +102,8 @@ msgstr "Enviar a los usuarios"
 
 #: includes/class-notify-users-e-mail-admin.php:213
 msgid ""
-"Select the type of user that will receive notifications. You can choose more"
-" than one type using ctrl+click."
+"Select the type of user that will receive notifications. You can choose more "
+"than one type using ctrl+click."
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:222
@@ -167,7 +168,9 @@ msgstr ""
 msgid ""
 "This plugin notifies registered users via email of new posts, pages and "
 "comments posted."
-msgstr "Este plugin notifica a los usuarios registrados vía correo electrónico de nuevas entradas, páginas y comentarios publicados."
+msgstr ""
+"Este plugin notifica a los usuarios registrados vía correo electrónico de "
+"nuevas entradas, páginas y comentarios publicados."
 
 #: includes/views/welcome.php:22
 msgid "Welcome to"
@@ -221,7 +224,9 @@ msgstr "Manténgase al día con las noticias"
 msgid ""
 "We are preparing many new features, stay tuned by subscribing to our email "
 "Marketing. We promise not to send Spam."
-msgstr "Estamos preparando muchas novedades, estad atentos suscribiéndose a nuestro email marketing. Nosotros prometemos no enviar spam."
+msgstr ""
+"Estamos preparando muchas novedades, estad atentos suscribiéndose a nuestro "
+"email marketing. Nosotros prometemos no enviar spam."
 
 #: includes/views/welcome.php:58
 msgid "Email Address"

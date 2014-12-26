@@ -1,4 +1,4 @@
-# 
+#
 # Translators:
 # FxB <fxb@wp-translations.org>, 2014
 # Patricia BT, 2014
@@ -6,9 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Post Notification by Email\n"
 "POT-Creation-Date: 2014-11-24 21:40-0300\n"
-"PO-Revision-Date: 2014-11-25 00:02+0000\n"
-"Last-Translator: Valério Souza <valeriosza@gmail.com>\n"
-"Language-Team: French (France) (http://www.transifex.com/projects/p/post-notification-email/language/fr_FR/)\n"
+"PO-Revision-Date: 2014-12-25 22:56-0300\n"
+"Last-Translator: Valerio <valeriosza@gmail.com>\n"
+"Language-Team: French (France) (http://www.transifex.com/projects/p/post-"
+"notification-email/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,8 +18,8 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__\n"
-"X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: includes/class-notify-users-e-mail-admin.php:77
 msgid "Choose a file"
@@ -102,8 +103,8 @@ msgstr "Envoyer aux utilisateurs"
 
 #: includes/class-notify-users-e-mail-admin.php:213
 msgid ""
-"Select the type of user that will receive notifications. You can choose more"
-" than one type using ctrl+click."
+"Select the type of user that will receive notifications. You can choose more "
+"than one type using ctrl+click."
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:222
@@ -168,7 +169,9 @@ msgstr "Supprimer l'image"
 msgid ""
 "This plugin notifies registered users via email of new posts, pages and "
 "comments posted."
-msgstr "Cette extension envoie une notification par e-mail aux utilisateurs lors de la publication de nouveaux articles, nouvelles pages et nouveaux commentaires"
+msgstr ""
+"Cette extension envoie une notification par e-mail aux utilisateurs lors de "
+"la publication de nouveaux articles, nouvelles pages et nouveaux commentaires"
 
 #: includes/views/welcome.php:22
 msgid "Welcome to"
@@ -178,7 +181,10 @@ msgstr "Bienvenue dans"
 msgid ""
 "This plugin notifies registered users via email of new posts, comments, and "
 "any post type posted."
-msgstr "Cette extension envoie une notification par e-mail aux utilisateurs enregistrés lors de la publication de nouveaux articles, de nouveaux commentaires et de tout autre type de contenu."
+msgstr ""
+"Cette extension envoie une notification par e-mail aux utilisateurs "
+"enregistrés lors de la publication de nouveaux articles, de nouveaux "
+"commentaires et de tout autre type de contenu."
 
 #: includes/views/welcome.php:27 includes/views/welcome.php:75
 msgid "Go to Configuration Plugin"
@@ -192,7 +198,9 @@ msgstr "Ce qu'il y a de nouveau dans cette version"
 msgid ""
 "Now it is possible to choose which post type and taxonomy which emails are "
 "sent."
-msgstr "Il est désormais possible de choisir à partir de quel type de contenu et quelle taxonomie chaque e-mail est envoyé."
+msgstr ""
+"Il est désormais possible de choisir à partir de quel type de contenu et "
+"quelle taxonomie chaque e-mail est envoyé."
 
 #: includes/views/welcome.php:35
 msgid "More beautiful with HTML content!"
@@ -202,7 +210,9 @@ msgstr "Plus beau avec contenu HTML !"
 msgid ""
 "New HTML editors allow you to customize the contents of the email, and even "
 "embed images, videos and what more do you want to. "
-msgstr "Le nouvel éditeur HTML vous permet de personnaliser le contenu de l'e-mail, et même d'incorporer des images, vidéos et ce que vous voulez."
+msgstr ""
+"Le nouvel éditeur HTML vous permet de personnaliser le contenu de l'e-mail, "
+"et même d'incorporer des images, vidéos et ce que vous voulez."
 
 #: includes/views/welcome.php:41
 msgid "Contents of the post directly in the body of the email!"
@@ -212,7 +222,9 @@ msgstr "Contenu de l'article directement dans le corps de l'e-mail !"
 msgid ""
 "It is now possible to send the entire contents of the post directly in your "
 "email. This is amazing."
-msgstr "Il est maintenant possible d'envoyer le contenu complet d'un article directement dans votre e-mail. C'est fantastique !"
+msgstr ""
+"Il est maintenant possible d'envoyer le contenu complet d'un article "
+"directement dans votre e-mail. C'est fantastique !"
 
 #: includes/views/welcome.php:45
 msgid "Keep up with the news"
@@ -222,7 +234,10 @@ msgstr "Suivez notre actualité"
 msgid ""
 "We are preparing many new features, stay tuned by subscribing to our email "
 "Marketing. We promise not to send Spam."
-msgstr "Nous préparons plein de nouvelles fonctionnalités, restez informés en vous abonnant à notre lettre de marketing. Nous vous promettons de ne pas envoyer de spam."
+msgstr ""
+"Nous préparons plein de nouvelles fonctionnalités, restez informés en vous "
+"abonnant à notre lettre de marketing. Nous vous promettons de ne pas envoyer "
+"de spam."
 
 #: includes/views/welcome.php:58
 msgid "Email Address"

@@ -1,20 +1,19 @@
 #
 # Translators:
-# snowbeachking, 2014
-# snowbeachking, 2014
+# Lukáš Przeczek <przecza@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Post Notification by Email\n"
 "POT-Creation-Date: 2014-12-25 22:13-0300\n"
-"PO-Revision-Date: 2014-12-26 20:10-0300\n"
+"PO-Revision-Date: 2014-12-26 20:11-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
-"Language-Team: German (Germany) (http://www.transifex.com/projects/p/post-"
-"notification-by-email/language/de_DE/)\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
+"post-notification-by-email/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__\n"
@@ -23,72 +22,72 @@ msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:77
 msgid "Choose a file"
-msgstr ""
+msgstr "Vybrat soubor"
 
 #: includes/class-notify-users-e-mail-admin.php:78
 msgid "Add file"
-msgstr ""
+msgstr "Přidat soubor"
 
 #: includes/class-notify-users-e-mail-admin.php:91
 #: includes/class-notify-users-e-mail-admin.php:92
 #: includes/class-notify-users-e-mail-admin.php:117
 msgid "Post Notification by Email"
-msgstr "Post Notification by Email"
+msgstr "Notifikace emailem"
 
 #: includes/class-notify-users-e-mail-admin.php:118
 msgid "Welcome"
-msgstr "Willkommen"
+msgstr "Vítejte"
 
 #: includes/class-notify-users-e-mail-admin.php:133
 msgid "Post Notification by Email Settings"
-msgstr "\"Post Notification by Email\" Einstellungen"
+msgstr "Notifikace Emailem - nastavení"
 
 #: includes/class-notify-users-e-mail-admin.php:134
 #: includes/class-notify-users-e-mail-admin.php:571
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Nastavení"
 
 #: includes/class-notify-users-e-mail-admin.php:158
 #: includes/class-notify-users-e-mail-admin.php:170
 #, php-format
 msgid "%s You can use the following placeholders:%s %s"
-msgstr "%s Du kannst die folgenden Platzhalter verwenden:%s %s"
+msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:163
 msgid "to display the title"
-msgstr "zeigt den Titel an"
+msgstr "pro zobrazení názvu"
 
 #: includes/class-notify-users-e-mail-admin.php:164
 msgid "to display the URL"
-msgstr "zeigt die URL an"
+msgstr "pro zobrazení URL"
 
 #: includes/class-notify-users-e-mail-admin.php:165
 msgid "to display the content"
-msgstr "zeigt den Inhalt an"
+msgstr "Pro zobrazení obsahu"
 
 #: includes/class-notify-users-e-mail-admin.php:166
 msgid "to display the date of publication"
-msgstr "zeigt das Ver&ouml;ffentlichungsdatum an"
+msgstr "pro zobrazení data publikování"
 
 #: includes/class-notify-users-e-mail-admin.php:175
 msgid "to display the post title"
-msgstr "zeigt den Beitragstitel an"
+msgstr "pro zobrazení názvu příspěvku"
 
 #: includes/class-notify-users-e-mail-admin.php:176
 msgid "to display the comment URL"
-msgstr "zeigt die Kommentar-URL an"
+msgstr "pro zobrazení URL komentáře"
 
 #: includes/class-notify-users-e-mail-admin.php:177
 msgid "to display the date of comment publication"
-msgstr "zeigt das Ver&ouml;ffentlichungsdatum des Kommentars an"
+msgstr "pro zobrazení data zveřejnění komentáře"
 
 #: includes/class-notify-users-e-mail-admin.php:185
 msgid "Email Settings"
-msgstr "E-Mail Einstellungen"
+msgstr "Nastavení emailu"
 
 #: includes/class-notify-users-e-mail-admin.php:193
 msgid "Sent to"
-msgstr "Senden an"
+msgstr "Odeslána na"
 
 #: includes/class-notify-users-e-mail-admin.php:199
 msgid ""
@@ -96,181 +95,157 @@ msgid ""
 "of settings below. A registered user may receive two emails if you list it "
 "here."
 msgstr ""
-"Trage, unabh&auml;ngig von den unten gew&auml;hlten Benutzerrollen, die E-"
-"Mail-Adressen der Empf&auml;nger ein (mit Kommas getrennt). Jedoch kann ein "
-"hier gelisteter und zugleich registrierter Benutzer, der einer unten "
-"ausgew&auml;hlten Rolle zugeh&ouml;rig ist, dadurch zwei E-Mails erhalten."
 
 #: includes/class-notify-users-e-mail-admin.php:207
 msgid "Send to users"
-msgstr "An Benutzer senden"
+msgstr "Odeslat uživatelům"
 
 #: includes/class-notify-users-e-mail-admin.php:213
 msgid ""
 "Select the type of user that will receive notifications. You can choose more "
 "than one type using ctrl+click."
 msgstr ""
-"W&auml;hle die Benutzerrollen aus, die Benachrichtigungen erhalten sollen. "
-"Du kannst die unterschiedlichen Rollen mithilfe der Steuerungstaste Strg und "
-"Mausklick unter Windows bzw. Befehlstaste cmd und Mausklick unter Mac OS "
-"ausw&auml;hlen."
 
 #: includes/class-notify-users-e-mail-admin.php:222
 msgid "Email subject for new posts, pages and post types."
-msgstr "E-Mail-Betreff für neue Beitr&auml;ge, Seiten und Custom Post-Types."
+msgstr "Předmět emailu pro nový příspěvek, stránku a post type"
 
 #: includes/class-notify-users-e-mail-admin.php:236
 msgid "Email body for new posts, pages and post types."
-msgstr ""
-" E-Mail-Text f&uuml;r neue Beitr&auml;ge, Seiten und Custom Post-Types."
+msgstr "Tělo emailu pro nový příspěvek, stránku a post type"
 
 #: includes/class-notify-users-e-mail-admin.php:250
 msgid "Email subject for new comments"
-msgstr "E-Mail-Betreff für neue Kommentare"
+msgstr "Předmět emailu pro nový komentář"
 
 #: includes/class-notify-users-e-mail-admin.php:264
 msgid "Email body for new comments"
-msgstr "E-Mail-Text f&uuml;r neue Kommentare"
+msgstr "Obsah emailu pro nový komentář"
 
 #: includes/class-notify-users-e-mail-admin.php:279
 msgid "Conditional Settings"
-msgstr "Konditionale Einstellungen"
+msgstr "Podmíněné nastavení"
 
 #: includes/class-notify-users-e-mail-admin.php:287
 msgid "Post Types"
-msgstr "Post-Types"
+msgstr "Post types"
 
 #: includes/class-notify-users-e-mail-admin.php:296
 msgid "Posts"
-msgstr ""
+msgstr "Příspěvky"
 
 #: includes/class-notify-users-e-mail-admin.php:300
 msgid "Pages"
-msgstr ""
+msgstr "Stránky"
 
 #: includes/class-notify-users-e-mail-admin.php:303
 msgid "Which Post Types will trigger a notification"
-msgstr "Post-Types f&uuml;r die eine Benachrichtigung gesendet werden soll."
+msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:341
 #, php-format
 msgid "Which terms from %s will send a notification"
-msgstr "%s w&auml;hlen, wof&uuml;r eine Benachrichtigung gesendet werden soll."
+msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:344
 #, php-format
 msgid "Select the %s"
-msgstr "%s w&auml;hlen"
+msgstr "Vyberte %s"
 
 #: includes/class-notify-users-e-mail-admin.php:442
 msgid "Choose some Options"
-msgstr ""
+msgstr "Vyberte nějaké nastavení"
 
 #: includes/class-notify-users-e-mail-admin.php:517
 msgid "Select image"
-msgstr ""
+msgstr "Vybrat obrázek"
 
 #: includes/class-notify-users-e-mail-admin.php:517
 msgid "Remove image"
-msgstr ""
+msgstr "Odebrat obrázek"
 
 #: includes/views/admin.php:23
 msgid ""
 "This plugin notifies registered users via email of new posts, pages and "
 "comments posted."
 msgstr ""
-"Dieses Plugin informiert Nutzer via E-Mail &uuml;ber neu ver&ouml;"
-"ffentlichte Beitr&auml;ge, Seiten und Kommentare."
 
 #: includes/views/welcome.php:22
 msgid "Welcome to"
-msgstr "Willkommen bei"
+msgstr "Vítejte v"
 
 #: includes/views/welcome.php:23
 msgid ""
 "This plugin notifies registered users via email of new posts, comments, and "
 "any post type posted."
 msgstr ""
-"Dieses Plugin informiert Nutzer via E-Mail &uuml;ber neue Beitr&auml;ge, "
-"Kommentare und jegliche ver&ouml;ffentlichte Post-Types."
 
 #: includes/views/welcome.php:27 includes/views/welcome.php:75
 msgid "Go to Configuration Plugin"
-msgstr "Gehe zur Konfiguration des Plugins"
+msgstr ""
 
 #: includes/views/welcome.php:31
 msgid "What's new in this release."
-msgstr "Was ist neu in diesem Release."
+msgstr "Co je nového v této verzi"
 
 #: includes/views/welcome.php:32
 msgid ""
 "Now it is possible to choose which post type and taxonomy which emails are "
 "sent."
 msgstr ""
-"Nun ist es m&ouml;glich auszuw&auml;hlen f&uml;r welche Post-Types und "
-"Taxonomys eine Benachrichtigung gesendet werden soll."
 
 #: includes/views/welcome.php:35
 msgid "More beautiful with HTML content!"
-msgstr "Sch&ouml;ner mit HTML Inhalt!"
+msgstr "Hezčí s HTML obsahem"
 
 #: includes/views/welcome.php:36
 msgid ""
 "New HTML editors allow you to customize the contents of the email, and even "
 "embed images, videos and what more do you want to. "
 msgstr ""
-"Der neue HTML Editor erm&ouml;glicht dir den Inhalt der E-Mail individuell "
-"zu gestalten, es k&ouml;nnen sogar Bilder, Videos und was du sonst noch "
-"m&ouml;chtest hinzugef&uuml;gt werden."
 
 #: includes/views/welcome.php:41
 msgid "Contents of the post directly in the body of the email!"
-msgstr "Inhalte des Beitrags direkt in der E-Mail!"
+msgstr ""
 
 #: includes/views/welcome.php:42
 msgid ""
 "It is now possible to send the entire contents of the post directly in your "
 "email. This is amazing."
 msgstr ""
-"Es ist nun m&ouml;glich den kompletten Inhalt des Beitrags in deiner E-Mail "
-"zu verschicken. Das ist fantastisch."
 
 #: includes/views/welcome.php:45
 msgid "Keep up with the news"
-msgstr "Verfolge unsere News"
+msgstr ""
 
 #: includes/views/welcome.php:46
 msgid ""
 "We are preparing many new features, stay tuned by subscribing to our email "
 "Marketing. We promise not to send Spam."
 msgstr ""
-"Wir bereiten viele neue Funktionen vor, halte dich auf dem Laufenden indem "
-"du unseren Newsletter abonnierst. Wir versprechen, dass wir keine Spam-"
-"Nachrichten versenden werden."
 
 #: includes/views/welcome.php:58
 msgid "Email Address"
-msgstr "E-Mail-Adresse"
+msgstr "Emailová adresa"
 
 #: includes/views/welcome.php:66
 msgid "Subscribe"
-msgstr "Abonnieren"
+msgstr "Přihlásit k odběru"
 
 #: notify-users-e-mail.php:205
 #, php-format
 msgid "New post published at %s on {date}"
-msgstr "Neuer Beitrag ver&ouml;ffentlicht in %s am {date}"
+msgstr "Nový příspěvek byl zveřejněn {date} v %s "
 
 #: notify-users-e-mail.php:206
 msgid "A new post {title} - {link_post} has been published on {date}."
 msgstr ""
-"Ein neuer Beitrag {title} - {link_post} wurde am {date} ver&ouml;ffentlicht."
 
 #: notify-users-e-mail.php:207
 #, php-format
 msgid "New comment published at %s"
-msgstr "Neuer Kommentar ver&ouml;ffentlicht in %s"
+msgstr "Nový komentář by zveřejněn v %s"
 
 #: notify-users-e-mail.php:208
 msgid "A new comment {link_comment} has been published."
-msgstr "Ein neuer Kommentar {link_comment} wurde veröffentlicht."
+msgstr "Nový komentář {link_comment} byl zveřejněn"

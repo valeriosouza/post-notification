@@ -32,21 +32,14 @@ Want to help? Use the [support](https://wordpress.org/support/plugin/notify-user
 
 8 languages:
 
-English
-
-Portuguese
-
-French
-
-Polish
-
-German
-
-Spanish
-
-Dutch
-
-Chinese
+- English
+- Portuguese
+- French
+- Polish
+- German
+- Spanish
+- Dutch
+- Chinese
 
 = Want to help? =
 

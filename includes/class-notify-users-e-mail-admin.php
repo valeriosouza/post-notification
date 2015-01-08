@@ -89,7 +89,7 @@ class Notify_Users_EMail_Admin {
 	public function add_plugin_welcome_menu() {
 		add_menu_page(
 			__( 'Post Notification by Email', 'notify-users-e-mail' ),
-			__( 'Post Notification by Email', 'notify-users-e-mail' ),
+			'Post Notification by Email',
 			'manage_options',
 			'notify-users-e-mail',
 			array( $this, 'display_plugin_welcome_page' ),
@@ -114,7 +114,7 @@ class Notify_Users_EMail_Admin {
 	public function add_plugin_welcome_submenu() {
 		add_submenu_page(
 			'notify-users-e-mail',
-			__( 'Post Notification by Email', 'notify-users-e-mail' ),
+			'Post Notification by Email',
 			__( 'Welcome', 'notify-users-e-mail' ),
 			'manage_options',
 			'notify-users-e-mail'
@@ -130,7 +130,7 @@ class Notify_Users_EMail_Admin {
 	public function add_plugin_admin_menu() {
 		add_submenu_page(
 			'notify-users-e-mail',
-			__( 'Post Notification by Email Settings', 'notify-users-e-mail' ),
+			'Post Notification by Email Settings',
 			__( 'Settings', 'notify-users-e-mail' ),
 			'manage_options',
 			'notify-users-e-mail-settings',

@@ -1,12 +1,13 @@
 #
 # Translators:
-# FxB <fxb@wp-translations.org>, 2014
+# FxB <fxb@wp-translations.org>, 2014-2015
+# Patricia BT, 2014
 # Patricia BT, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: Post Notification by Email\n"
-"POT-Creation-Date: 2014-11-24 21:40-0300\n"
-"PO-Revision-Date: 2014-12-25 22:56-0300\n"
+"Project-Id-Version: Post Notification Email\n"
+"POT-Creation-Date: 2014-12-26 20:27-0300\n"
+"PO-Revision-Date: 2015-01-08 22:24-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/post-"
 "notification-email/language/fr_FR/)\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
-"X-Poedit-KeywordsList: __;_e;esc_attr__\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;_x\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -96,6 +97,9 @@ msgid ""
 "of settings below. A registered user may receive two emails if you list it "
 "here."
 msgstr ""
+"Entrer la et les adresse/s Email (séparées par des virgules) où seront "
+"envoyés ètrles Emails sans tenir compte des paramètres ci-dessous. Un "
+"utilisateur enregistré peut recevoir deux Emails si vous le listez ici."
 
 #: includes/class-notify-users-e-mail-admin.php:207
 msgid "Send to users"
@@ -106,22 +110,27 @@ msgid ""
 "Select the type of user that will receive notifications. You can choose more "
 "than one type using ctrl+click."
 msgstr ""
+"Séélectionnez le type d'utilisateur qui reçoit les notifications. Vous "
+"pouvez choisir plus d'un type au moyen de ctrl-clic"
 
 #: includes/class-notify-users-e-mail-admin.php:222
 msgid "Email subject for new posts, pages and post types."
 msgstr ""
+"Sujet de l'e-mail pour les nouveaux articles, pages et types d'article. "
 
 #: includes/class-notify-users-e-mail-admin.php:236
 msgid "Email body for new posts, pages and post types."
 msgstr ""
+"Corps de l'Email pour les nouveaux articles, les nouvelles pages et nouveaux "
+"autres types de contenus"
 
 #: includes/class-notify-users-e-mail-admin.php:250
 msgid "Email subject for new comments"
-msgstr ""
+msgstr "Sujet de l'Email pour les nouveaux commentaires"
 
 #: includes/class-notify-users-e-mail-admin.php:264
 msgid "Email body for new comments"
-msgstr ""
+msgstr "Corps de l'Email pour les nouveaux commentaires"
 
 #: includes/class-notify-users-e-mail-admin.php:279
 msgid "Conditional Settings"
@@ -247,20 +256,24 @@ msgstr "Adresse e-mail"
 msgid "Subscribe"
 msgstr "Abonnez-vous"
 
-#: notify-users-e-mail.php:207
+#: notify-users-e-mail.php:205
 #, php-format
 msgid "New post published at %s on {date}"
 msgstr "Nouvel article publié sur %s le {date}"
 
-#: notify-users-e-mail.php:208
+#: notify-users-e-mail.php:206
 msgid "A new post {title} - {link_post} has been published on {date}."
 msgstr "Un nouvel article {title} - {link_post} a été publié le {date}."
 
-#: notify-users-e-mail.php:209
+#: notify-users-e-mail.php:207
 #, php-format
 msgid "New comment published at %s"
 msgstr "Nouveau commentaire publié sur %s"
 
-#: notify-users-e-mail.php:210
+#: notify-users-e-mail.php:208
 msgid "A new comment {link_comment} has been published."
 msgstr "Un nouveau commentaire {link_comment} a été publié."
+
+#: notify-users-e-mail.php:273
+msgid "\\a\\t"
+msgstr "à"

@@ -3,9 +3,9 @@
 # Thalita Nick Pinheiro Gomes <thalitanpg@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: Post Notification by Email\n"
-"POT-Creation-Date: 2014-11-24 21:40-0300\n"
-"PO-Revision-Date: 2014-12-25 22:56-0300\n"
+"Project-Id-Version: Post Notification Email\n"
+"POT-Creation-Date: 2014-12-26 20:27-0300\n"
+"PO-Revision-Date: 2015-01-08 22:24-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/post-"
 "notification-email/language/es_ES/)\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
-"X-Poedit-KeywordsList: __;_e;esc_attr__\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;_x\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -236,20 +236,24 @@ msgstr "Dirección del correo electrónico "
 msgid "Subscribe"
 msgstr "Suscribirse "
 
-#: notify-users-e-mail.php:207
+#: notify-users-e-mail.php:205
 #, php-format
 msgid "New post published at %s on {date}"
 msgstr "Nueva entrada publicada a las %s en {date}"
 
-#: notify-users-e-mail.php:208
+#: notify-users-e-mail.php:206
 msgid "A new post {title} - {link_post} has been published on {date}."
 msgstr "Una nueva entrada {title} - {link_post} ha sido publicada en {date}."
 
-#: notify-users-e-mail.php:209
+#: notify-users-e-mail.php:207
 #, php-format
 msgid "New comment published at %s"
 msgstr "Nuevo comentario publicado a las %s"
 
-#: notify-users-e-mail.php:210
+#: notify-users-e-mail.php:208
 msgid "A new comment {link_comment} has been published."
 msgstr "Un nuevo comentario {link_comment} ha sido publicado."
+
+#: notify-users-e-mail.php:273
+msgid "\\a\\t"
+msgstr ""

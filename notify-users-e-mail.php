@@ -20,6 +20,7 @@ License:           GPL-2.0+
 License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
 Domain Path:       /languages
 GitHub Plugin URI: https://github.com/valeriosouza/post-notification-by-email
+GitHub Branch:     beta
  */
 
 // If this file is called directly, abort.
@@ -260,7 +261,7 @@ class Notify_Users_EMail {
 	public function load_plugin_textdomain() {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'notify-users-e-mail' );
 
-		load_plugin_textdomain( 'notify-users-e-mail', trailingslashit( WP_LANG_DIR ) . 'notify-users-e-mail/notify-users-e-mail-' . $locale . '.mo' );
+		load_plugin_textdomain( 'notify-users-e-mail', false, trailingslashit( WP_LANG_DIR ) . 'notify-users-e-mail/notify-users-e-mail-' . $locale . '.mo' );
 		load_plugin_textdomain( 'notify-users-e-mail', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 

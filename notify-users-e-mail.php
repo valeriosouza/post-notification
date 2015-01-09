@@ -260,7 +260,7 @@ class Notify_Users_EMail {
 	public function load_plugin_textdomain() {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'notify-users-e-mail' );
 
-		load_plugin_textdomain( 'notify-users-e-mail', trailingslashit( WP_LANG_DIR ) . 'notify-users-e-mail/notify-users-e-mail-' . $locale . '.mo' );
+		load_plugin_textdomain( 'notify-users-e-mail', false, trailingslashit( WP_LANG_DIR ) . 'notify-users-e-mail/notify-users-e-mail-' . $locale . '.mo' );
 		load_plugin_textdomain( 'notify-users-e-mail', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 

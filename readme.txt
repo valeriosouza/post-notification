@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P5QTG
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter,posts, post type
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 4.0.3
+Stable tag: 4.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,23 +30,18 @@ Want to help? Use the [support](https://wordpress.org/support/plugin/notify-user
 
 = Now we are in: =
 
-8 languages:
+10 languages:
 
-English
-
-Portuguese
-
-French
-
-Polish
-
-German
-
-Spanish
-
-Dutch
-
-Chinese
+- English
+- Portuguese
+- French
+- Polish
+- German
+- Spanish
+- Dutch
+- Chinese
+- Italian
+- Czech
 
 = Want to help? =
 
@@ -132,6 +127,10 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 == Changelog ==
 
+= 4.0.4 - 08/01/2014 =
+
+* Fixed: Resolved bugs, errors and add new languages.
+
 = 4.0.3 - 25/12/2014 =
 
 * Fixed: Resolved bugs and errors.
@@ -215,6 +214,10 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 * Lançada primeira versão beta
 
 == Upgrade Notice ==
+
+= 4.0.4 =
+
+* Fixed: Resolved bugs, errors and add new languages.
 
 = 4.0.3 =
 

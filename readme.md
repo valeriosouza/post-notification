@@ -1,4 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/valeriosouza/post-notification-by-email.svg?label=ready&title=Ready)](http://waffle.io/valeriosouza/post-notification-by-email)
+[![Stories in Ready](https://badge.waffle.io/valeriosouza/post-notification-by-email.svg?label=ready&title=Ready)](http://waffle.io/valeriosouza/post-notification-by-email) [![Build Status](https://scrutinizer-ci.com/g/valeriosouza/post-notification-by-email/badges/build.png?b=master)](https://scrutinizer-ci.com/g/valeriosouza/post-notification-by-email/build-status/master)
 # Post Notification By Email #
 Contributors: valeriosza, claudiosanches
 

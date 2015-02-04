@@ -281,7 +281,17 @@ class Notify_Users_EMail_Admin {
 			'notify_users_email'
 		);
 
-		// Email Body Prefix Comment.
+                // Select All Post types.
+                $post_types_options = array(); 
+                $post_types = get_post_types('', 'objects'); 
+                foreach ($post_types as $post_type) { 
+                    $post_types_options[] = array( 
+                        'id' => $post_type->name, 
+                        'text' => esc_attr__($post_type->labels->name), 
+                    );
+                } 
+
+                // Email Body Prefix Comment.
 		add_settings_field(
 			'conditional_post_type',
 			esc_attr__( 'Post Types', 'notify-users-e-mail' ),
@@ -290,16 +300,7 @@ class Notify_Users_EMail_Admin {
 			'conditional_section',
 			array(
 				'id'          => 'conditional_post_type',
-				'options'     => array(
-					array(
-						'id' => 'post',
-						'text' => esc_attr__( 'Posts' ),
-					),
-					array(
-						'id' => 'page',
-						'text' => esc_attr__( 'Pages' ),
-					),
-				),
+				'options'     => $post_types_options,
 				'description' => esc_attr__( 'Which Post Types will trigger a notification', 'notify-users-e-mail' ),
 				'default'     => array( 'post', 'page' ),
 				'multiple'    => true,

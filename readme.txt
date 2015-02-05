@@ -4,13 +4,15 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P5QTG
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter,posts, post type
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 4.0.4
+Stable tag: 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Send an email to all users whenever a new post is published on your WordPress.
 
 == Description ==
+
+This version especial thanks for [kikolino](https://github.com/kikolino)
 
 This plugin notifies registered users via email of new posts, pages, post types and comments published.
 
@@ -102,6 +104,14 @@ Imagine you have 100 people registered on your site and want to notify them of a
 
 This plugin simplifies sending an email with this notice.
 
+= My comments are not being sent because? =
+
+Only emails are sent for comments that do not suffer moderation rules. If for some reason he held in moderation, after the approval e-mail is not sent.
+
+Look this `wp-admin/options-discussion.php`
+
+This plugin will not change this function, you can go out on a add-on or pro version.
+
 == For Developers ==
 
 = Custom email engine/function =
@@ -121,11 +131,18 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 
 1. Enter email or choose levels of users with permission to receive emails.
 
-2. Personalize your message. Use image, colors and whatever you decide..
+2. Personalize your message. Use image, colors and whatever you decide.
 
 3. Conditions for sending the email.
 
 == Changelog ==
+
+= 4.1 - 10/02/2015 =
+
+* Fixed: Resolved bug load_plugin_textdomain.
+* Fixed: Resolved bug Emails are being sent for unpublished Comments.
+* New: All Posts types in conditional.
+* Unreal: We love the Brazilian currency.
 
 = 4.0.4 - 08/01/2014 =
 
@@ -214,6 +231,13 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 * Lançada primeira versão beta
 
 == Upgrade Notice ==
+
+= 4.1 =
+
+* Fixed: Resolved bug load_plugin_textdomain.
+* Fixed: Resolved bug Emails are being sent for unpublished Comments.
+* New: All Posts types in conditional.
+* Unreal: We love the Brazilian currency.
 
 = 4.0.4 =
 

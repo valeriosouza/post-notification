@@ -22,4 +22,22 @@ If your hosting server does not allow sending emails, use a plugin like SMTP htt
 
 Help translate? Use https://www.transifex.com/projects/p/post-notification-email/
 
-Want to keep up with the latest news from this plugin? Follow Twitter [@valeriooficial](https://twitter.com/valeriooficial)
+Want to keep up with the latest news from this plugin? Follow Twitter [@valeriosza](https://twitter.com/valeriosza)
+
+## Contributors ##
+
+Pull requests are always welcome!
+
+Take a fork in the branch `dev`, is it that is updated changes.
+
+Create a new branch with the name change and if possible a new issue explaining.
+
+Send the pull request and run for the party
+
+## Branches ##
+
+`master` Version run in WordPress.org
+
+`beta` Version in tests. Use the plugin https://github.com/afragen/github-updater for trial versions.
+
+`dev` Version in development. This branch should be used to pull requests.

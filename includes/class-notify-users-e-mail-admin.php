@@ -283,7 +283,10 @@ class Notify_Users_EMail_Admin {
 
                 // Select All Post types.
                 $post_types_options = array(); 
-                $post_types = get_post_types('', 'objects'); 
+                $args = array(
+				   'public'   => true
+				);
+                $post_types = get_post_types($args, 'objects'); 
                 foreach ($post_types as $post_type) { 
                     $post_types_options[] = array( 
                         'id' => $post_type->name, 

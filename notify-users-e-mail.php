@@ -74,8 +74,9 @@ class Notify_Users_EMail {
 		// Nofity users when publish a post.
 		add_action( 'wp_insert_post', array( $this, 'send_notification_post' ), 10, 2 );
 
-		// Nofity users when publish a comment.
-		add_action( 'wp_insert_comment', array( $this, 'send_notification_comment' ), 10, 2 );
+		// Nofity users when approve a comment.
+		add_action( 'wp_insert_comment', array( $this, 'pre_send_notification_new_comment' ), 10, 2 );
+		add_action( 'transition_comment_status', array( $this, 'pre_send_notification_update_comment' ), 10, 3 );
 	}
 
 	/**
@@ -451,16 +452,55 @@ class Notify_Users_EMail {
 	}
 
 	/**
-	 * Nofity users when publish a comment.
-	 *
 	 * @param int      $id Comment ID.
-	 * @param stdClass $id Comment data.
+	 * @param stdClass $comment Comment data.
 	 *
 	 * @return void
 	 */
-	public function send_notification_comment( $id, $comment, $approved ) {
-		if ($approved == 1) 
-    	{
+	public function pre_send_notification_new_comment( $id, $comment ) {
+		$this->send_notification_comment( $id, $comment->comment_approved );
+	}
+
+	/**
+	 * @param string   $new_status New status of comment.
+	 * @param string   $old_status Old status of comment.
+	 * @param stdClass $comment Comment data.
+	 *
+	 * @return void
+	 */
+	public function pre_send_notification_update_comment( $new_status, $old_status, $comment ) {
+		$this->send_notification_comment( $comment->comment_ID, $new_status, $old_status );
+	}
+
+	/**
+	 * Detect whether the comment has approved.
+	 *
+	 * @param string $new_status New status of comment.
+	 * @param string $old_status Optional old status of comment.
+	 *
+	 * @return boolean           Returns true if the comment has approved.
+	 */
+	protected function is_approved( $new_status, $old_status = null ) {
+		$approved = false;
+		$approved_statuses = array( '1', 'approved', 'approve' );
+		if ( ! in_array( $old_status, $approved_statuses, true ) && in_array( $new_status, $approved_statuses, true ) ) {
+			$approved = true;
+		}
+		return $approved;
+	}
+
+	/**
+	 * Nofity users when publish a comment.
+	 *
+	 * @param int    $id Comment ID.
+	 * @param string $new_status New status of comment.
+	 * @param string $old_status Optional old status of comment.
+	 *
+	 * @return void
+	 */
+	public function send_notification_comment( $id, $new_status, $old_status = null ) {
+		if ( $this->is_approved( $new_status, $old_status ) ) {
+			$comment         = get_comment( $id );
 			$settings        = get_option( 'notify_users_email' );
 			$emails          = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
 			$subject_comment = $this->apply_comment_placeholders( $settings['subject_comment'], $comment );

@@ -12,7 +12,7 @@ Send an email to all users whenever a new post is published on your WordPress.
 
 == Description ==
 
-This version especial thanks for [kikolino](https://github.com/kikolino)
+This version especial thanks for [caramelopardalis](https://github.com/caramelopardalis)
 
 This plugin notifies registered users via email of new posts, pages, post types and comments published.
 

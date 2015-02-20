@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Notify Users E-Mail v3.0.0\n"
-"POT-Creation-Date: 2015-01-08 22:23-0300\n"
-"PO-Revision-Date: 2015-01-08 22:24-0300\n"
+"POT-Creation-Date: 2015-02-20 20:14-0300\n"
+"PO-Revision-Date: 2015-02-20 20:17-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -33,7 +33,7 @@ msgid "Welcome"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:134
-#: includes/class-notify-users-e-mail-admin.php:571
+#: includes/class-notify-users-e-mail-admin.php:575
 msgid "Settings"
 msgstr ""
 
@@ -116,41 +116,33 @@ msgstr ""
 msgid "Conditional Settings"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:287
+#: includes/class-notify-users-e-mail-admin.php:300
 msgid "Post Types"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:296
-msgid "Posts"
-msgstr ""
-
-#: includes/class-notify-users-e-mail-admin.php:300
-msgid "Pages"
-msgstr ""
-
-#: includes/class-notify-users-e-mail-admin.php:303
+#: includes/class-notify-users-e-mail-admin.php:307
 msgid "Which Post Types will trigger a notification"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:341
+#: includes/class-notify-users-e-mail-admin.php:345
 #, php-format
 msgid "Which terms from %s will send a notification"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:344
+#: includes/class-notify-users-e-mail-admin.php:348
 #, php-format
 msgid "Select the %s"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:442
+#: includes/class-notify-users-e-mail-admin.php:446
 msgid "Choose some Options"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:517
+#: includes/class-notify-users-e-mail-admin.php:521
 msgid "Select image"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:517
+#: includes/class-notify-users-e-mail-admin.php:521
 msgid "Remove image"
 msgstr ""
 
@@ -222,24 +214,24 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: notify-users-e-mail.php:205
+#: notify-users-e-mail.php:207
 #, php-format
 msgid "New post published at %s on {date}"
 msgstr ""
 
-#: notify-users-e-mail.php:206
+#: notify-users-e-mail.php:208
 msgid "A new post {title} - {link_post} has been published on {date}."
 msgstr ""
 
-#: notify-users-e-mail.php:207
+#: notify-users-e-mail.php:209
 #, php-format
 msgid "New comment published at %s"
 msgstr ""
 
-#: notify-users-e-mail.php:208
+#: notify-users-e-mail.php:210
 msgid "A new comment {link_comment} has been published."
 msgstr ""
 
-#: notify-users-e-mail.php:273
+#: notify-users-e-mail.php:275
 msgid "\\a\\t"
 msgstr ""

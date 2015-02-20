@@ -44,6 +44,7 @@ Want to help? Use the [support](https://wordpress.org/support/plugin/notify-user
 - Chinese
 - Italian
 - Czech
+- Japanese
 
 = Want to help? =
 

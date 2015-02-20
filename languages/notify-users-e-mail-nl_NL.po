@@ -1,15 +1,14 @@
-#
+# 
 # Translators:
 # Thom, 2014
 # Thom, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Post Notification Email\n"
-"POT-Creation-Date: 2014-12-26 20:27-0300\n"
-"PO-Revision-Date: 2015-01-08 22:24-0300\n"
-"Last-Translator: Valerio <valeriosza@gmail.com>\n"
-"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/post-"
-"notification-email/language/nl_NL/)\n"
+"POT-Creation-Date: 2015-02-20 20:14-0300\n"
+"PO-Revision-Date: 2015-02-20 22:24+0000\n"
+"Last-Translator: Valério Souza <valeriosza@gmail.com>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/post-notification-email/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,8 +17,8 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__;_x\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: includes/class-notify-users-e-mail-admin.php:77
 msgid "Choose a file"
@@ -30,8 +29,6 @@ msgid "Add file"
 msgstr "Bestand toevoegen"
 
 #: includes/class-notify-users-e-mail-admin.php:91
-#: includes/class-notify-users-e-mail-admin.php:92
-#: includes/class-notify-users-e-mail-admin.php:117
 msgid "Post Notification by Email"
 msgstr ""
 
@@ -39,12 +36,8 @@ msgstr ""
 msgid "Welcome"
 msgstr "Welkom"
 
-#: includes/class-notify-users-e-mail-admin.php:133
-msgid "Post Notification by Email Settings"
-msgstr ""
-
 #: includes/class-notify-users-e-mail-admin.php:134
-#: includes/class-notify-users-e-mail-admin.php:571
+#: includes/class-notify-users-e-mail-admin.php:575
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -103,8 +96,8 @@ msgstr "Verzenden naar gebruikers"
 
 #: includes/class-notify-users-e-mail-admin.php:213
 msgid ""
-"Select the type of user that will receive notifications. You can choose more "
-"than one type using ctrl+click."
+"Select the type of user that will receive notifications. You can choose more"
+" than one type using ctrl+click."
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:222
@@ -127,41 +120,33 @@ msgstr ""
 msgid "Conditional Settings"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:287
+#: includes/class-notify-users-e-mail-admin.php:300
 msgid "Post Types"
 msgstr "Bericht Typen"
 
-#: includes/class-notify-users-e-mail-admin.php:296
-msgid "Posts"
-msgstr "Berichten"
-
-#: includes/class-notify-users-e-mail-admin.php:300
-msgid "Pages"
-msgstr "Pagina's"
-
-#: includes/class-notify-users-e-mail-admin.php:303
+#: includes/class-notify-users-e-mail-admin.php:307
 msgid "Which Post Types will trigger a notification"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:341
+#: includes/class-notify-users-e-mail-admin.php:345
 #, php-format
 msgid "Which terms from %s will send a notification"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:344
+#: includes/class-notify-users-e-mail-admin.php:348
 #, php-format
 msgid "Select the %s"
 msgstr "Selecteer de %s"
 
-#: includes/class-notify-users-e-mail-admin.php:442
+#: includes/class-notify-users-e-mail-admin.php:446
 msgid "Choose some Options"
 msgstr ""
 
-#: includes/class-notify-users-e-mail-admin.php:517
+#: includes/class-notify-users-e-mail-admin.php:521
 msgid "Select image"
 msgstr "Afbeelding selecteren"
 
-#: includes/class-notify-users-e-mail-admin.php:517
+#: includes/class-notify-users-e-mail-admin.php:521
 msgid "Remove image"
 msgstr "Afbeelding verwijderen"
 
@@ -233,24 +218,24 @@ msgstr "E-mailadres"
 msgid "Subscribe"
 msgstr "Abonneren"
 
-#: notify-users-e-mail.php:205
+#: notify-users-e-mail.php:207
 #, php-format
 msgid "New post published at %s on {date}"
 msgstr ""
 
-#: notify-users-e-mail.php:206
+#: notify-users-e-mail.php:208
 msgid "A new post {title} - {link_post} has been published on {date}."
 msgstr ""
 
-#: notify-users-e-mail.php:207
+#: notify-users-e-mail.php:209
 #, php-format
 msgid "New comment published at %s"
 msgstr ""
 
-#: notify-users-e-mail.php:208
+#: notify-users-e-mail.php:210
 msgid "A new comment {link_comment} has been published."
 msgstr "Een nieuwe reactie {link_comment} is gepubliceerd."
 
-#: notify-users-e-mail.php:273
+#: notify-users-e-mail.php:275
 msgid "\\a\\t"
 msgstr ""

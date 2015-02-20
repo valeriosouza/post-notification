@@ -1,240 +1,266 @@
-# 
+#
 # Translators:
-# Valério Souza <valeriosza@gmail.com>, 2014
+# caramelopardalis <ltsu.koiwai@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Post Notification Email\n"
 "POT-Creation-Date: 2015-02-20 20:14-0300\n"
-"PO-Revision-Date: 2015-02-20 22:24+0000\n"
-"Last-Translator: Valério Souza <valeriosza@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/post-notification-email/language/pt_BR/)\n"
+"PO-Revision-Date: 2015-02-20 20:25-0300\n"
+"Last-Translator: Valerio <valeriosza@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/post-"
+"notification-email/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__;_x\n"
-"X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: includes/class-notify-users-e-mail-admin.php:77
 msgid "Choose a file"
-msgstr "Escolha um arquivo"
+msgstr "ファイルを選択"
 
 #: includes/class-notify-users-e-mail-admin.php:78
 msgid "Add file"
-msgstr "Adicionar arquivo"
+msgstr "新しいファイルの追加"
 
 #: includes/class-notify-users-e-mail-admin.php:91
 msgid "Post Notification by Email"
-msgstr "Notificação de Post por Email"
+msgstr "Post Notification by Email"
 
 #: includes/class-notify-users-e-mail-admin.php:118
 msgid "Welcome"
-msgstr "Bem-vindo"
+msgstr "ようこそ"
 
 #: includes/class-notify-users-e-mail-admin.php:134
 #: includes/class-notify-users-e-mail-admin.php:575
 msgid "Settings"
-msgstr "Configurações"
+msgstr "設定"
 
 #: includes/class-notify-users-e-mail-admin.php:158
 #: includes/class-notify-users-e-mail-admin.php:170
 #, php-format
 msgid "%s You can use the following placeholders:%s %s"
-msgstr "%s Você pode usar os seguintes parâmetros:%s %s"
+msgstr "%s 以下のプレースホルダーを使うことができます:%s %s"
 
 #: includes/class-notify-users-e-mail-admin.php:163
 msgid "to display the title"
-msgstr "para mostrar o título"
+msgstr "はタイトルを表示します"
 
 #: includes/class-notify-users-e-mail-admin.php:164
 msgid "to display the URL"
-msgstr "para mostrar a URL"
+msgstr "は URL を表示します"
 
 #: includes/class-notify-users-e-mail-admin.php:165
 msgid "to display the content"
-msgstr "para mostrar o conteúdo."
+msgstr "は本文を表示します"
 
 #: includes/class-notify-users-e-mail-admin.php:166
 msgid "to display the date of publication"
-msgstr "para mostrar a data de publicação"
+msgstr "は投稿日を表示します"
 
 #: includes/class-notify-users-e-mail-admin.php:175
 msgid "to display the post title"
-msgstr "para mostrar o título do post"
+msgstr "は投稿のタイトルを表示します"
 
 #: includes/class-notify-users-e-mail-admin.php:176
 msgid "to display the comment URL"
-msgstr "para mostrar a URL do comentário"
+msgstr "はコメントの URL を表示します"
 
 #: includes/class-notify-users-e-mail-admin.php:177
 msgid "to display the date of comment publication"
-msgstr "para mostrar a data de publicação do comentário"
+msgstr "はコメントが投稿された日を表示します"
 
 #: includes/class-notify-users-e-mail-admin.php:185
 msgid "Email Settings"
-msgstr "Configurações de E-mail"
+msgstr "メールの設定"
 
 #: includes/class-notify-users-e-mail-admin.php:193
 msgid "Sent to"
-msgstr "Enviar para"
+msgstr "送信先"
 
 #: includes/class-notify-users-e-mail-admin.php:199
 msgid ""
 "Enter email address (separated by commas) for emails to be sent regardless "
 "of settings below. A registered user may receive two emails if you list it "
 "here."
-msgstr "Digite os endereços de e-mail (separado por virgulas) para os disparos sejam enviados independentemente das configurações abaixo. Um usuário registrado pode receber até dois e-mails se você cadastra-lo aqui."
+msgstr ""
+"下記の設定に関わらず送信したいメールアドレスを (カンマで区切って) 入力してく"
+"ださい。ここに登録済みのユーザーのメールアドレスを追加した場合は 2 通のメール"
+"を受信するかもしれません。"
 
 #: includes/class-notify-users-e-mail-admin.php:207
 msgid "Send to users"
-msgstr "Enviar para os usuários"
+msgstr "送信先のユーザーグループ"
 
 #: includes/class-notify-users-e-mail-admin.php:213
 msgid ""
-"Select the type of user that will receive notifications. You can choose more"
-" than one type using ctrl+click."
-msgstr "Selecione o nível de usuário que irá receber a notificação. Você pode escolher mais de uma opção usando ctrl+clique."
+"Select the type of user that will receive notifications. You can choose more "
+"than one type using ctrl+click."
+msgstr ""
+"通知を受け取ってもらいたいユーザーのタイプを選んでください。ctrl+click で複数"
+"のタイプを選択できます。"
 
 #: includes/class-notify-users-e-mail-admin.php:222
 msgid "Email subject for new posts, pages and post types."
-msgstr "Assunto do e-mail para novos posts, páginas e tipo de posts personalizado."
+msgstr ""
+"投稿、固定ページまたはその他の投稿タイプが追加されたときに送られるメールの件"
+"名"
 
 #: includes/class-notify-users-e-mail-admin.php:236
 msgid "Email body for new posts, pages and post types."
-msgstr "Corpo do e-amil para novos posts, páginas e tipo de posts personalizados."
+msgstr ""
+"投稿、固定ページまたはその他の投稿タイプが追加されたときに送られるメールの本"
+"文"
 
 #: includes/class-notify-users-e-mail-admin.php:250
 msgid "Email subject for new comments"
-msgstr "Assunto do e-mail para novos comentários"
+msgstr "コメントが追加されたときに送られるメールの件名"
 
 #: includes/class-notify-users-e-mail-admin.php:264
 msgid "Email body for new comments"
-msgstr "Corpo do e-mail para novos comentários"
+msgstr "コメントが追加されたときに送られるメールの本文"
 
 #: includes/class-notify-users-e-mail-admin.php:279
 msgid "Conditional Settings"
-msgstr "Configurações de Condições"
+msgstr "条件の設定"
 
 #: includes/class-notify-users-e-mail-admin.php:300
 msgid "Post Types"
-msgstr "Tipos de Postagens"
+msgstr "投稿タイプ"
 
 #: includes/class-notify-users-e-mail-admin.php:307
 msgid "Which Post Types will trigger a notification"
-msgstr "Quais tipos de posts personalizados irá disparar uma notificação"
+msgstr "どの投稿タイプが通知されるか"
 
 #: includes/class-notify-users-e-mail-admin.php:345
 #, php-format
 msgid "Which terms from %s will send a notification"
-msgstr "Quais termos do %s irá disparar uma notificação"
+msgstr "%s内のどの項目が通知されるか"
 
 #: includes/class-notify-users-e-mail-admin.php:348
 #, php-format
 msgid "Select the %s"
-msgstr "Selecione o %s"
+msgstr "%sを選択"
 
 #: includes/class-notify-users-e-mail-admin.php:446
 msgid "Choose some Options"
-msgstr "Escolha algumas opções"
+msgstr "オプションを選択"
 
 #: includes/class-notify-users-e-mail-admin.php:521
 msgid "Select image"
-msgstr "Selecione imagem"
+msgstr "画像を選択"
 
 #: includes/class-notify-users-e-mail-admin.php:521
 msgid "Remove image"
-msgstr "Remover imagem"
+msgstr "画像の削除"
 
 #: includes/views/admin.php:23
 msgid ""
 "This plugin notifies registered users via email of new posts, pages and "
 "comments posted."
-msgstr "Esse plugin notifica todos os usuários cadastrados via e-mail de novos posts, páginas e comentários publicados."
+msgstr ""
+"このプラグインは新たに投稿、固定ページまたはコメントが追加されたことを登録"
+"ユーザーにメールでお知らせします。"
 
 #: includes/views/welcome.php:22
 msgid "Welcome to"
-msgstr "Bem vindo ao"
+msgstr "Welcome to"
 
 #: includes/views/welcome.php:23
 msgid ""
 "This plugin notifies registered users via email of new posts, comments, and "
 "any post type posted."
-msgstr "Esse plugin notifica os usuários cadastrados via e-mail sobre novos posts, comentários e tipos de post personalizado quando são publicados."
+msgstr ""
+"このプラグインは新たに任意の投稿タイプの投稿またはコメントが追加されたことを"
+"登録ユーザーにメールでお知らせします。"
 
 #: includes/views/welcome.php:27 includes/views/welcome.php:75
 msgid "Go to Configuration Plugin"
-msgstr "Ir para as Configurações do Plugin"
+msgstr "プラグインの設定へ進む"
 
 #: includes/views/welcome.php:31
 msgid "What's new in this release."
-msgstr "O que tem nessa nova versão."
+msgstr "このリリースの新機能"
 
 #: includes/views/welcome.php:32
 msgid ""
 "Now it is possible to choose which post type and taxonomy which emails are "
 "sent."
-msgstr "Agora é possível escolher qual tipo de post personalizado e taxonomia irá disparar os emails."
+msgstr ""
+"どの投稿タイプまたはタクソノミーでメールが送られるか選択できるようになりまし"
+"た。"
 
 #: includes/views/welcome.php:35
 msgid "More beautiful with HTML content!"
-msgstr "Mais bonito, com conteúdo do e-mail em HTML!"
+msgstr "HTML でさらに魅力的な本文を記述しよう!"
 
 #: includes/views/welcome.php:36
 msgid ""
 "New HTML editors allow you to customize the contents of the email, and even "
 "embed images, videos and what more do you want to. "
-msgstr "Novo editor HTML permite você personalizar o conteúdo do email, e até mesmo incorporar imagens, vídeos e o que mais você quiser."
+msgstr ""
+"新しい HTML エディタでは、メールの本文に画像や動画を埋め込んだり、好きなよう"
+"にカスタマイズできます。"
 
 #: includes/views/welcome.php:41
 msgid "Contents of the post directly in the body of the email!"
-msgstr "Conteúdo do post diretamente no corpo do e-mail!"
+msgstr "メールの本文に投稿の内容をそのまま埋め込めます!"
 
 #: includes/views/welcome.php:42
 msgid ""
 "It is now possible to send the entire contents of the post directly in your "
 "email. This is amazing."
-msgstr "Agora é possível enviar todo o conteúdo do post diretamente no seu e-mail. Isto é incrível."
+msgstr ""
+"メールに投稿の内容すべてをそのまま埋め込んで送ることができるようになりまし"
+"た。これはすごい。"
 
 #: includes/views/welcome.php:45
 msgid "Keep up with the news"
-msgstr "Fique por dentro das novidades"
+msgstr "新着情報を受け取ろう"
 
 #: includes/views/welcome.php:46
 msgid ""
 "We are preparing many new features, stay tuned by subscribing to our email "
 "Marketing. We promise not to send Spam."
-msgstr "Estamos preparando novas funcionalidades, para ficar sabendo em primeira mão, assine nossa Newsletter. Prometemos não enviar Spam."
+msgstr ""
+"私たちはたくさんの新機能を準備している最中なので、メールマガジンに登録して見"
+"逃さないようしましょう。スパムは送らないと約束します。"
 
 #: includes/views/welcome.php:58
 msgid "Email Address"
-msgstr "Endereço de E-mail"
+msgstr "メールアドレス"
 
 #: includes/views/welcome.php:66
 msgid "Subscribe"
-msgstr "Cadastrar"
+msgstr "購読"
 
 #: notify-users-e-mail.php:207
 #, php-format
 msgid "New post published at %s on {date}"
-msgstr "Novo post publicado no %s em {date}"
+msgstr "新しい投稿 「%s」 が {date} に公開されました。"
 
 #: notify-users-e-mail.php:208
 msgid "A new post {title} - {link_post} has been published on {date}."
-msgstr "Um novo post {title} - {link_post} foi publicado em {date}."
+msgstr ""
+"新しい投稿 「{title}」 が {date} に公開されました。\n"
+"{link_post}"
 
 #: notify-users-e-mail.php:209
 #, php-format
 msgid "New comment published at %s"
-msgstr "Novo comentário publicado no %s"
+msgstr "新しいコメント 「%s」 が公開されました"
 
 #: notify-users-e-mail.php:210
 msgid "A new comment {link_comment} has been published."
-msgstr "Um novo comentário {link_comment} foi publicado em {date}."
+msgstr ""
+"新しいコメントが公開されました。\n"
+"{link_comment}"
 
 #: notify-users-e-mail.php:275
 msgid "\\a\\t"
-msgstr "\\e\\m"
+msgstr "-"

@@ -12,7 +12,7 @@
 Plugin Name:       Post Notification by Email
 Plugin URI:        http://wordpress.org/plugins/notify-users-e-mail/
 Description:       Notification of new posts by e-mail to all users
-Version:           4.1.1
+Version:           4.1.2
 Author:            Valerio Souza, Claudio Sanches
 Author URI:        http://valeriosouza.com.br
 Text Domain:       notify-users-e-mail
@@ -43,7 +43,7 @@ class Notify_Users_EMail {
 	 *
 	 * @var string
 	 */
-	const VERSION = '4.1.1';
+	const VERSION = '4.1.2';
 
 	/**
 	 * Instance of this class.

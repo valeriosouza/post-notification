@@ -59,15 +59,15 @@ class Notify_Users_EMail_Admin {
 			// Media Upload.
 			wp_enqueue_media();
 
-			wp_register_style( 'select2', plugins_url( 'assets/css/select2.css', plugin_dir_path( __FILE__ ) ), array(  ), '3.5.2', 'all' );
-			wp_register_script( 'select2', plugins_url( 'assets/js/vendor/select2/select2.min.js', plugin_dir_path( __FILE__ ) ), array( 'jquery' ), '3.5.2', true );
+			wp_register_style( 'select2', plugins_url( 'lib/css/select2.css', plugin_dir_path( __FILE__ ) ), array(  ), '3.5.2', 'all' );
+			wp_register_script( 'select2', plugins_url( 'lib/js/vendor/select2/select2.min.js', plugin_dir_path( __FILE__ ) ), array( 'jquery' ), '3.5.2', true );
 
 
 
 			// Theme Options.
-			wp_enqueue_style( 'notify-users-e-mail-admin', plugins_url( 'assets/css/admin.css', plugin_dir_path( __FILE__ ) ), array( 'select2' ), Notify_Users_EMail::VERSION, 'all' );
+			wp_enqueue_style( 'notify-users-e-mail-admin', plugins_url( 'lib/css/admin.css', plugin_dir_path( __FILE__ ) ), array( 'select2' ), Notify_Users_EMail::VERSION, 'all' );
 
-			wp_enqueue_script( 'notify-users-e-mail-admin', plugins_url( 'assets/js/admin.js', plugin_dir_path( __FILE__ ) ), array( 'jquery', 'select2' ), Notify_Users_EMail::VERSION, true );
+			wp_enqueue_script( 'notify-users-e-mail-admin', plugins_url( 'lib/js/admin.js', plugin_dir_path( __FILE__ ) ), array( 'jquery', 'select2' ), Notify_Users_EMail::VERSION, true );
 
 			// Localize strings.
 			wp_localize_script(

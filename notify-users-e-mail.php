@@ -62,6 +62,8 @@ class Notify_Users_EMail {
 
 		// Activate plugin when new blog is added.
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
+		
+		add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta'), 10, 4 );
 
 		/**
 		 * Admin actions.
@@ -165,6 +167,17 @@ class Notify_Users_EMail {
 			AND deleted = '0'";
 
 		return $wpdb->get_col( $sql );
+	}
+	
+	public function plugin_row_meta( $links, $file ) {
+		if( plugin_basename( __FILE__ ) === $file ) {
+			$links[] = sprintf(
+				'<a target="_blank" href="%s">%s</a>',
+				esc_url('http://valeriosouza.com.br/en/donate/'),
+				__( 'Donate', 'my-smtp-mail' )
+			);
+		}
+		return $links;
 	}
 
 	/**

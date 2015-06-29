@@ -1,4 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/valeriosouza/post-notification-by-email.svg?label=ready&title=Ready)](http://waffle.io/valeriosouza/post-notification-by-email) [![Build Status](https://scrutinizer-ci.com/g/valeriosouza/post-notification-by-email/badges/build.png?b=master)](https://scrutinizer-ci.com/g/valeriosouza/post-notification-by-email/build-status/master)
+[![Stories in Ready](https://badge.waffle.io/valeriosouza/post-notification-by-email.svg?label=ready&title=Ready)](http://waffle.io/valeriosouza/post-notification-by-email) [![Build Status](https://scrutinizer-ci.com/g/valeriosouza/post-notification-by-email/badges/build.png?b=master)](https://scrutinizer-ci.com/g/valeriosouza/post-notification-by-email/build-status/master)[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/valeriosouza/post-notification-by-email/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 # Post Notification By Email #
 Contributors: valeriosza, claudiosanches
 

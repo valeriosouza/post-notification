@@ -530,16 +530,15 @@ class Notify_Users_EMail {
         $allowed_statuses = apply_filters( 'notify_users_email_allowed_comment_statuses', $has_approved, $new_status, $old_status );
         if ( $allowed_statuses ) {
 			$comment         = get_comment( $id );
+			$post			 = get_post($comment->comment_post_ID );
 			$settings        = get_option( 'notify_users_email' );
 			//$emails          = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
-			$emails          = get_comment_author_email($comment).','.get_the_author_meta('user_email',$comment->comment_post_ID );
+			$emails          = get_comment_author_email($comment).','.get_the_author_meta('user_email',$post->post_author );
 			$subject_comment = $this->apply_comment_placeholders( $settings['subject_comment'], $comment );
 			$body_comment    = $this->apply_comment_placeholders( $settings['body_comment'], $comment );
-			print_r($post);
-			die();
 			$headers 		 = array(
 				'Content-Type: text/html; charset=UTF-8',
-				'Bcc: ' . implode( ',', $emails )
+				'Bcc: ' . $emails
 			);
 
 			// Send the emails.

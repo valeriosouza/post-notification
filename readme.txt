@@ -1,4 +1,4 @@
-=== Post Notification by Email (Old Notify Users Email) ===
+=== Post Notification ===
 Contributors: valeriosza, claudiosanches
 Donate link: http://valeriosouza.com.br/en/donate/
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter,posts, post type
@@ -11,8 +11,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Send an email to all users whenever a new post is published on your WordPress.
 
 == Description ==
-
-This version especial thanks for [caramelopardalis](https://github.com/caramelopardalis)
 
 This plugin notifies registered users via email of new posts, pages, post types and comments published.
 
@@ -48,9 +46,9 @@ Want to help? Use the [support](https://wordpress.org/support/plugin/notify-user
 
 If you can translate, help in https://www.transifex.com/projects/p/post-notification-email/ in WP-Translations.
 
-Known to develop, help in https://github.com/valeriosouza/post-notification-by-email
+Known to develop, help in https://github.com/valeriosouza/post-notification
 
-Have suggestions for new features? https://github.com/valeriosouza/post-notification-by-email/issues/new
+Have suggestions for new features? https://github.com/valeriosouza/post-notification/issues/new
 
 Want to keep up with the latest news from this plugin? Follow Twitter [@valeriosza](https://twitter.com/valeriosza)
 
@@ -65,7 +63,7 @@ Want to keep up with the latest news from this plugin? Follow Twitter [@valerios
 
 == Contribute ==
 
-Use https://github.com/valeriosouza/notify-users-e-mail
+Use https://github.com/valeriosouza/post-notification
 
 == Frequently Asked Questions ==
 

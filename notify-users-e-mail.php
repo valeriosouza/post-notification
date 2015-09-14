@@ -1,15 +1,15 @@
 <?php
 /*
- * Post Notification by Email.
+ * Post Notification.
  *
- * @package   Post Notification by Email
+ * @package   Post Notification
  * @author    Valerio Souza <eu@valeriosouza.com.br>
  * @license   GPL-2.0+
  * @link      http://wordpress.org/plugins/notify-users-e-mail/
  * @copyright 2013 CodeHost
  *
 @wordpress-plugin
-Plugin Name:       Post Notification by Email
+Plugin Name:       Post Notification 
 Plugin URI:        http://wordpress.org/plugins/notify-users-e-mail/
 Description:       Notification of new posts by e-mail to all users
 Version:           4.1.2
@@ -19,7 +19,7 @@ Text Domain:       notify-users-e-mail
 License:           GPL-2.0+
 License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
 Domain Path:       /languages
-GitHub Plugin URI: https://github.com/valeriosouza/post-notification-by-email
+GitHub Plugin URI: https://github.com/valeriosouza/post-notification
 GitHub Branch:     beta
  */
 

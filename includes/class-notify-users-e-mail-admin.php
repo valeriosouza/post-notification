@@ -55,7 +55,7 @@ class Notify_Users_EMail_Admin {
 	public function admin_scripts( $hook ) {
 
 		// Checks if is the settings page.
-		if ( 'post-notification-by-email_page_notify-users-e-mail-settings' == $hook ) {
+		if ( 'post-notification_page_notify-users-e-mail-settings' == $hook ) {
 			// Media Upload.
 			wp_enqueue_media();
 
@@ -88,8 +88,8 @@ class Notify_Users_EMail_Admin {
 	 */
 	public function add_plugin_welcome_menu() {
 		add_menu_page(
-			__( 'Post Notification by Email', 'notify-users-e-mail' ),
-			'Post Notification by Email',
+			__( 'Post Notification', 'notify-users-e-mail' ),
+			'Post Notification',
 			'manage_options',
 			'notify-users-e-mail',
 			array( $this, 'display_plugin_welcome_page' ),
@@ -114,7 +114,7 @@ class Notify_Users_EMail_Admin {
 	public function add_plugin_welcome_submenu() {
 		add_submenu_page(
 			'notify-users-e-mail',
-			'Post Notification by Email',
+			'Post Notification',
 			__( 'Welcome', 'notify-users-e-mail' ),
 			'manage_options',
 			'notify-users-e-mail'
@@ -130,8 +130,8 @@ class Notify_Users_EMail_Admin {
 	public function add_plugin_admin_menu() {
 		add_submenu_page(
 			'notify-users-e-mail',
-			'Post Notification by Email Settings',
-			__( 'Settings', 'notify-users-e-mail' ),
+			'Post Notification E-mail Settings',
+			__( 'E-mail Settings', 'notify-users-e-mail' ),
 			'manage_options',
 			'notify-users-e-mail-settings',
 			array( $this, 'display_plugin_admin_page' )
@@ -153,7 +153,8 @@ class Notify_Users_EMail_Admin {
 	 * @return void
 	 */
 	public function plugin_settings() {
-		$settings_section = 'settings_section';
+		$email_settings_section = 'email_settings_section';
+		$comment_email_settings_section = 'comment_email_settings_section';
 		$placeholders_description_post = sprintf(
 			__( '%s You can use the following placeholders:%s %s', 'notify-users-e-mail' ),
 			'<p>',
@@ -181,7 +182,7 @@ class Notify_Users_EMail_Admin {
 
 		// Set the settings section.
 		add_settings_section(
-			$settings_section,
+			$email_settings_section,
 			__( 'Email Settings', 'notify-users-e-mail' ),
 			'__return_false',
 			'notify_users_email'
@@ -193,7 +194,7 @@ class Notify_Users_EMail_Admin {
 			__( 'Sent to', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
 			'notify_users_email',
-			$settings_section,
+			$email_settings_section,
 			array(
 				'id'          => 'send_to',
 				'description' => sprintf( '<p>' . __( 'Enter email address (separated by commas) for emails to be sent regardless of settings below. A registered user may receive two emails if you list it here.', 'notify-users-e-mail' ) . '</p>' ),
@@ -207,7 +208,7 @@ class Notify_Users_EMail_Admin {
 			__( 'Send to users', 'notify-users-e-mail' ),
 			array( $this, 'users_callback' ),
 			'notify_users_email',
-			$settings_section,
+			$email_settings_section,
 			array(
 				'id'          => 'send_to_users',
 				'description' => '<p>' . __( 'Select the type of user that will receive notifications. You can choose more than one type using ctrl+click.', 'notify-users-e-mail' ) . '</p>',
@@ -222,7 +223,7 @@ class Notify_Users_EMail_Admin {
 			__( 'Email subject for new posts, pages and post types.', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
 			'notify_users_email',
-			$settings_section,
+			$email_settings_section,
 			array(
 				'id'          => 'subject_post',
 				'description' => $placeholders_description_post,
@@ -236,12 +237,22 @@ class Notify_Users_EMail_Admin {
 			__( 'Email body for new posts, pages and post types.', 'notify-users-e-mail' ),
 			array( $this, 'editor_callback' ),
 			'notify_users_email',
-			$settings_section,
+			$email_settings_section,
 			array(
 				'id'          => 'body_post',
 				'description' => $placeholders_description_post,
 				'default'     => ''
 			)
+		);
+
+		
+
+		// Set the comment section.
+		add_settings_section(
+			$comment_email_settings_section,
+			__( 'Comment Settings', 'notify-users-e-mail' ),
+			'__return_false',
+			'notify_users_email'
 		);
 
 		// Email Subject Comment.
@@ -250,7 +261,7 @@ class Notify_Users_EMail_Admin {
 			__( 'Email subject for new comments', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
 			'notify_users_email',
-			$settings_section,
+			$comment_email_settings_section,
 			array(
 				'id'          => 'subject_comment',
 				'description' => $placeholders_description_comment,
@@ -264,14 +275,13 @@ class Notify_Users_EMail_Admin {
 			__( 'Email body for new comments', 'notify-users-e-mail' ),
 			array( $this, 'editor_callback' ),
 			'notify_users_email',
-			$settings_section,
+			$comment_email_settings_section,
 			array(
 				'id'          => 'body_comment',
 				'description' => $placeholders_description_comment,
 				'default'     => ''
 			)
 		);
-
 
 		// Set the conditional section.
 		add_settings_section(

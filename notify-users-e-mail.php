@@ -479,6 +479,7 @@ class Notify_Users_EMail {
 	}
 
 	/**
+	 * @param  WP_Post $post       Post data.
 	 * @param int      $id Comment ID.
 	 * @param stdClass $comment Comment data.
 	 *
@@ -489,6 +490,7 @@ class Notify_Users_EMail {
 	}
 
 	/**
+	 * @param  WP_Post $post       Post data.
 	 * @param string   $new_status New status of comment.
 	 * @param string   $old_status Old status of comment.
 	 * @param stdClass $comment Comment data.
@@ -502,12 +504,13 @@ class Notify_Users_EMail {
 	/**
 	 * Detect whether the comment has approved.
 	 *
+	 * @param  WP_Post $post       Post data.
 	 * @param string $new_status New status of comment.
 	 * @param string $old_status Optional old status of comment.
 	 *
 	 * @return boolean           Returns true if the comment has approved.
 	 */
-	protected function has_approved( $new_status, $old_status = null ) {
+	protected function has_approved( $post, $new_status, $old_status = null ) {
 		$approved = false;
 		$approved_statuses = array( '1', 'approved', 'approve' );
 		if ( ! in_array( $old_status, $approved_statuses, true ) && in_array( $new_status, $approved_statuses, true ) ) {
@@ -519,21 +522,25 @@ class Notify_Users_EMail {
 	/**
 	 * Nofity users when publish a comment.
 	 *
+	 * @param  WP_Post $post       Post data.
 	 * @param int    $id Comment ID.
 	 * @param string $new_status New status of comment.
 	 * @param string $old_status Optional old status of comment.
 	 *
 	 * @return void
 	 */
-	public function send_notification_comment( $id, $new_status, $old_status = null ) {
+	public function send_notification_comment( $post, $new_status, $old_status = null ) {
 		$has_approved = $this->has_approved( $new_status, $old_status );
         $allowed_statuses = apply_filters( 'notify_users_email_allowed_comment_statuses', $has_approved, $new_status, $old_status );
         if ( $allowed_statuses ) {
 			$comment         = get_comment( $id );
 			$settings        = get_option( 'notify_users_email' );
-			$emails          = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
+			//$emails          = $this->notification_list( $settings['send_to_users'], $settings['send_to'] );
+			$emails          = get_comment_author_email($comment).','.get_the_author_meta('user_email',$post->ID );
 			$subject_comment = $this->apply_comment_placeholders( $settings['subject_comment'], $comment );
 			$body_comment    = $this->apply_comment_placeholders( $settings['body_comment'], $comment );
+			/*print_r($emails);
+			die();*/
 			$headers 		 = array(
 				'Content-Type: text/html; charset=UTF-8',
 				'Bcc: ' . implode( ',', $emails )

@@ -535,7 +535,7 @@ class Notify_Users_EMail {
 			$emails          = get_comment_author_email($comment).','.get_the_author_meta('user_email',$comment->comment_post_ID );
 			$subject_comment = $this->apply_comment_placeholders( $settings['subject_comment'], $comment );
 			$body_comment    = $this->apply_comment_placeholders( $settings['body_comment'], $comment );
-			print_r($comment->comment_post_ID);
+			print_r($post);
 			die();
 			$headers 		 = array(
 				'Content-Type: text/html; charset=UTF-8',

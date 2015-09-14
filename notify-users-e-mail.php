@@ -364,7 +364,6 @@ class Notify_Users_EMail {
 	/**
 	 * Apply body texts.
 	 *
-	 * @param  string  $text  String to apply the placeholders.
 	 * @param  WP_Post $post    Post/page data.
 	 *
 	 * @return string           New content.

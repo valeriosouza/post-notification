@@ -168,7 +168,6 @@ class Notify_Users_EMail {
 
 		return $wpdb->get_col( $sql );
 	}
-	
 	public function plugin_row_meta( $links, $file ) {
 		if( plugin_basename( __FILE__ ) === $file ) {
 			$links[] = sprintf(
@@ -362,24 +361,6 @@ class Notify_Users_EMail {
 	}
 
 	/**
-	 * Apply body texts.
-	 *
-	 * @param  WP_Post $post    Post/page data.
-	 *
-	 * @return string           New content.
-	 * In Development - Not Working
-	 */
-	public function body_text( $post ) {
-		$text = '<p>Head';
-		$text .= $this->apply_content_placeholders( $settings['body_post'], $post );
-		$text .= 'Body';
-		$text .= '</p>';
-		$text .= 'Texto do footer';
-
-		return $text;
-	}
-
-	/**
 	 * Detect whether the post has published.
 	 *
 	 * @param string $new_status New status of post.
@@ -394,7 +375,6 @@ class Notify_Users_EMail {
 		}
 		return $published;
     }
-    
 	/**
 	 * Nofity users when publish a post.
 	 *

@@ -245,7 +245,6 @@ class Notify_Users_EMail_Admin {
 			)
 		);
 
-		
 
 		// Set the comment section.
 		add_settings_section(

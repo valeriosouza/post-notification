@@ -360,7 +360,6 @@ class Notify_Users_EMail {
 		return $emails;
 	}
 
-
 	/**
 	 * Detect whether the post has published.
 	 *
@@ -376,7 +375,6 @@ class Notify_Users_EMail {
 		}
 		return $published;
     }
-    
 	/**
 	 * Nofity users when publish a post.
 	 *

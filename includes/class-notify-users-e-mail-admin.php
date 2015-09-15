@@ -291,19 +291,19 @@ class Notify_Users_EMail_Admin {
 		);
 
                 // Select All Post types.
-                $post_types_options = array(); 
+                $post_types_options = array();
                 $args = array(
 				   'public'   => true
 				);
-                $post_types = get_post_types($args, 'objects'); 
-                foreach ($post_types as $post_type) { 
-                    $post_types_options[] = array( 
-                        'id' => $post_type->name, 
-                        'text' => esc_attr__($post_type->labels->name), 
+                $post_types = get_post_types($args, 'objects');
+                foreach ($post_types as $post_type) {
+                    $post_types_options[] = array(
+                        'id' => $post_type->name,
+                        'text' => esc_attr__($post_type->labels->name),
                     );
-                } 
+                }
 
-                // Email Body Prefix Comment.
+                //  Conditional Post Type.
 		add_settings_field(
 			'conditional_post_type',
 			esc_attr__( 'Post Types', 'notify-users-e-mail' ),
@@ -341,7 +341,7 @@ class Notify_Users_EMail_Admin {
 				);
 			}
 
-			// Email Body Prefix Comment.
+			// Conditional Taxonomy.
 			add_settings_field(
 				'conditional_taxonomy_' . $taxonomy->name,
 				$taxonomy->labels->name,

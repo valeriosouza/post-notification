@@ -168,7 +168,6 @@ class Notify_Users_EMail {
 
 		return $wpdb->get_col( $sql );
 	}
-	
 	public function plugin_row_meta( $links, $file ) {
 		if( plugin_basename( __FILE__ ) === $file ) {
 			$links[] = sprintf(
@@ -361,24 +360,6 @@ class Notify_Users_EMail {
 		return $emails;
 	}
 
-	/**
-	 * Apply body texts.
-	 *
-	 * @param  string  $text  String to apply the placeholders.
-	 * @param  WP_Post $post    Post/page data.
-	 *
-	 * @return string           New content.
-	 * In Development - Not Working
-	 */
-	public function body_text( $post ) {
-		$text = '<p>Head';
-		$text .= $this->apply_content_placeholders( $settings['body_post'], $post );
-		$text .= 'Body';
-		$text .= '</p>';
-		$text .= 'Texto do footer';
-
-		return $text;
-	}
 
 	/**
 	 * Detect whether the post has published.

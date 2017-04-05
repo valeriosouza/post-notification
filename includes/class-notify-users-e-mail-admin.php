@@ -30,6 +30,9 @@ class Notify_Users_EMail_Admin {
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ),2 );
 
+		// Add the options page and menu item.
+		add_action( 'admin_menu', array( $this, 'add_plugin_listing_menu' ),2 );
+
 		// Add the welcome page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_welcome_menu' ),1 );
 
@@ -145,6 +148,31 @@ class Notify_Users_EMail_Admin {
 	 */
 	public function display_plugin_admin_page() {
 		include_once 'views/admin.php';
+	}
+
+		/**
+	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
+	 *
+	 * @return   void
+	 */
+	public function add_plugin_listing_menu() {
+		add_submenu_page(
+			'notify-users-e-mail',
+			'Post Notification E-mail Rules',
+			__( 'Notification Rules', 'notify-users-e-mail' ),
+			'manage_options',
+			'notify-users-e-mail-rules',
+			array( $this, 'display_plugin_listing_page' )
+		);
+	}
+
+	/**
+	 * Render the settings page for this plugin.
+	 *
+	 * @return void
+	 */
+	public function display_plugin_listing_page() {
+		include_once 'views/listing.php';
 	}
 
 	/**

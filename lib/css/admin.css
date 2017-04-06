@@ -65,3 +65,11 @@
 	min-width: 350px;
 	margin-bottom: 5px;
 }
+
+
+/*Settings Screen*/
+
+
+select#send_to_users {
+    height: 96px;
+}

@@ -19,7 +19,7 @@ if ( ! defined( 'WPINC' ) ) {
 <div id="wpbody-content" aria-label="Conteúdo principal" tabindex="0">
     <div class="wrap">
         <h1 class="wp-heading-inline"><?php echo __( 'Notification Rules', 'notify-users-e-mail' ); ?></h1>
-
+        <a href="#" class="page-title-action">Adicionar novo</a>
         <?php /*<a href="http://localhost/wordpress/wp-admin/post-new.php" class="page-title-action disabled">Adicionar novo</a>*/?>
         <hr class="wp-header-end">
         <div class="tablenav top">

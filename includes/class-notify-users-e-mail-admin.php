@@ -244,6 +244,15 @@ class Notify_Users_EMail_Admin {
 			)
 		);
 
+		/*Post*/
+
+		// Set the post section.
+		add_settings_section(
+			$posts_email_settings_section,
+			__( 'Post Settings', 'notify-users-e-mail' ),
+			'__return_false',
+			'notify_users_email_posts'
+		);
 
 		// Email Subject Post.
 		add_settings_field(
@@ -251,7 +260,7 @@ class Notify_Users_EMail_Admin {
 			__( 'Email subject for new posts, pages and post types.', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
 			'notify_users_email',
-			$email_settings_section,
+			$posts_email_settings_section,
 			array(
 				'id'          => 'subject_post',
 				'description' => $placeholders_description_post,
@@ -265,7 +274,7 @@ class Notify_Users_EMail_Admin {
 			__( 'Email body for new posts, pages and post types.', 'notify-users-e-mail' ),
 			array( $this, 'editor_callback' ),
 			'notify_users_email',
-			$email_settings_section,
+			$posts_email_settings_section,
 			array(
 				'id'          => 'body_post',
 				'description' => $placeholders_description_post,
@@ -273,13 +282,14 @@ class Notify_Users_EMail_Admin {
 			)
 		);
 
+		/*Comment*/
 
 		// Set the comment section.
 		add_settings_section(
 			$comment_email_settings_section,
 			__( 'Comment Settings', 'notify-users-e-mail' ),
 			'__return_false',
-			'notify_users_email'
+			'notify_users_email_comments'
 		);
 
 		// Email Subject Comment.
@@ -287,7 +297,7 @@ class Notify_Users_EMail_Admin {
 			'subject_comment',
 			__( 'Email subject for new comments', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
-			'notify_users_email',
+			'notify_users_email_comments',
 			$comment_email_settings_section,
 			array(
 				'id'          => 'subject_comment',
@@ -301,7 +311,7 @@ class Notify_Users_EMail_Admin {
 			'body_comment',
 			__( 'Email body for new comments', 'notify-users-e-mail' ),
 			array( $this, 'editor_callback' ),
-			'notify_users_email',
+			'notify_users_email_comments',
 			$comment_email_settings_section,
 			array(
 				'id'          => 'body_comment',
@@ -315,7 +325,7 @@ class Notify_Users_EMail_Admin {
 			'conditional_section',
 			__( 'Conditional Settings', 'notify-users-e-mail' ),
 			'__return_false',
-			'notify_users_email'
+			'notify_users_email_posts'
 		);
 
                 // Select All Post types.

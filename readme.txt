@@ -1,10 +1,10 @@
-=== Post Notification by Email (Old Notify Users Email) ===
-Contributors: valeriosza, claudiosanches
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P5QTGDB64SU8E&lc=US&item_name=WordPress%20Plugins&no_note=0&cn=Adicionar%20instru%c3%a7%c3%b5es%20especiais%20para%20o%20vendedor%3a&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
+=== Post Notification by Email ===
+Contributors: valeriosza
+Donate link: https://valeriosouza.com.br/donate/
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter,posts, post type
 Requires at least: 3.0
-Tested up to: 4.1.1
-Stable tag: 4.1.2
+Tested up to: 5.2.2
+Stable tag: 4.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,11 +46,9 @@ Want to help? Use the [support](https://wordpress.org/support/plugin/notify-user
 
 = Want to help? =
 
-If you can translate, help in https://www.transifex.com/projects/p/post-notification-email/ in WP-Translations.
+Known to develop, help in https://github.com/valeriosouza/post-notification
 
-Known to develop, help in https://github.com/valeriosouza/post-notification-by-email
-
-Have suggestions for new features? https://github.com/valeriosouza/post-notification-by-email/issues/new
+Have suggestions for new features? https://github.com/valeriosouza/post-notification/issues/new
 
 Want to keep up with the latest news from this plugin? Follow Twitter [@valeriosza](https://twitter.com/valeriosza)
 
@@ -65,7 +63,7 @@ Want to keep up with the latest news from this plugin? Follow Twitter [@valerios
 
 == Contribute ==
 
-Use https://github.com/valeriosouza/notify-users-e-mail
+Use https://github.com/valeriosouza/post-notification
 
 == Frequently Asked Questions ==
 
@@ -135,6 +133,10 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 3. Conditions for sending the email.
 
 == Changelog ==
+
+= 4.1.3 - 21/06/2019 =
+
+* Fixed: bugs and errors.
 
 = 4.1.2 - 23/02/2015 =
 

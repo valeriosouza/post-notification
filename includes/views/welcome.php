@@ -41,10 +41,10 @@ if ( ! defined( 'WPINC' ) ) {
                 <h3><?php echo __( 'Contents of the post directly in the body of the email!', 'notify-users-e-mail' ); ?></h3>
                 <p><?php echo __( 'It is now possible to send the entire contents of the post directly in your email. This is amazing.', 'notify-users-e-mail' ); ?></p>
             </div>
-            <div class="col-2 last-feature">
+            <!--<div class="col-2 last-feature">
                 <h3><?php echo __( 'Keep up with the news', 'notify-users-e-mail' ); ?></h3>
                 <p><?php echo __( 'We are preparing many new features, stay tuned by subscribing to our email Marketing. We promise not to send Spam.', 'notify-users-e-mail' ); ?></p>
-                <!-- Begin MailChimp Signup Form -->
+                Begin MailChimp Signup Form
                     <style type="text/css">
                     /*#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }*/
                     /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
@@ -61,15 +61,15 @@ if ( ! defined( 'WPINC' ) ) {
                     <div id="mce-responses" class="clear">
                     <div class="response" id="mce-error-response" style="display:none"></div>
                     <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div><!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    </div>
                     <div style="position: absolute; left: -5000px;"><input type="text" name="b_ca9d9abf6c437e15a8c81ab8d_ea36b8afd2" tabindex="-1" value=""></div>
                     <div class="clear"><input type="submit" value="<?php echo __( 'Subscribe', 'notify-users-e-mail' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button button-primary"></div>
                     </div>
                     </form>
                     </div>
 
-                <!--End mc_embed_signup-->
-            </div>
+               
+            </div>-->
         </div>
         <div class="return-to-dashboard">
                 <a href="<?php get_admin_url(); ?>/wp-admin/admin.php?page=notify-users-e-mail-settings"><?php echo __( 'Go to Configuration Plugin', 'notify-users-e-mail' ); ?></a>

@@ -1,10 +1,10 @@
 === Post Notification ===
-Contributors: valeriosza, claudiosanches
-Donate link: http://valeriosouza.com.br/en/donate/
+Contributors: valeriosza
+Donate link: https://valeriosouza.com.br/donate/
 Tags: notification, users, emails, post, new posts, new pages, new comments, news, newsletter,posts, post type
 Requires at least: 3.0
-Tested up to: 4.1.1
-Stable tag: 4.1.2
+Tested up to: 5.2.2
+Stable tag: 4.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,6 +133,10 @@ If you don't want to send emails by `wp_mail()` you can do the following way:
 3. Conditions for sending the email.
 
 == Changelog ==
+
+= 4.1.3 - 21/06/2019 =
+
+* Fixed: bugs and errors.
 
 = 4.1.2 - 23/02/2015 =
 

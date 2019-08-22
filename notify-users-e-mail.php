@@ -455,6 +455,9 @@ class Notify_Users_EMail {
 			'Bcc: ' . implode( ',', $emails ),
 		);
 
+		// Decode HTML entities as email subjects are not parsed as HTML
+		$subject_post = html_entity_decode($subject_post, ENT_HTML5);
+
 		// Send the emails.
 		if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {
 			wp_mail( '', $subject_post, $body_post, $headers );

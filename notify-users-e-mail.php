@@ -286,7 +286,7 @@ class Notify_Users_EMail {
 	 * @return string           New content.
 	 */
 	protected function apply_content_placeholders( $string, $post ) {
-		$string = str_replace( '{title}', sanitize_text_field( $post->post_title ), $string );
+		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post->ID ) ), $string );
 		$string = str_replace( '{link_post}', esc_url( get_permalink( $post->ID ) ), $string );
 		$string = str_replace( '{content_post}', apply_filters( 'the_content',get_post_field('post_content', $post->ID)), $string );
 		$string = str_replace( '{date}', $this->get_formated_date( $post->post_date ), $string );
@@ -454,6 +454,9 @@ class Notify_Users_EMail {
 			'Content-Type: text/html; charset=UTF-8',
 			'Bcc: ' . implode( ',', $emails ),
 		);
+
+		// Decode HTML entities as email subjects are not parsed as HTML
+		$subject_post = html_entity_decode($subject_post, ENT_HTML5);
 
 		// Send the emails.
 		if ( apply_filters( 'notify_users_email_use_wp_mail', true ) ) {

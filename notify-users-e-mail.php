@@ -288,7 +288,8 @@ class Notify_Users_EMail {
 	protected function apply_content_placeholders( $string, $post ) {
 		$string = str_replace( '{title}', sanitize_text_field( get_the_title( $post->ID ) ), $string );
 		$string = str_replace( '{link_post}', esc_url( get_permalink( $post->ID ) ), $string );
-		$string = str_replace( '{content_post}', apply_filters( 'the_content',get_post_field('post_content', $post->ID)), $string );
+		$string = str_replace( '{content_post}', apply_filters( 'the_content', get_post_field('post_content', $post->ID)), $string );
+		$string = str_replace( '{excerpt_post}', apply_filters( 'the_content', get_post_field('post_excerpt', $post->ID)), $string );
 		$string = str_replace( '{date}', $this->get_formated_date( $post->post_date ), $string );
 
 		return $string;

@@ -159,10 +159,11 @@ class Notify_Users_EMail_Admin {
 			'<p>',
 			'</p>',
 			sprintf(
-				'<ul><li><p><code>{title}</code> %s</p></li><li><p><code>{link_post}</code> %s</p></li><li><p><code>{content_post}</code> %s</p></li><li><p><code>{date}</code> %s</p></li></ul>',
+				'<ul><li><p><code>{title}</code> %s</p></li><li><p><code>{link_post}</code> %s</p></li><li><p><code>{content_post}</code> %s</p></li><li><p><code>{author_display_name}</code> %s</p></li><li><p><code>{date}</code> %s</p></li></ul>',
 				__( 'to display the title', 'notify-users-e-mail' ),
 				__( 'to display the URL', 'notify-users-e-mail' ),
 				__( 'to display the content', 'notify-users-e-mail' ),
+				__( 'to display the display name of author', 'notify-users-e-mail' ),
 				__( 'to display the date of publication', 'notify-users-e-mail' )
 			)
 		);
